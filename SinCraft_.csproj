@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{12597DB0-7C34-4DE1-88EA-9250FF3372EB}</ProjectGuid>
+    <ProjectGuid>{DAF08A60-0D06-4AEB-BEB2-7B45D071C16D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MCForge</RootNamespace>
