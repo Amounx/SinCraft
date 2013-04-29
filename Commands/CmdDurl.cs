@@ -17,7 +17,7 @@
 */
 using System.Security.Cryptography;
 using System.Text;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdDurl : Command
     {

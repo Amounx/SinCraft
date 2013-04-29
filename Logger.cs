@@ -1,5 +1,5 @@
 /*
-	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/MCForge)
+	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SinCraft)
 	
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -22,7 +22,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace MCForge
+namespace SinCraft
 {
     public static class Logger
     {

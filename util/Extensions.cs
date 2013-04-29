@@ -24,7 +24,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-namespace MCForge
+namespace SinCraft
 {
     public static class Extensions
     {

@@ -23,7 +23,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace MCForge.Gui.Utils {
+namespace SinCraft.Gui.Utils {
 
     /// <summary>
     /// Native margins
@@ -150,7 +150,7 @@ namespace MCForge.Gui.Utils {
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="MCForge.Gui.Utils.Margins"/> to <see cref="MCForge.Gui.Utils.RECT"/>.
+        /// Performs an implicit conversion from <see cref="SinCraft.Gui.Utils.Margins"/> to <see cref="SinCraft.Gui.Utils.RECT"/>.
         /// </summary>
         /// <param name="margs">The margs.</param>
         /// <returns>
@@ -161,7 +161,7 @@ namespace MCForge.Gui.Utils {
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="MCForge.Gui.Utils.Margins"/> to <see cref="System.Windows.Forms.Padding"/>.
+        /// Performs an implicit conversion from <see cref="SinCraft.Gui.Utils.Margins"/> to <see cref="System.Windows.Forms.Padding"/>.
         /// </summary>
         /// <param name="margs">The margs.</param>
         /// <returns>
@@ -172,7 +172,7 @@ namespace MCForge.Gui.Utils {
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="MCForge.Gui.Utils.Margins"/> to <see cref="System.Drawing.Rectangle"/>.
+        /// Performs an implicit conversion from <see cref="SinCraft.Gui.Utils.Margins"/> to <see cref="System.Drawing.Rectangle"/>.
         /// </summary>
         /// <param name="margs">The margs.</param>
         /// <returns>
@@ -185,7 +185,7 @@ namespace MCForge.Gui.Utils {
 
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="MCForge.Gui.Utils.RECT"/> to <see cref="MCForge.Gui.Utils.Margins"/>.
+        /// Performs an implicit conversion from <see cref="SinCraft.Gui.Utils.RECT"/> to <see cref="SinCraft.Gui.Utils.Margins"/>.
         /// </summary>
         /// <param name="margs">The margs.</param>
         /// <returns>
@@ -196,7 +196,7 @@ namespace MCForge.Gui.Utils {
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="System.Drawing.Rectangle"/> to <see cref="MCForge.Gui.Utils.Margins"/>.
+        /// Performs an implicit conversion from <see cref="System.Drawing.Rectangle"/> to <see cref="SinCraft.Gui.Utils.Margins"/>.
         /// </summary>
         /// <param name="rect">The rect.</param>
         /// <returns>
@@ -207,7 +207,7 @@ namespace MCForge.Gui.Utils {
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="System.Windows.Forms.Padding"/> to <see cref="MCForge.Gui.Utils.Margins"/>.
+        /// Performs an implicit conversion from <see cref="System.Windows.Forms.Padding"/> to <see cref="SinCraft.Gui.Utils.Margins"/>.
         /// </summary>
         /// <param name="margs">The margs.</param>
         /// <returns>

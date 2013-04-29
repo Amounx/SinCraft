@@ -1,5 +1,5 @@
 /*
-Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/MCForge)
+Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SinCraft)
 
 Dual-licensed under the Educational Community License, Version 2.0 and
 the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -15,7 +15,7 @@ BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
 or implied. See the Licenses for the specific language governing
 permissions and limitations under the Licenses.
 */
-namespace MCForge.Gui
+namespace SinCraft.Gui
 {
     partial class PropertyWindow
     {
@@ -1624,8 +1624,8 @@ namespace MCForge.Gui
             this.comboBoxProtection.Name = "comboBoxProtection";
             this.comboBoxProtection.Size = new System.Drawing.Size( 83, 21 );
             this.comboBoxProtection.TabIndex = 1;
-            this.toolTip.SetToolTip( this.comboBoxProtection, "When set to Mod, MCForge Moderators AND Developers are protected. When set to Dev" +
-                    ", MCForge Developers only are protected. When set to Off, MCforge staff are not " +
+            this.toolTip.SetToolTip( this.comboBoxProtection, "When set to Mod, SinCraft Moderators AND Developers are protected. When set to Dev" +
+                    ", SinCraft Developers only are protected. When set to Off, MCforge staff are not " +
                     "protected." );
             // 
             // label91
@@ -1636,8 +1636,8 @@ namespace MCForge.Gui
             this.label91.Size = new System.Drawing.Size( 83, 13 );
             this.label91.TabIndex = 0;
             this.label91.Text = "Protection Level";
-            this.toolTip.SetToolTip( this.label91, "When set to Mod, MCForge Moderators AND Developers are protected. When set to Dev" +
-                    ", MCForge Developers only are protected. When set to Off, MCforge staff are not " +
+            this.toolTip.SetToolTip( this.label91, "When set to Mod, SinCraft Moderators AND Developers are protected. When set to Dev" +
+                    ", SinCraft Developers only are protected. When set to Off, MCforge staff are not " +
                     "protected." );
             // 
             // tabPage5
@@ -4246,7 +4246,7 @@ namespace MCForge.Gui
             this.groupBox7.Size = new System.Drawing.Size( 247, 116 );
             this.groupBox7.TabIndex = 2;
             this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "MCForge Staff Protection";
+            this.groupBox7.Text = "SinCraft Staff Protection";
             // 
             // groupBox15
             // 

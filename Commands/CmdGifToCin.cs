@@ -21,7 +21,7 @@ using System.Drawing;
 using System.IO;
 using System.Threading;
 using System.Windows.Media.Imaging;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdGifToCin : Command
     {

@@ -24,7 +24,7 @@ using System.Linq;
 using System.Threading;
 using System.Timers;
 
-namespace MCForge
+namespace SinCraft
 {
     public sealed class ZombieGame
     {

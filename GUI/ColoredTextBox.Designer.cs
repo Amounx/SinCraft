@@ -15,7 +15,7 @@ http://www.gnu.org/licenses/gpl-3.0.html
     permissions and limitations under the Licenses.
 */
 
-namespace MCForge.Gui.Components {
+namespace SinCraft.Gui.Components {
     partial class ColoredTextBox {
         /// <summary>
         /// Required designer variable.

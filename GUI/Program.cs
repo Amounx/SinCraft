@@ -1,5 +1,5 @@
 /*
-	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/MCForge)
+	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SinCraft)
 	
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -23,7 +23,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
 using Microsoft.Win32.SafeHandles;
-using MCForge;
+using SinCraft;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
@@ -34,7 +34,7 @@ using System.Net;
 using System.Reflection;
 
 
-namespace MCForge_.Gui
+namespace SinCraft_.Gui
 {
     public static class Program
     {
@@ -44,9 +44,9 @@ namespace MCForge_.Gui
         public static string parentfullpath = Assembly.GetEntryAssembly().Location;
         public static string parentfullpathdir = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
         private static string CurrentVersionFile = "http://update.mcforge.net/current_version.txt";
-        private static string DLLLocation = "http://update.mcforge.net/dll/MCForge_.dll";
+        private static string DLLLocation = "http://update.mcforge.net/dll/SinCraft_.dll";
         private static string ChangelogLocation = "http://update.mcforge.net/changelog.txt";
-        private static string EXELocation = "http://update.mcforge.net/program/MCForge.exe";
+        private static string EXELocation = "http://update.mcforge.net/program/SinCraft.exe";
         //private static string RevisionList = "http://update.mcforge.net/revs.txt";
         //private static string HeartbeatAnnounce = "http://www.mcforge.net/hbannounce.php";
 
@@ -78,9 +78,9 @@ namespace MCForge_.Gui
         public static void Main(string[] args)
         {
             startTime = DateTime.Now;
-            if (Process.GetProcessesByName("MCForge").Length != 1)
+            if (Process.GetProcessesByName("SinCraft").Length != 1)
             {
-                foreach (Process pr in Process.GetProcessesByName("MCForge"))
+                foreach (Process pr in Process.GetProcessesByName("SinCraft"))
                 {
                     if (pr.MainModule.BaseAddress == Process.GetCurrentProcess().MainModule.BaseAddress)
                         if (pr.Id != Process.GetCurrentProcess().Id)
@@ -121,7 +121,7 @@ namespace MCForge_.Gui
                     s.OnSystem += WriteToConsole;
                     s.Start();
 
-                    Console.Title = Server.name + " - MCForge " + Server.Version;
+                    Console.Title = Server.name + " - SinCraft " + Server.Version;
                     usingConsole = true;
                     handleComm();
 
@@ -144,7 +144,7 @@ namespace MCForge_.Gui
                     }
 
                     updateTimer.Elapsed += delegate { UpdateCheck(); }; updateTimer.Start();
-                    Application.Run(new MCForge.Gui.Window());
+                    Application.Run(new SinCraft.Gui.Window());
                 }
                 WriteToConsole("Completed in " + (DateTime.Now - startTime).Milliseconds + "ms");
             }
@@ -440,8 +440,8 @@ namespace MCForge_.Gui
                                 ConsoleColor prevColor = Console.ForegroundColor;
                                 Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("An update was found!");
-                                Console.WriteLine("Update using the file at " + DLLLocation + " and placing it over the top of your current MCForge_.dll!");
-                                Console.WriteLine("Also update using the file at " + EXELocation + " and placing it over the top of your current MCForge.exe");
+                                Console.WriteLine("Update using the file at " + DLLLocation + " and placing it over the top of your current SinCraft_.dll!");
+                                Console.WriteLine("Also update using the file at " + EXELocation + " and placing it over the top of your current SinCraft.exe");
                                 Console.ForegroundColor = prevColor;
                             }
                         }
@@ -479,10 +479,10 @@ namespace MCForge_.Gui
                 //    }
                 //    SW.WriteLine("::Version 3");
                 //    SW.WriteLine("TASKKILL /pid %2 /F");
-                //    SW.WriteLine("if exist MCForge_.dll.backup (erase MCForge_.dll.backup)");
-                //    SW.WriteLine("if exist MCForge_.dll (rename MCForge_.dll MCForge_.dll.backup)");
-                //    SW.WriteLine("if exist MCForge.new (rename MCForge.new MCForge_.dll)");
-                //    SW.WriteLine("start MCForge.exe");
+                //    SW.WriteLine("if exist SinCraft_.dll.backup (erase SinCraft_.dll.backup)");
+                //    SW.WriteLine("if exist SinCraft_.dll (rename SinCraft_.dll SinCraft_.dll.backup)");
+                //    SW.WriteLine("if exist SinCraft.new (rename SinCraft.new SinCraft_.dll)");
+                //    SW.WriteLine("start SinCraft.exe");
                 //}
                 //else
                 //{
@@ -502,10 +502,10 @@ namespace MCForge_.Gui
                 //    SW.WriteLine("#Version 2");
                 //    SW.WriteLine("#!/bin/bash");
                 //    SW.WriteLine("kill $2");
-                //    SW.WriteLine("rm MCForge_.dll.backup");
-                //    SW.WriteLine("mv MCForge_.dll MCForge.dll_.backup");
+                //    SW.WriteLine("rm SinCraft_.dll.backup");
+                //    SW.WriteLine("mv SinCraft_.dll SinCraft.dll_.backup");
                 //    SW.WriteLine("wget " + DLLLocation);
-                //    SW.WriteLine("mono MCForge.exe");
+                //    SW.WriteLine("mono SinCraft.exe");
                 //}
 
                 //SW.Flush(); SW.Close(); SW.Dispose();
@@ -525,10 +525,10 @@ namespace MCForge_.Gui
                         File.Delete("MCLawl.new");
                     if (File.Exists("Changelog.txt"))
                         File.Delete("Changelog.txt");
-                    if (File.Exists("MCForge_.update"))
-                        File.Delete("MCForge_.update");
-                    if (File.Exists("MCForge.update"))
-                        File.Delete("MCForge.update");
+                    if (File.Exists("SinCraft_.update"))
+                        File.Delete("SinCraft_.update");
+                    if (File.Exists("SinCraft.update"))
+                        File.Delete("SinCraft.update");
                     if (File.Exists("Update.bat"))
                         File.Delete("Update.bat");
                     if (File.Exists("Update_generated.bat"))
@@ -540,8 +540,8 @@ namespace MCForge_.Gui
                 }
                 catch { }
                 WebClient Client = new WebClient();
-                Client.DownloadFile(DLLLocation, "MCForge_.update");
-                Client.DownloadFile(EXELocation, "MCForge.update");
+                Client.DownloadFile(DLLLocation, "SinCraft_.update");
+                Client.DownloadFile(EXELocation, "SinCraft.update");
                 Client.DownloadFile(ChangelogLocation, "Changelog.txt");
 
                 // Its possible there are no levels or players loaded yet
@@ -554,7 +554,7 @@ namespace MCForge_.Gui
                 if (Player.players != null && Player.players.Any())
                     foreach (Player pl in Player.players) pl.save();
                 
-               File.WriteAllBytes("Updater.exe", MCForge.Properties.Resources.Updater);
+               File.WriteAllBytes("Updater.exe", SinCraft.Properties.Resources.Updater);
                 if (!usingConsole)
                     Process.Start("Updater.exe", "securitycheck10934579068013978427893755755270374" + parent);
                 else
@@ -577,11 +577,11 @@ namespace MCForge_.Gui
             {
                 /*try
                 {
-                    if (MCForge.Gui.Window.thisWindow.notifyIcon1 != null)
+                    if (SinCraft.Gui.Window.thisWindow.notifyIcon1 != null)
                     {
-                        MCForge.Gui.Window.thisWindow.notifyIcon1.Icon = null;
-                        MCForge.Gui.Window.thisWindow.notifyIcon1.Visible = false;
-                        MCForge.Gui.Window.thisWindow.notifyIcon1.Dispose();
+                        SinCraft.Gui.Window.thisWindow.notifyIcon1.Icon = null;
+                        SinCraft.Gui.Window.thisWindow.notifyIcon1.Visible = false;
+                        SinCraft.Gui.Window.thisWindow.notifyIcon1.Dispose();
                     }
                 }
                 catch { }

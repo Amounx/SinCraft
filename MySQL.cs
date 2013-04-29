@@ -1,5 +1,5 @@
 /*
-	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/MCForge)
+	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SinCraft)
 	
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -18,7 +18,7 @@
 using System;
 using System.Data;
 using MySql.Data.MySqlClient;
-namespace MCForge
+namespace SinCraft
 {
     namespace SQL
     {
@@ -49,8 +49,8 @@ namespace MCForge
                 parameters.AddWithValue(name, param);
             }
             /// <summary>
-            /// Clears the parameters added with <see cref="MCForge.SQL.MySQL.AddParams(System.string, System.string)"/>
-            /// <seealso cref="MCForge.SQL.MySQL"/>
+            /// Clears the parameters added with <see cref="SinCraft.SQL.MySQL.AddParams(System.string, System.string)"/>
+            /// <seealso cref="SinCraft.SQL.MySQL"/>
             /// </summary>
             public static void ClearParams() {
                 parameters.Clear();

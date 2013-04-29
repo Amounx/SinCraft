@@ -17,7 +17,7 @@
 */
 using System.Collections.Generic;
 using System.IO;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdFaq : Command
     {
@@ -33,7 +33,7 @@ namespace MCForge.Commands
             List<string> faq = new List<string>();
             if (!File.Exists("text/faq.txt"))
             {
-                File.WriteAllText("text/faq.txt", "Example: What does this server run on? This server runs on &bMCForge");
+                File.WriteAllText("text/faq.txt", "Example: What does this server run on? This server runs on &bSinCraft");
             }
 			using (StreamReader r = File.OpenText("text/faq.txt"))
 			{

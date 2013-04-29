@@ -1,5 +1,5 @@
 /*
-	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/MCForge)
+	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SinCraft)
 	
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -32,7 +32,7 @@ namespace Starter
         {
             get
             {
-                return "http://www.mcforge.net/MCForge_.dll";
+                return "http://www.mcforge.net/SinCraft_.dll";
             }
         }
         static int tries = 0;
@@ -48,8 +48,8 @@ namespace Starter
             {
                 if (File.Exists("Updater.exe"))
                     File.Delete("Updater.exe");
-                if (File.Exists("MCForge_.dll.backup"))
-                    File.Delete("MCForge_.dll.backup");
+                if (File.Exists("SinCraft_.dll.backup"))
+                    File.Delete("SinCraft_.dll.backup");
             }
             catch { }
             if (tries > 4)
@@ -59,14 +59,14 @@ namespace Starter
                 Console.WriteLine("Place it inside my folder, near me, and restart me.");
                 Console.WriteLine("If you have any issues, get the files from the www.mcforge.net download page and try again.");
                 Console.WriteLine("Press any key to close me...");
-                MessageBox.Show("Unable to download MCForge_.dll.  Please download it manually at " + DLLLocation + ", place it in the same folder as this executable, and restart this application", "Required DLL Missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Unable to download SinCraft_.dll.  Please download it manually at " + DLLLocation + ", place it in the same folder as this executable, and restart this application", "Required DLL Missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Console.ReadLine();
                 Console.WriteLine("Bye!");
             }
-            else if (File.Exists("MCForge_.dll"))
+            else if (File.Exists("SinCraft_.dll"))
             {
 
-                //Crash issue fixed by re-executing the exe to properly load MCForge_.dll.
+                //Crash issue fixed by re-executing the exe to properly load SinCraft_.dll.
                 if (!needsToRestart)
                     openServer(args);
                 else
@@ -83,7 +83,7 @@ namespace Starter
                 try
                 {
                     WebClient Client = new WebClient();
-                    Client.DownloadFile(DLLLocation, "MCForge_.dll");
+                    Client.DownloadFile(DLLLocation, "SinCraft_.dll");
                     Client.Dispose();
                     Console.WriteLine("Finished downloading! Let's try this again, shall we.");
                     for (int i = 0; i < 5; i++)
@@ -98,14 +98,14 @@ namespace Starter
                 catch
                 {
                     tries = 5;
-                    Console.WriteLine("\nAn error occured while attempting to download MCForge_.dll\n");
+                    Console.WriteLine("\nAn error occured while attempting to download SinCraft_.dll\n");
                     Main(args);
                 }
             }
         }
         static void openServer(string[] args)
         {
-            MCForge_.Gui.Program.Main(args);
+            SinCraft_.Gui.Program.Main(args);
         }
     }
 }

@@ -1,5 +1,5 @@
 /*
-	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/MCForge)
+	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SinCraft)
 	
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -16,7 +16,7 @@
 	permissions and limitations under the Licenses.
 */
 using System;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdInfo : Command
     {
@@ -40,7 +40,7 @@ namespace MCForge.Commands
                 Player.SendMessage(p, "This server currently has $banned people that are &8banned" + Server.DefaultColor + ".");
                 Player.SendMessage(p, "This server currently has " + Server.levels.Count + " levels loaded.");
                 Player.SendMessage(p, "This server's currency is: " + Server.moneys);
-                Player.SendMessage(p, "This server runs on &bMCForge" + Server.DefaultColor + ", which is based on &bMCLawl" + Server.DefaultColor + ".");
+                Player.SendMessage(p, "This server runs on &bSinCraft" + Server.DefaultColor + ", which is based on &bMCLawl" + Server.DefaultColor + ".");
                 Player.SendMessage(p, "This server's version: &a" + Server.VersionString);
                 Command.all.Find("devs").Use(p, "");
                 TimeSpan up = DateTime.Now - Server.timeOnline;

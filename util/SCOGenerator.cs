@@ -22,7 +22,7 @@
 // ~Merlin33069
 using System;
 using System.Collections.Generic;
-namespace MCForge.Util
+namespace SinCraft.Util
 {
 	public sealed class SCOGenerator
 	{

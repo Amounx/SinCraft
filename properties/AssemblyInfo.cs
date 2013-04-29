@@ -21,14 +21,14 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MCForge")]
+[assembly: AssemblyTitle("SinCraft")]
 [assembly: AssemblyDescription("Minecraft Classic Custom Server Software")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MCForge")]
-[assembly: AssemblyCopyright("Copyright © 2011")]
-[assembly: AssemblyTrademark("Forging the Way")]
-//[assembly: AssemblyDevs("MCForge Development Team")]
+[assembly: AssemblyProduct("SinCraft")]
+[assembly: AssemblyCopyright("Copyright © 2013")]
+[assembly: AssemblyTrademark("")]
+//[assembly: AssemblyDevs("Sinjai")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
@@ -37,7 +37,7 @@ using System.Runtime.InteropServices;
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("24d9085c-78ba-4f53-b69c-f2b52153683f")]
 
-[assembly: AssemblyVersion("5.5.13")]
+[assembly: AssemblyVersion("1.0.0")]
 
 // Version information for an assembly consists of the following four values:
 //

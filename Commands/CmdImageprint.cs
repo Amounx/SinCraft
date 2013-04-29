@@ -21,7 +21,7 @@ using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Threading;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdImageprint : Command
     {

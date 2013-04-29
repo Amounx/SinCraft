@@ -1,5 +1,5 @@
 /*
-	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/MCForge)
+	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SinCraft)
 	
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -23,13 +23,13 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Threading;
-using MCForge.Levels.Textures;
-using MCForge.SQL;
+using SinCraft.Levels.Textures;
+using SinCraft.SQL;
 using Timer = System.Timers.Timer;
 //WARNING! DO NOT CHANGE THE WAY THE LEVEL IS SAVED/LOADED!
 //You MUST make it able to save and load as a new version other wise you will make old levels incompatible!
 
-namespace MCForge
+namespace SinCraft
 {
     public enum LevelPermission //int is default
     {
@@ -1044,7 +1044,7 @@ namespace MCForge
                     Process[] prs = Process.GetProcesses();
                     foreach (Process pr in prs)
                     {
-                        if (pr.ProcessName == "MCForge")
+                        if (pr.ProcessName == "SinCraft")
                             pr.Kill();
 
                     }
@@ -5234,7 +5234,7 @@ namespace MCForge
             }
         }
 
-        public void AddCheck(int b, string extraInfo = "", bool overRide = false, MCForge.Player Placer = null)
+        public void AddCheck(int b, string extraInfo = "", bool overRide = false, SinCraft.Player Placer = null)
         {
             try
             {
@@ -6526,9 +6526,9 @@ public class Check
     public int b;
     public string extraInfo = "";
     public byte time;
-    public MCForge.Player p;
+    public SinCraft.Player p;
 
-    public Check(int b, string extraInfo = "", MCForge.Player placer = null)
+    public Check(int b, string extraInfo = "", SinCraft.Player placer = null)
     {
         this.b = b;
         time = 0;

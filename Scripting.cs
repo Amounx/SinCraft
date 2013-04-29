@@ -1,7 +1,7 @@
 /*
-	Copyright 2010 MCLawl Team - Written by Valek (Modified by MCForge)
+	Copyright 2010 MCLawl Team - Written by Valek (Modified by SinCraft)
 
-	Edited for use with MCForge
+	Edited for use with SinCraft
  
     Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -23,7 +23,7 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 
-namespace MCForge
+namespace SinCraft
 {
     static class Scripting
     {
@@ -49,15 +49,15 @@ namespace MCForge
                     "/*" + Environment.NewLine +
                     "\tAuto-generated command skeleton class." + Environment.NewLine +
                     Environment.NewLine +
-                    "\tUse this as a basis for custom commands implemented via the MCForge scripting framework." + Environment.NewLine +
+                    "\tUse this as a basis for custom commands implemented via the SinCraft scripting framework." + Environment.NewLine +
                     "\tFile and class should be named a specific way.  For example, /update is named 'CmdUpdate.cs' for the file, and 'CmdUpdate' for the class." + Environment.NewLine +
                     "*/" + Environment.NewLine +
                     Environment.NewLine +
                     "// Add any other using statements you need up here, of course." + Environment.NewLine +
-                    "// As a note, MCForge is designed for .NET 3.5." + Environment.NewLine +
+                    "// As a note, SinCraft is designed for .NET 3.5." + Environment.NewLine +
                     "using System;" + Environment.NewLine +
                     Environment.NewLine +
-                    "namespace MCForge" + Environment.NewLine +
+                    "namespace SinCraft" + Environment.NewLine +
                     "{" + Environment.NewLine +
                     "\tpublic class " + ClassName(CmdName) + " : Command" + Environment.NewLine +
                     "\t{" + Environment.NewLine +
@@ -124,9 +124,9 @@ namespace MCForge
             parameters.GenerateExecutable = false;
             parameters.MainClass = commandName;
             parameters.OutputAssembly = dllpath + "Cmd" + commandName + ".dll";
-            parameters.ReferencedAssemblies.Add("MCForge_.dll");
+            parameters.ReferencedAssemblies.Add("SinCraft_.dll");
             StreamReader sr = new StreamReader(sourcepath + "cmd" + commandName + ".cs");
-            results = compiler.CompileAssemblyFromSource(parameters, sr.ReadToEnd().Replace("namespace MCLawl", "namespace MCForge"));
+            results = compiler.CompileAssemblyFromSource(parameters, sr.ReadToEnd().Replace("namespace MCLawl", "namespace SinCraft"));
             sr.Dispose();
             switch (results.Errors.Count)
             {
@@ -300,7 +300,7 @@ namespace MCForge
         /// <summary>
         /// Creates a class name from the given string.
         /// </summary>
-        /// <param name="name">String to convert to an MCForge class name.</param>
+        /// <param name="name">String to convert to an SinCraft class name.</param>
         /// <returns>Successfully generated class name.</returns>
         private static string ClassName(string name)
         {

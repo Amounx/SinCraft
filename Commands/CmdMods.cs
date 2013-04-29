@@ -1,5 +1,5 @@
 /*
-	Copyright 2010 MCLawl Team - Written by Valek (Modified for use with MCForge)
+	Copyright 2010 MCLawl Team - Written by Valek (Modified for use with SinCraft)
  
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -15,7 +15,7 @@
 	or implied. See the Licenses for the specific language governing
 	permissions and limitations under the Licenses.
 */
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdMods : Command
     {
@@ -38,12 +38,12 @@ namespace MCForge.Commands
                 modlist += tempmods + ", ";
             }
             modlist = modlist.Remove(modlist.Length - 2);
-            Player.SendMessage(p, "&9MCForge Moderation Team: " + Server.DefaultColor + modlist + "&e.");
+            Player.SendMessage(p, "&9SinCraft Moderation Team: " + Server.DefaultColor + modlist + "&e.");
         }
 
         public override void Help(Player p)
         {
-            Player.SendMessage(p, "/mods - Displays the list of MCForge moderators.");
+            Player.SendMessage(p, "/mods - Displays the list of SinCraft moderators.");
         }
     }
 }

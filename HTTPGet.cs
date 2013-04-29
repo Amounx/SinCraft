@@ -30,7 +30,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Text;
-namespace MCForge
+namespace SinCraft
 {
     public sealed class HTTPGet
     {

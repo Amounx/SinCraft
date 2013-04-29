@@ -1,4 +1,4 @@
-namespace MCForge.Gui.Popups {
+namespace SinCraft.Gui.Popups {
     partial class PortTools {
         /// <summary>
         /// Required designer variable.

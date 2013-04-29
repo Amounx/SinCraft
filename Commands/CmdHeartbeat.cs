@@ -1,5 +1,5 @@
 /*
-	Copyright 2010 MCLawl Team - Written by Valek (Modified for use with MCForge)
+	Copyright 2010 MCLawl Team - Written by Valek (Modified for use with SinCraft)
 
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -16,7 +16,7 @@
 	permissions and limitations under the Licenses.
 */
 using System;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdHeartbeat : Command
     {
@@ -31,11 +31,11 @@ namespace MCForge.Commands
         {
             try
             {
-                Heart.Pump(new MCForgeBeat());
+                Heart.Pump(new SinCraftBeat());
             }
             catch (Exception e)
             {
-                Server.s.Log("Error with MCForge pump.");
+                Server.s.Log("Error with SinCraft pump.");
                 Server.ErrorLog(e);
             }
             Player.SendMessage(p, "Heartbeat pump sent.");
@@ -43,7 +43,7 @@ namespace MCForge.Commands
 
         public override void Help(Player p)
         {
-            Player.SendMessage(p, "/heartbeat - Forces a pump for the MCForge heartbeat.  DEBUG PURPOSES ONLY.");
+            Player.SendMessage(p, "/heartbeat - Forces a pump for the SinCraft heartbeat.  DEBUG PURPOSES ONLY.");
         }
     }
 }

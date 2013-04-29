@@ -24,14 +24,14 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Runtime.InteropServices;
-using MCForge.Gui.Utils;
+using SinCraft.Gui.Utils;
 
-//MCForge 6 Preview :D
+//SinCraft 6 Preview :D
 
-namespace MCForge.Gui.Components {
+namespace SinCraft.Gui.Components {
 
     /// <summary>
-    /// A rich text box, that can parse Minecraft/MCForge color codes.
+    /// A rich text box, that can parse Minecraft/SinCraft color codes.
     /// </summary>
     public partial class ColoredTextBox : RichTextBox {
 
@@ -47,7 +47,7 @@ namespace MCForge.Gui.Components {
         ///   <c>true</c> if [auto scroll]; otherwise, <c>false</c>.
         /// </value>
         [Browsable(true)]
-        [Category("MCForge")]
+        [Category("SinCraft")]
         [DefaultValue(true)]
         public bool AutoScroll {
             get {
@@ -68,7 +68,7 @@ namespace MCForge.Gui.Components {
         ///   <c>true</c> if colorized; otherwise, <c>false</c>.
         /// </value>
         [Browsable(true)]
-        [Category("MCForge")]
+        [Category("SinCraft")]
         [DefaultValue(true)]
         public bool Colorize {
             get {
@@ -86,7 +86,7 @@ namespace MCForge.Gui.Components {
         ///   <c>true</c> if [date stamp]; otherwise, <c>false</c>.
         /// </value>
         [Browsable(true)]
-        [Category("MCForge")]
+        [Category("SinCraft")]
         [DefaultValue(true)]
         public bool DateStamp {
             get {
@@ -104,7 +104,7 @@ namespace MCForge.Gui.Components {
         ///   <c>true</c> if [night mode]; otherwise, <c>false</c>.
         /// </value>
         [Browsable(true)]
-        [Category("MCForge")]
+        [Category("SinCraft")]
         [DefaultValue(false)]
         public bool NightMode {
             get {

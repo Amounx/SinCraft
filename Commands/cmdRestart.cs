@@ -15,7 +15,7 @@
 	or implied. See the Licenses for the specific language governing
 	permissions and limitations under the Licenses.
 */
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdRestart : Command
     {
@@ -29,7 +29,7 @@ namespace MCForge.Commands
         public override void Use(Player p, string message)
         {
             if (message != "") { Help(p); return; }
-            MCForge_.Gui.Program.ExitProgram(true);
+            SinCraft_.Gui.Program.ExitProgram(true);
         }
         public override void Help(Player p)
         {

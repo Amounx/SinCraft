@@ -18,7 +18,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MCForge
+namespace SinCraft
 {
     /// <summary>
     /// This is the LevelUnload Event class

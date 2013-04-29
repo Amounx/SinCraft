@@ -16,7 +16,7 @@
 	permissions and limitations under the Licenses.
 */
 using System;
-namespace MCForge
+namespace SinCraft
 {
     namespace SQL
     {

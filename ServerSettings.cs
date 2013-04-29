@@ -18,11 +18,11 @@
 using System;
 using System.Net;
 
-namespace MCForge {
+namespace SinCraft {
 	//derp idk just need to edit this so I can commit :/
 	public static class ServerSettings {
         /// <summary>
-        /// The url MCForge downloads additional URL's from
+        /// The url SinCraft downloads additional URL's from
         /// </summary>
 		public const string UrlsUrl = "http://server.mcforge.net/urls.txt";
 
@@ -55,7 +55,7 @@ namespace MCForge {
 			_ArchivePath = lines[2];
 		}
         /// <summary>
-        /// returns the MCForge archives url
+        /// returns the SinCraft archives url
         /// </summary>
 		public static string ArchivePath {
 			get {
@@ -63,7 +63,7 @@ namespace MCForge {
 			}
 		}
         /// <summary>
-        /// returns the MCForge heartbeat announce URL
+        /// returns the SinCraft heartbeat announce URL
         /// </summary>
 		public static string HeartbeatAnnounce {
 			get {
@@ -71,7 +71,7 @@ namespace MCForge {
 			}
 		}
         /// <summary>
-        ///  returns the MCForge revision list URL
+        ///  returns the SinCraft revision list URL
         /// </summary>
 		public static string RevisionList {
 			get {

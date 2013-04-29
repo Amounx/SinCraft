@@ -1,5 +1,5 @@
 /*
-	Copyright 2010 MCLawl Team - Written by Valek (Modified for use with MCForge)
+	Copyright 2010 MCLawl Team - Written by Valek (Modified for use with SinCraft)
  
     Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -17,7 +17,7 @@
 */
 using System;
 using System.IO;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdCmdCreate : Command
     {

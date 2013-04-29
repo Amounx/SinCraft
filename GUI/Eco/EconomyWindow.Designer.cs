@@ -1,4 +1,4 @@
-namespace MCForge.GUI.Eco {
+namespace SinCraft.GUI.Eco {
     partial class EconomyWindow {
         /// <summary>
         /// Required designer variable.

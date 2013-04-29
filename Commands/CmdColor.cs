@@ -1,5 +1,5 @@
 /*
-	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/MCForge)
+	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SinCraft)
 	
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -15,8 +15,8 @@
 	or implied. See the Licenses for the specific language governing
 	permissions and limitations under the Licenses.
 */
-using MCForge.SQL;
-namespace MCForge.Commands {
+using SinCraft.SQL;
+namespace SinCraft.Commands {
     public sealed class CmdColor : Command {
         public override string name { get { return "color"; } }
         public override string shortcut { get { return ""; } }

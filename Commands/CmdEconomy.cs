@@ -18,8 +18,8 @@
 using System;
 using System.Globalization;
 using System.Threading;
-using MCForge.SQL;
-namespace MCForge.Commands {
+using SinCraft.SQL;
+namespace SinCraft.Commands {
     /// <summary>
     /// Economy Beta v1.0 QuantumHive
     /// </summary>

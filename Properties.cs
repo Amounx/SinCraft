@@ -1,5 +1,5 @@
 /*
-	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/MCForge)
+	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SinCraft)
 	
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -21,7 +21,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace MCForge {
+namespace SinCraft {
 	public static class SrvProperties {
 		public static void Load(string givenPath, bool skipsalt = false) {
 			/*
@@ -1132,7 +1132,7 @@ namespace MCForge {
             w.WriteLine("#   spam-counter-reset-time\t\t= 2");
             w.WriteLine("#   bufferblocks\t\t\t= Should buffer blocks by default for maps?");
 			w.WriteLine();
-            w.WriteLine("#   mcforge-protection-level\t\t= Choose between: Dev/Mod/Off (default is Off). When set to Mod, MCForge Moderators AND Developers are protected. When set to Dev, MCForge Developers only are protected. When set to Off, MCforge staff are not protected.");
+            w.WriteLine("#   mcforge-protection-level\t\t= Choose between: Dev/Mod/Off (default is Off). When set to Mod, SinCraft Moderators AND Developers are protected. When set to Dev, SinCraft Developers only are protected. When set to Off, MCforge staff are not protected.");
             w.WriteLine();
 			w.WriteLine("# Server options");
 			w.WriteLine("server-name = " + Server.name);

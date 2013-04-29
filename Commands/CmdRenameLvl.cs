@@ -17,8 +17,8 @@
 */
 using System;
 using System.IO;
-using MCForge.SQL;
-namespace MCForge.Commands
+using SinCraft.SQL;
+namespace SinCraft.Commands
 {
     public sealed class CmdRenameLvl : Command
     {

@@ -19,7 +19,7 @@ using System;
 using System.IO;
 using System.Text;
 
-namespace MCForge
+namespace SinCraft
 {
 	public static class Ban
 	{

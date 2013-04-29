@@ -1,4 +1,4 @@
-namespace MCForge.GUI
+namespace SinCraft.GUI
 {
     partial class WoM
     {

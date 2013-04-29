@@ -21,7 +21,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
-namespace MCForge.Gui.Utils {
+namespace SinCraft.Gui.Utils {
     /// <summary>
     /// Native Rectangle
     /// </summary>
@@ -123,7 +123,7 @@ namespace MCForge.Gui.Utils {
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="MCForge.Gui.Utils.RECT"/> to <see cref="System.Drawing.Rectangle"/>.
+        /// Performs an implicit conversion from <see cref="SinCraft.Gui.Utils.RECT"/> to <see cref="System.Drawing.Rectangle"/>.
         /// </summary>
         /// <param name="margs">The margs.</param>
         /// <returns>
@@ -134,7 +134,7 @@ namespace MCForge.Gui.Utils {
         }
 
         /// <summary>
-        /// Performs an implicit conversion from <see cref="System.Drawing.Rectangle"/> to <see cref="MCForge.Gui.Utils.RECT"/>.
+        /// Performs an implicit conversion from <see cref="System.Drawing.Rectangle"/> to <see cref="SinCraft.Gui.Utils.RECT"/>.
         /// </summary>
         /// <param name="margs">The margs.</param>
         /// <returns>

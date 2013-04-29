@@ -17,7 +17,7 @@
 */
 using System.Collections.Generic;
 using System.IO;
-namespace MCForge.CTF
+namespace SinCraft.CTF
 {
     /// <summary>
     /// This is the plugin CTFSetup
@@ -41,7 +41,7 @@ namespace MCForge.CTF
         /// <summary>
         /// This is the server version the plugin can run on
         /// </summary>
-        public override string MCForge_Version
+        public override string SinCraft_Version
         {
             get { return ""; }
         }

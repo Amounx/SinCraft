@@ -18,7 +18,7 @@
 	permissions and limitations under the Licenses.
 */
 using System.Threading;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     /// <summary>
     /// This is the command /fetch

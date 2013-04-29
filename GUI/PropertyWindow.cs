@@ -1,5 +1,5 @@
 /*
-Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/MCForge)
+Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SinCraft)
 Dual-licensed under the Educational Community License, Version 2.0 and
 the GNU General Public License, Version 3 (the "Licenses"); you may
 not use this file except in compliance with the Licenses. You may
@@ -22,11 +22,11 @@ using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Windows.Forms;
-using MCForge.Gui.Popups;
-using MCForge.Util;
+using SinCraft.Gui.Popups;
+using SinCraft.Util;
 using Microsoft.Win32;
 
-namespace MCForge.Gui {
+namespace SinCraft.Gui {
     public partial class PropertyWindow : Form {
         System.Timers.Timer lavaUpdateTimer;
         string lsLoadedMap = "";
@@ -276,7 +276,7 @@ namespace MCForge.Gui {
                     switch ( key.ToLower() ) {
                         case "server-name":
                             if ( ValidString(value, "![]:.,{}~-+()?_/\\' ") ) txtName.Text = value;
-                            else txtName.Text = "[MCForge] Minecraft server";
+                            else txtName.Text = "[SinCraft] Minecraft server";
                             break;
                         case "motd":
                             if ( ValidString(value, "=![]&:.,{}~-+()?_/\\' ") ) txtMOTD.Text = value; // allow = in the motd
@@ -1313,14 +1313,14 @@ txtBackupLocation.Text = folderDialog.SelectedPath;
                     string fileName = fileDialog.FileName;
 
                     if ( fileName.EndsWith ( ".dll" ) ) {
-                        commands = MCForgeScripter.FromAssemblyFile ( fileName );
+                        commands = SinCraftScripter.FromAssemblyFile ( fileName );
                     }
                     else {
 
                         ScriptLanguage language = fileName.EndsWith ( ".cs" ) ? ScriptLanguage.CSharp : ScriptLanguage.VB;
 
                         if ( File.Exists ( fileName ) ) {
-                            var result = MCForgeScripter.Compile ( File.ReadAllText ( fileName ), language );
+                            var result = SinCraftScripter.Compile ( File.ReadAllText ( fileName ), language );
 
                             if ( result == null ) {
                                 MessageBox.Show ( "Error compiling files" );
@@ -1708,9 +1708,9 @@ txtBackupLocation.Text = folderDialog.SelectedPath;
 
         private void forceUpdateBtn_Click(object sender, EventArgs e) {
             forceUpdateBtn.Enabled = false;
-            if ( MessageBox.Show("Would you like to force update MCForge now?", "Force Update", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK ) {
+            if ( MessageBox.Show("Would you like to force update SinCraft now?", "Force Update", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK ) {
                 saveStuff();
-                MCForge_.Gui.Program.PerformUpdate();
+                SinCraft_.Gui.Program.PerformUpdate();
                 Dispose();
             }
             else {
@@ -2323,7 +2323,7 @@ txtBackupLocation.Text = folderDialog.SelectedPath;
         	if (usebeta.Checked) {
         		DialogResult d = MessageBox.Show("Would you like to check for beta versions now?", "Check for updates.", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         		if (d == DialogResult.Yes)
-        			MCForge_.Gui.Program.UpdateCheck();
+        			SinCraft_.Gui.Program.UpdateCheck();
         	}
         }
 

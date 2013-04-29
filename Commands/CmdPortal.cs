@@ -17,8 +17,8 @@
 */
 using System.Collections.Generic;
 using System.Data;
-using MCForge.SQL;
-namespace MCForge.Commands
+using SinCraft.SQL;
+namespace SinCraft.Commands
 {
     public sealed class CmdPortal : Command
     {

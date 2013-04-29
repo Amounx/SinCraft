@@ -18,7 +18,7 @@
 using System;
 
 
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public class CmdAscend : Command
     {

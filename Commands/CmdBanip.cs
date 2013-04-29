@@ -1,5 +1,5 @@
 /*
-	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/MCForge)
+	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SinCraft)
 	
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -20,8 +20,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text.RegularExpressions;
-using MCForge.SQL;
-namespace MCForge.Commands {
+using SinCraft.SQL;
+namespace SinCraft.Commands {
     public sealed class CmdBanip : Command {
         public override string name { get { return "banip"; } }
         public override string shortcut { get { return "bi"; } }

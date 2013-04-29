@@ -15,11 +15,11 @@
 	or implied. See the Licenses for the specific language governing
 	permissions and limitations under the Licenses.
 */
-// Created by Sinjai, for use only with MCForge
+// Created by Sinjai, for use only with SinCraft
 // Special thanks to Nerketur and Kris9006!
 using System.IO;
 using System.Net;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdNyan : Command
     {

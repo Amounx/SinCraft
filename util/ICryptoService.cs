@@ -15,7 +15,7 @@
 	or implied. See the Licenses for the specific language governing
 	permissions and limitations under the Licenses.
 */
-namespace MCForge.Utils.Crypto {
+namespace SinCraft.Utils.Crypto {
     /// <summary>
     /// Interface for Simple Crypto Service
     /// </summary>

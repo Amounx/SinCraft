@@ -16,8 +16,8 @@ using System.Text.RegularExpressions;
 	or implied. See the Licenses for the specific language governing
 	permissions and limitations under the Licenses.
 */
-using MCForge.SQL;
-namespace MCForge.Commands {
+using SinCraft.SQL;
+namespace SinCraft.Commands {
 	public sealed class CmdClearBlockChanges : Command {
 		public override string name { get { return "clearblockchanges"; } }
 		public override string shortcut { get { return "cbc"; } }

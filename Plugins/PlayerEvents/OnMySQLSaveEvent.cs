@@ -17,7 +17,7 @@
 */
 using System;
 using System.Collections.Generic;
-namespace MCForge
+namespace SinCraft
 {
     /// <summary>
     /// This event is called whenever the server saves data to MySQL or SQLite

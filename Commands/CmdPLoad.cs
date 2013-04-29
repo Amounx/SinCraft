@@ -16,7 +16,7 @@
 	permissions and limitations under the Licenses.
 */
 using System.IO;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     /// <summary>
     /// This is the command /pload

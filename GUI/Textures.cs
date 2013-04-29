@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
-using MCForge.Levels.Textures;
+using SinCraft.Levels.Textures;
 
-namespace MCForge.GUI
+namespace SinCraft.GUI
 {
     public partial class Textures : Form
     {

@@ -1,5 +1,5 @@
 /*
-	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/MCForge)
+	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SinCraft)
 	
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -21,10 +21,10 @@ using System.IO;
 using System.Reflection;
 using System.Threading;
 
-namespace MCForge
+namespace SinCraft
 {
     /// <summary>
-    /// This class provides for more advanced modification to MCForge
+    /// This class provides for more advanced modification to SinCraft
     /// </summary>
     public abstract partial class Plugin
     {
@@ -65,9 +65,9 @@ namespace MCForge
         /// </summary>
         public abstract string website { get; }
         /// <summary>
-        /// Oldest version of MCForge the plugin is compatible with.
+        /// Oldest version of SinCraft the plugin is compatible with.
         /// </summary>
-        public abstract string MCForge_Version { get; }
+        public abstract string SinCraft_Version { get; }
         /// <summary>
         /// Version of your plugin.
         /// </summary>
@@ -160,10 +160,10 @@ namespace MCForge
                     Server.s.Log("The plugin " + pluginname + " couldn't be loaded!");
                     return;
                 }
-                String plugin_version = ((Plugin)instance).MCForge_Version;
+                String plugin_version = ((Plugin)instance).SinCraft_Version;
                 if (!String.IsNullOrEmpty(plugin_version) && new Version(plugin_version) > Server.Version)
                 {
-                    Server.s.Log("This plugin (" + ((Plugin)instance).name + ") isn't compatible with this version of MCForge!");
+                    Server.s.Log("This plugin (" + ((Plugin)instance).name + ") isn't compatible with this version of SinCraft!");
                     Thread.Sleep(1000);
                     if (Server.unsafe_plugin)
                     {

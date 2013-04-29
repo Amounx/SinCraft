@@ -20,7 +20,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MCForge
+namespace SinCraft
 {
     /// <summary>
     /// You can use this class to store extra information for the server

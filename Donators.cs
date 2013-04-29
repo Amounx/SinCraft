@@ -20,7 +20,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading;
 
-namespace MCForge
+namespace SinCraft
 {
     public sealed class Donators
     {

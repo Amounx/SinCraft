@@ -2,12 +2,12 @@
    ______________________________________________________
 Can be included and resold as part of a larger work (sublicensable)
 Commercial use allowed under the following conditions :
-Command May only be used by MCForge users.This only gives permission to MCForge and users, This may not be posted on any other site and or forums without the permission of the maker [xTYx728]
+Command May only be used by SinCraft users.This only gives permission to SinCraft and users, This may not be posted on any other site and or forums without the permission of the maker [xTYx728]
 Can modify source-code but cannot distribute modifications (derivative works)
 Support provided as follows :
 For this command any, issues you may contact the maker for help.
 Attribution to software creator must be made as specified:
-Any edits MUST be reported back to the MCForge forums and credit MUST be given to the respected maker
+Any edits MUST be reported back to the SinCraft forums and credit MUST be given to the respected maker
 Software trademarks are included in the license
 Software patents are included in the license
 Additional terms:
@@ -19,7 +19,7 @@ ________________________________________________________________________________
  Idea by tommyz_. made by xTYx728
 */
 using System.Threading;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdKillPhysics : Command
     {

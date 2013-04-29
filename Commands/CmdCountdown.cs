@@ -20,7 +20,7 @@
 using System;
 using System.Net;
 using System.Threading;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdCountdown : Command
     {

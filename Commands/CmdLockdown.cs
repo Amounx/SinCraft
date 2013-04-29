@@ -17,7 +17,7 @@
 */
 using System.IO;
 using System.Threading;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdLockdown : Command
     {

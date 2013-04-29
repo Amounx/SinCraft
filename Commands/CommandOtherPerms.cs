@@ -18,7 +18,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-namespace MCForge
+namespace SinCraft
 {
     /// <summary>
     /// These are extra permissions for certain commands

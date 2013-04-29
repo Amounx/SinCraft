@@ -20,7 +20,7 @@ using System.IO;
 using System.Reflection;
 using System.Threading;
 
-namespace MCForge
+namespace SinCraft
 {
     /// <summary>
     /// This is the same as a normal plugin, except it contains less info.
@@ -47,9 +47,9 @@ namespace MCForge
         /// </summary>
         public abstract string creator { get; }
         /// <summary>
-        /// Oldest version of MCForge the plugin is compatible with.
+        /// Oldest version of SinCraft the plugin is compatible with.
         /// </summary>
-        public abstract string MCForge_Version { get; }
+        public abstract string SinCraft_Version { get; }
         #endregion
 
         #region Loading
@@ -96,10 +96,10 @@ namespace MCForge
                 Server.s.Log("The plugin " + pluginname + " couldn't be loaded!");
                 return false;
             }
-            String plugin_version = ((Plugin_Simple)instance).MCForge_Version;
+            String plugin_version = ((Plugin_Simple)instance).SinCraft_Version;
             if (plugin_version != "" && new Version(plugin_version) != Server.Version)
             {
-                Server.s.Log("This plugin (" + ((Plugin_Simple)instance).name + ") isn't compatible with this version of MCForge!");
+                Server.s.Log("This plugin (" + ((Plugin_Simple)instance).name + ") isn't compatible with this version of SinCraft!");
                 Thread.Sleep(1000);
                 if (Server.unsafe_plugin)
                 {

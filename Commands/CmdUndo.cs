@@ -18,7 +18,7 @@
 using System;
 using System.Globalization;
 using System.IO;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdUndo : Command
     {

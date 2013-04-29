@@ -22,7 +22,7 @@ using System.Linq;
 using System.Text;
 using System.Timers;
 
-namespace MCForge
+namespace SinCraft
 {
     public sealed class LavaSurvival
     {

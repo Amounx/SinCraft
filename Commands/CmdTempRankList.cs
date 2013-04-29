@@ -13,7 +13,7 @@ or implied. See the Licenses for the specific language governing
 permissions and limitations under the Licenses.
 */
 using System.IO;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdTempRankList : Command
     {

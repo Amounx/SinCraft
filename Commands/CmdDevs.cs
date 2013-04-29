@@ -1,5 +1,5 @@
 /*
-	Copyright 2010 MCLawl Team - Written by Valek (Modified for use with MCForge)
+	Copyright 2010 MCLawl Team - Written by Valek (Modified for use with SinCraft)
  
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -15,7 +15,7 @@
 	or implied. See the Licenses for the specific language governing
 	permissions and limitations under the Licenses.
 */
-namespace MCForge.Commands {
+namespace SinCraft.Commands {
 	public sealed class CmdDevs : Command {
 		public override string name { get { return "devs"; } }
 		public override string shortcut { get { return "dev"; } }
@@ -34,11 +34,11 @@ namespace MCForge.Commands {
 				devlist += temp + ", ";
 			}
 			devlist = devlist.Remove(devlist.Length - 2);
-			Player.SendMessage(p, "&9MCForge Development Team: " + Server.DefaultColor + devlist + "&e.");
+			Player.SendMessage(p, "&9SinCraft Development Team: " + Server.DefaultColor + devlist + "&e.");
 		}
 
 		public override void Help(Player p) {
-			Player.SendMessage(p, "/devs - Displays the list of MCForge developers.");
+			Player.SendMessage(p, "/devs - Displays the list of SinCraft developers.");
 		}
 	}
 }

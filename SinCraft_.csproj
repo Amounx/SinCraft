@@ -8,8 +8,8 @@
     <ProjectGuid>{DAF08A60-0D06-4AEB-BEB2-7B45D071C16D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MCForge</RootNamespace>
-    <AssemblyName>MCForge_</AssemblyName>
+    <RootNamespace>SinCraft</RootNamespace>
+    <AssemblyName>SinCraft_</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -58,7 +58,7 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>MCForge.ico</ApplicationIcon>
+    <ApplicationIcon>SinCraft.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup />
@@ -657,12 +657,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\TranslateService\MCForge.TranslateService.GetTranslationsResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\TranslateService\MCForge.TranslateService.TranslateArrayResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\TranslateService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -673,11 +667,14 @@
     <Compile Include="Commands\CmdVoteKick.cs" />
     <Compile Include="Plugins\Manager\Plugin.Events.cs" />
     <None Include="bin\Release\Updater.exe" />
-    <Content Include="mcf.sh">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="README.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Service References\TranslateService\SinCraft.TranslateService.GetTranslationsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TranslateService\SinCraft.TranslateService.TranslateArrayResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\TranslateService\soap.wsdl" />
     <None Include="Service References\TranslateService\soap.xsd">
@@ -693,6 +690,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\TranslateService\SoapService.wsdl" />
+    <None Include="sin.sh" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Changelog.txt">
@@ -702,9 +700,9 @@
     <Content Include="LICENSE.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="MCForge.ico" />
     <Compile Include="Player\VoteKickChoice.cs" />
     <Content Include="mcpony.png" />
+    <Content Include="SinCraft.ico" />
     <Content Include="sqlite3.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

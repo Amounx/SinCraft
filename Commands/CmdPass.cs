@@ -19,8 +19,8 @@
 */
 using System;
 using System.IO;
-using MCForge.Util;
-namespace MCForge.Commands
+using SinCraft.Util;
+namespace SinCraft.Commands
 {
     public sealed class CmdPass : Command
     {

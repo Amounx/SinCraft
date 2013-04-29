@@ -17,7 +17,7 @@
 */
 using System.IO;
 using System.Linq;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
 	public sealed class CmdOverseer : Command
 	{

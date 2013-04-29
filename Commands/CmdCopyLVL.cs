@@ -19,7 +19,7 @@
 */
 using System;
 using System.IO;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public class CmdCopyLVL : Command
     {

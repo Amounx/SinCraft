@@ -21,7 +21,7 @@ using System.CodeDom.Compiler;
 using System.IO;
 using System.Reflection;
 using System.Text;
-namespace MCForge
+namespace SinCraft
 {
 	static class ScriptingVB
 	{
@@ -41,18 +41,18 @@ namespace MCForge
 
 			using (var sw = new StreamWriter(File.Create(sourcepath + "Cmd" + CmdName + ".vb")))
 			{
-				sw.Write("Imports MCForge" + Environment.NewLine +
+				sw.Write("Imports SinCraft" + Environment.NewLine +
 						 "'Auto-generated command skeleton class." + Environment.NewLine +
 						 Environment.NewLine +
-						 "'Use this as a basis for custom commands implemented via the MCForge scripting framework." + Environment.NewLine +
+						 "'Use this as a basis for custom commands implemented via the SinCraft scripting framework." + Environment.NewLine +
 						 "'File and class should be named a specific way.  For example, /update is named 'CmdUpdate.vb' for the file, and 'CmdUpdate' for the class." + Environment.NewLine +
 						 "'" + Environment.NewLine +
 						 Environment.NewLine +
 						 "' Add any other using statements you need up here, of course." + Environment.NewLine +
-						 "' As a note, MCForge is designed for .NET 3.5." + Environment.NewLine +
+						 "' As a note, SinCraft is designed for .NET 3.5." + Environment.NewLine +
 			  
 						 Environment.NewLine +
-						 "Namespace MCForge" + Environment.NewLine +
+						 "Namespace SinCraft" + Environment.NewLine +
 						 "\tPublic Class " + ClassName(CmdName) + Environment.NewLine +
 						 "\t\tInherits Command " + Environment.NewLine +
 						 "' The command's name, IN ALL LOWERCASE.  What you'll be putting behind the slash when using it." + Environment.NewLine +
@@ -140,7 +140,7 @@ namespace MCForge
 			parameters.GenerateExecutable = false;
 			parameters.MainClass = commandName;
 			parameters.OutputAssembly = dllpath + "Cmd" + commandName + ".dll";
-			parameters.ReferencedAssemblies.Add("MCForge_.dll");
+			parameters.ReferencedAssemblies.Add("SinCraft_.dll");
 			StreamReader sr = new StreamReader(sourcepath + "cmd" + commandName + ".vb");
 			results = compiler.CompileAssemblyFromSource(parameters, sr.ReadToEnd());
 			sr.Dispose();

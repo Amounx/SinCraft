@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
-namespace MCForge.Gui
+namespace SinCraft.Gui
 {
     public partial class EditText : Form
     {

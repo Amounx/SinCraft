@@ -18,7 +18,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     /// <summary>
     /// This is the command /gun

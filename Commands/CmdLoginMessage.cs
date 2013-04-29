@@ -18,7 +18,7 @@
 	permissions and limitations under the Licenses.
 */
 using System.IO;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdLoginMessage : Command
     {

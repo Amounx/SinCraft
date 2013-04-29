@@ -10,11 +10,11 @@ Unless required by applicable law or agreed to in writing,
 software distributed under the Licenses are distributed on an "AS IS"
 BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
 or implied. See the Licenses for the specific language governing
-permiusing MCForge;ssions and limitations under the Licenses.
+permiusing SinCraft;ssions and limitations under the Licenses.
 */
 ﻿using System;
 using System.IO;
-namespace MCForge
+namespace SinCraft
 {
     public static class Checktimer
     {

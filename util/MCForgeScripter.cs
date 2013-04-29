@@ -21,11 +21,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace MCForge.Util {
+namespace SinCraft.Util {
 
-    public sealed class MCForgeScripter {
+    public sealed class SinCraftScripter {
 
-        private static readonly CompilerParameters _settings = new CompilerParameters(new [] {"mscorlib.dll", "MCForge_.dll", "MCForge.exe"}) {
+        private static readonly CompilerParameters _settings = new CompilerParameters(new [] {"mscorlib.dll", "SinCraft_.dll", "SinCraft.exe"}) {
             GenerateInMemory = true
         };
 

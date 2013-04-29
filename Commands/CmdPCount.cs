@@ -1,5 +1,5 @@
 /*
-	Copyright 2010 MCLawl Team - Written by Valek (Modified for use with MCForge)
+	Copyright 2010 MCLawl Team - Written by Valek (Modified for use with SinCraft)
  
     Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -16,8 +16,8 @@
 	permissions and limitations under the Licenses.
 */
 using System.Data;
-using MCForge.SQL;
-namespace MCForge.Commands
+using SinCraft.SQL;
+namespace SinCraft.Commands
 {
     public sealed class CmdPCount : Command
     {

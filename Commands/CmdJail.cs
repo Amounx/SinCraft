@@ -17,7 +17,7 @@
 */
 using System.IO;
 
-namespace MCForge
+namespace SinCraft
 {
     public sealed class CmdJail : Command
     {

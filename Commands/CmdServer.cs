@@ -20,8 +20,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Packaging;
 using System.Threading;
-using MCForge.SQL;
-namespace MCForge.Commands
+using SinCraft.SQL;
+namespace SinCraft.Commands
 {
     public sealed class CmdServer : Command
     {
@@ -144,7 +144,7 @@ namespace MCForge.Commands
             ParameterizedThreadStart pts = new ParameterizedThreadStart(CreatePackage);
             Thread doWork = new Thread(new ParameterizedThreadStart(CreatePackage));
             List<object> param = new List<object>();
-            param.Add("MCForge.zip");
+            param.Add("SinCraft.zip");
             param.Add(withFiles);
             param.Add(withDB);
             param.Add(p);
@@ -188,7 +188,7 @@ namespace MCForge.Commands
             #region Server Settings
             Server.salt = "";
 
-            Server.name = "[MCForge] Default";
+            Server.name = "[SinCraft] Default";
             Server.motd = "Welcome!";
             Server.players = 12;
             //for the limiting no. of guests:
@@ -459,7 +459,7 @@ namespace MCForge.Commands
         private static void ExtractPackage(object p)
         {
             int errors = 0;
-            using (ZipPackage zip = (ZipPackage)ZipPackage.Open(File.OpenRead("MCForge.zip")))
+            using (ZipPackage zip = (ZipPackage)ZipPackage.Open(File.OpenRead("SinCraft.zip")))
             {
                 PackagePartCollection pc = zip.GetParts();
                 foreach (ZipPackagePart item in pc)

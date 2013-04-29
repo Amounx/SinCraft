@@ -18,7 +18,7 @@
 	permissions and limitations under the Licenses.
 */
 using System.IO;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdIgnore : Command
     {
@@ -103,7 +103,7 @@ namespace MCForge.Commands
                 Player.SendMessage(p, "Player is no longer ignored: &a" + who.name + "!");
                 return;
             }
-            Player.SendMessage(p, "Something is stuffed.... Tell a MCForge Developer!");
+            Player.SendMessage(p, "Something is stuffed.... Tell a SinCraft Developer!");
         }
 
         public override void Help(Player p)

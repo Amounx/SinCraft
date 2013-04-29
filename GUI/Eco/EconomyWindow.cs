@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
-namespace MCForge.GUI.Eco {
+namespace SinCraft.GUI.Eco {
     public partial class EconomyWindow : Form {
         public EconomyWindow() {
             InitializeComponent();

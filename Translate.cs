@@ -17,7 +17,7 @@
 */
 using System;
 
-namespace MCForge
+namespace SinCraft
 {
     public static class Translate
     {

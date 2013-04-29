@@ -1,5 +1,5 @@
 /*	
-    Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/MCForge)
+    Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SinCraft)
     
     Dual-licensed under the	Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -26,7 +26,7 @@ using System.Threading;
 
 using System.Net;
 
-namespace MCForge.Gui {
+namespace SinCraft.Gui {
     public partial class Window : Form {
         // What is this???
         /*Regex regex = new Regex(@"^([1-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])(\." +
@@ -63,7 +63,7 @@ namespace MCForge.Gui {
             btnProperties.Enabled = false;
             //thisWindow = this;
             MaximizeBox = false;
-            this.Text = "Starting MCForge...";
+            this.Text = "Starting SinCraft...";
             this.Show();
             this.BringToFront();
             WindowState = FormWindowState.Normal;
@@ -97,7 +97,7 @@ namespace MCForge.Gui {
             }).Start();
 
 
-            notifyIcon1.Text = ( "MCForge Server: " + Server.name ).Truncate(64);
+            notifyIcon1.Text = ( "SinCraft Server: " + Server.name ).Truncate(64);
 
             this.notifyIcon1.ContextMenuStrip = this.iconContext;
             this.notifyIcon1.Icon = this.Icon;
@@ -181,8 +181,8 @@ namespace MCForge.Gui {
                 this.Invoke(new VoidDelegate(SettingsUpdate));
             }
             else {
-                this.Text = Server.name + " - MCForge " + Server.VersionString;
-                notifyIcon1.Text = ( "MCForge Server: " + Server.name ).Truncate(64);
+                this.Text = Server.name + " - SinCraft " + Server.VersionString;
+                notifyIcon1.Text = ( "SinCraft Server: " + Server.name ).Truncate(64);
             }
         }
 
@@ -390,11 +390,11 @@ namespace MCForge.Gui {
 
         private void Window_FormClosing(object sender, FormClosingEventArgs e) {
             if (e.CloseReason == CloseReason.WindowsShutDown) {
-                MCForge_.Gui.Program.ExitProgram(false);
+                SinCraft_.Gui.Program.ExitProgram(false);
             }
             if (Server.shuttingDown || MessageBox.Show("Really Shutdown the Server? All Connections will break!", "Exit", MessageBoxButtons.OKCancel) == DialogResult.OK) {
                 if (!Server.shuttingDown) {
-                    MCForge_.Gui.Program.ExitProgram(false);
+                    SinCraft_.Gui.Program.ExitProgram(false);
                 }
             }
             else {
@@ -637,7 +637,7 @@ namespace MCForge.Gui {
 
         private void Restart_Click(object sender, EventArgs e) {
             if ( MessageBox.Show("Are you sure you want to restart?", "Restart", MessageBoxButtons.OKCancel) == DialogResult.OK ) {
-                MCForge_.Gui.Program.ExitProgram(true);
+                SinCraft_.Gui.Program.ExitProgram(true);
             }
 
         }

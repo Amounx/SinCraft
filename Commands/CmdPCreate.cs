@@ -17,7 +17,7 @@
 */
 using System.Collections.Generic;
 using System.IO;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     /// <summary>
     /// This is the command /pcreate
@@ -43,13 +43,13 @@ namespace MCForge.Commands
             List<string> lines = new List<string>();
             lines.Add("//This is an example plugin source!");
             lines.Add("using System;");
-            lines.Add("namespace MCForge");
+            lines.Add("namespace SinCraft");
             lines.Add("{");
             lines.Add("    public class " + message + " : Plugin");
             lines.Add("    {");
             lines.Add("        public override string name { get { return \"" + message + "\"; } }");
             lines.Add("        public override string website { get { return \"www.example.com\"; } }");
-            lines.Add("        public override string MCForge_Version { get { return \"" + Server.Version + "\"; } }");
+            lines.Add("        public override string SinCraft_Version { get { return \"" + Server.Version + "\"; } }");
             lines.Add("        public override int build { get { return 100; } }");
             lines.Add("        public override string welcome { get { return \"Loaded Message!\"; } }");
             lines.Add("        public override string creator { get { return \"" + name + "\"; } }");

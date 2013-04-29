@@ -18,7 +18,7 @@
 using System;
 using System.IO;
 using System.Linq;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdChangeLog : Command
     {

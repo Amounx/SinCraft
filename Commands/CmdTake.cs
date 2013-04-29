@@ -17,7 +17,7 @@
 */
 using System;
 using System.Globalization;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdTake : Command
     {

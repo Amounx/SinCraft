@@ -21,7 +21,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace MCForge.Util {
+namespace SinCraft.Util {
     internal sealed class PasswordHasher {
 
         const string FILE_LOCATION = "extra/passwords/{0}.dat";

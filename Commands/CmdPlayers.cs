@@ -1,5 +1,5 @@
 /*
-	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/MCForge)
+	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SinCraft)
 	
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -17,7 +17,7 @@
 */
 using System;
 using System.Collections.Generic;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdPlayers : Command
     {
@@ -116,16 +116,16 @@ namespace MCForge.Commands
 
                 Player.SendMessage(p, "There are %a" + totalPlayers + Server.DefaultColor + " players online.");
                 bool staff = devs.Length > 0 || mods.Length > 0 || gcmods.Length > 0;
-                if (staff) Player.SendMessage(p, "%cMCForge Staff Online:");
+                if (staff) Player.SendMessage(p, "%cSinCraft Staff Online:");
                 if (devs.Length > 0)
                 {
-                    Player.SendMessage(p, "#%9MCForge Devs:" + Server.DefaultColor + devs.Trim(','));
+                    Player.SendMessage(p, "#%9SinCraft Devs:" + Server.DefaultColor + devs.Trim(','));
                 }
                 if (mods.Length > 0) {
-                    Player.SendMessage(p, "#%2MCForge Mods:" + Server.DefaultColor + mods.Trim(','));
+                    Player.SendMessage(p, "#%2SinCraft Mods:" + Server.DefaultColor + mods.Trim(','));
                 }
                 if (gcmods.Length > 0) {
-                    Player.SendMessage(p, "#%6MCForge GCMods:" + Server.DefaultColor + gcmods.Trim(','));
+                    Player.SendMessage(p, "#%6SinCraft GCMods:" + Server.DefaultColor + gcmods.Trim(','));
                 }
                 if (staff) Player.SendMessage(p, "%aNormal Players Online:");
                 for (int i = playerList.Count - 1; i >= 0; i--)

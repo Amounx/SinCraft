@@ -18,13 +18,13 @@
 using System;
 using System.Data;
 using System.Data.SQLite;
-namespace MCForge
+namespace SinCraft
 {
     namespace SQL
     {
         public static class SQLite //: Database //Extending for future improvement (Making it object oriented later).
         {
-            private static string connStringFormat = "Data Source =" + Server.apppath + "/MCForge.db; Version =3; Pooling ={0}; Max Pool Size =1000;";
+            private static string connStringFormat = "Data Source =" + Server.apppath + "/SinCraft.db; Version =3; Pooling ={0}; Max Pool Size =1000;";
             private static SQLiteParameterCollection parameters = new SQLiteCommand().Parameters;
 
             public static string connString { get { return String.Format(connStringFormat, Server.DatabasePooling); } }
@@ -49,8 +49,8 @@ namespace MCForge
                 parameters.AddWithValue(name, param);
             }
             /// <summary>
-            /// Clears the parameters added with <see cref="MCForge.SQL.MySQL.AddParams(System.string, System.string)"/>
-            /// <seealso cref="MCForge.SQL.MySQL"/>
+            /// Clears the parameters added with <see cref="SinCraft.SQL.MySQL.AddParams(System.string, System.string)"/>
+            /// <seealso cref="SinCraft.SQL.MySQL"/>
             /// </summary>
             public static void ClearParams() {
                 parameters.Clear();

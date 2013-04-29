@@ -1,4 +1,4 @@
-MCForge Classic
+SinCraft Classic
 ===============
 
 Minecraft Classic Custom Server Software
@@ -6,12 +6,12 @@ Minecraft Classic Custom Server Software
 #This repo is no longer being updated. All pull requests and issues will be ignored.
 #Long Live Minecraft Classic!
 
-About MCForge Classic
+About SinCraft Classic
 ---------------------
 
-MCForge classic is a classic Minecraft server software based on MCLawl.  It has been released under an open-source license to allow the community to help us develop it further.
+SinCraft classic is a classic Minecraft server software based on MCLawl.  It has been released under an open-source license to allow the community to help us develop it further.
 
-The official website for MCForge is [mcforge.net][2]
+The official website for SinCraft is [mcforge.net][2]
 
 Copyright/License
 -----------------
@@ -26,12 +26,12 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-It is also required that any derivative works clearly state that they are based off of MCForge Scorce code.
+It is also required that any derivative works clearly state that they are based off of SinCraft Scorce code.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 [1]: http://wiki.mcforge.net/index.php?title=Development
 [2]: http://www.mcforge.net
-[3]: https://raw.github.com/MCForge/MCForge-MCLawl/master/LICENSE.txt
+[3]: https://raw.github.com/SinCraft/SinCraft-MCLawl/master/LICENSE.txt
 [4]: https://help.github.com/articles/dealing-with-line-endings

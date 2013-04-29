@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace MCForge.GUI
+namespace SinCraft.GUI
 {
     public partial class WoM : Form
     {

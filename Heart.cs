@@ -22,7 +22,7 @@ using System.Net.Cache;
 using System.Text;
 using System.Threading;
 
-namespace MCForge {
+namespace SinCraft {
 
     public static class Heart {
 
@@ -48,7 +48,7 @@ namespace MCForge {
             //Keep in this order.
             new MinecraftBeat(),
             new WOMBeat(),
-            new MCForgeBeat(),
+            new SinCraftBeat(),
         };
 
 

@@ -19,7 +19,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace MCForge.Gui
+namespace SinCraft.Gui
 {
 	public class AutoScrollTextBox : System.Windows.Forms.TextBox
 	{

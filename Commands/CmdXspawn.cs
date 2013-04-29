@@ -19,7 +19,7 @@
 */
 using System;
 
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
 	public class CmdXspawn : Command
 	{

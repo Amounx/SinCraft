@@ -19,7 +19,7 @@ using System;
 using System.IO;
 using System.Net;
 using System.Text;
-namespace MCForge
+namespace SinCraft
 {
     internal sealed class WOMBeat : IBeat
     {

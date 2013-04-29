@@ -20,7 +20,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 
-namespace MCForge
+namespace SinCraft
 {
 	public sealed class OmniBan
 	{

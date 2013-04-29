@@ -18,7 +18,7 @@
 using System;
 using System.Net;
 using Sharkbite.Irc;
-namespace MCForge
+namespace SinCraft
 {
     public sealed class GlobalChatBot
     {
@@ -255,7 +255,7 @@ namespace MCForge
                     {
                         if (Server.irc) { if (Server.ircServer == server) return; }
                         Server.s.Log(message);
-                        Server.s.Log("This means your server is banned from the Global Chat server, please contact a MCForge Staff member for an unban.");
+                        Server.s.Log("This means your server is banned from the Global Chat server, please contact a SinCraft Staff member for an unban.");
                     }
                     break;
             }

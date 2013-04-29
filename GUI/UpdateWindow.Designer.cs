@@ -1,4 +1,4 @@
-namespace MCForge.Gui
+namespace SinCraft.Gui
 {
     partial class UpdateWindow
     {

@@ -21,7 +21,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
-namespace MCForge
+namespace SinCraft
 {
     namespace SQL
     {
@@ -35,13 +35,13 @@ namespace MCForge
 
                 //Important note:  This does NOT account for foreign keys, BLOB's etc.  It only works for what we actually put in the db.
 
-                sql.WriteLine("-- MCForge SQL Database Dump");
+                sql.WriteLine("-- SinCraft SQL Database Dump");
                 sql.WriteLine("-- version 1.5");
                 sql.WriteLine("-- http://www.mcforge.net");
                 sql.WriteLine("--");
                 sql.WriteLine("-- Host: {0}", Server.MySQLHost);
                 sql.WriteLine("-- Generation Time: {0} at {1}", DateTime.Now.Date, DateTime.Now.TimeOfDay);
-                sql.WriteLine("-- MCForge Version: {0}", Server.Version);
+                sql.WriteLine("-- SinCraft Version: {0}", Server.Version);
                 sql.WriteLine();
                 //Extra stuff goes here
                 sql.WriteLine();

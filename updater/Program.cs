@@ -62,23 +62,23 @@ namespace Updater
         }
         static void Update(string[] args)
         {
-            Console.WriteLine("Updating MCForge...");
+            Console.WriteLine("Updating SinCraft...");
             try
             {
                 tries++;
-                if (File.Exists("MCForge.update") || File.Exists("MCForge_.update"))
+                if (File.Exists("SinCraft.update") || File.Exists("SinCraft_.update"))
                 {
                     try
                     {
-                        if (File.Exists("MCForge.update"))
+                        if (File.Exists("SinCraft.update"))
                         {
                             if (File.Exists(args[0]))
                             {
-                                if (File.Exists("MCForge.backup"))
-                                    File.Delete("MCForge.backup");
-                                File.Move(args[0], "MCForge.backup");
+                                if (File.Exists("SinCraft.backup"))
+                                    File.Delete("SinCraft.backup");
+                                File.Move(args[0], "SinCraft.backup");
                             }
-                            File.Move("MCForge.update", args[0]);
+                            File.Move("SinCraft.update", args[0]);
                         }
                     }
                     catch (Exception e)
@@ -96,15 +96,15 @@ namespace Updater
                     }
                     try
                     {
-                        if (File.Exists("MCForge_.update"))
+                        if (File.Exists("SinCraft_.update"))
                         {
-                            if (File.Exists("MCForge_.dll"))
+                            if (File.Exists("SinCraft_.dll"))
                             {
-                                if (File.Exists("MCForge_.backup"))
-                                    File.Delete("MCForge_.backup");
-                                File.Move("MCForge_.dll", "MCForge_.backup");
+                                if (File.Exists("SinCraft_.backup"))
+                                    File.Delete("SinCraft_.backup");
+                                File.Move("SinCraft_.dll", "SinCraft_.backup");
                             }
-                            File.Move("MCForge_.update", "MCForge_.dll");
+                            File.Move("SinCraft_.update", "SinCraft_.dll");
                         }
                     }
                     catch (Exception e)
@@ -125,7 +125,7 @@ namespace Updater
                 {
                     NoUpdateFiles();
                 }
-                Console.WriteLine("MCForge successfully updated.  Starting MCForge...");
+                Console.WriteLine("SinCraft successfully updated.  Starting SinCraft...");
                 try
                 {
                     if (!usingConsole)
@@ -139,8 +139,8 @@ namespace Updater
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("Unable to start MCForge.  You will need to start it manually.");
-                    MessageBox.Show("Updater has updated MCForge, but was unable to start it.  You will need to start it manually.", "Updater", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Console.WriteLine("Unable to start SinCraft.  You will need to start it manually.");
+                    MessageBox.Show("Updater has updated SinCraft, but was unable to start it.  You will need to start it manually.", "Updater", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception e)
@@ -159,8 +159,8 @@ namespace Updater
         }
         static void UpdateFailure(Exception e)
         {
-            Console.WriteLine("Updater is unable to update MCForge.\n\n" + e.ToString() + "\n\nPress any key to exit.");
-            MessageBox.Show("Updater is unable to update MCForge.\n\n" + e.ToString(), "Updater Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Console.WriteLine("Updater is unable to update SinCraft.\n\n" + e.ToString() + "\n\nPress any key to exit.");
+            MessageBox.Show("Updater is unable to update SinCraft.\n\n" + e.ToString(), "Updater Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             Environment.Exit(0);
         }
         static void NoUpdateFiles()

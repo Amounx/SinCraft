@@ -20,9 +20,9 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Xml;
-//This upnp class comes from http://www.codeproject.com/Articles/27992/NAT-Traversal-with-UPnP-in-C, Modified for use with MCForge
+//This upnp class comes from http://www.codeproject.com/Articles/27992/NAT-Traversal-with-UPnP-in-C, Modified for use with SinCraft
 
-namespace MCForge.Core {
+namespace SinCraft.Core {
 
     public sealed class UPnP {
 

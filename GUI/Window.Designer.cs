@@ -1,5 +1,5 @@
 /*
-	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/MCForge)
+	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SinCraft)
 	
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -18,7 +18,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace MCForge.Gui
+namespace SinCraft.Gui
 {
     public partial class Window
     {
@@ -269,12 +269,12 @@ namespace MCForge.Gui
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label33 = new System.Windows.Forms.Label();
             this.txtOpInput = new System.Windows.Forms.TextBox();
-            this.txtCommandsUsed = new MCForge.Gui.AutoScrollTextBox();
-            this.txtLog = new MCForge.Gui.Components.ColoredTextBox();
-            this.PlayersTextBox = new MCForge.Gui.AutoScrollTextBox();
-            this.txtGlobalLog = new MCForge.Gui.AutoScrollTextBox();
-            this.txtAdminLog = new MCForge.Gui.AutoScrollTextBox();
-            this.txtOpLog = new MCForge.Gui.AutoScrollTextBox();
+            this.txtCommandsUsed = new SinCraft.Gui.AutoScrollTextBox();
+            this.txtLog = new SinCraft.Gui.Components.ColoredTextBox();
+            this.PlayersTextBox = new SinCraft.Gui.AutoScrollTextBox();
+            this.txtGlobalLog = new SinCraft.Gui.AutoScrollTextBox();
+            this.txtAdminLog = new SinCraft.Gui.AutoScrollTextBox();
+            this.txtOpLog = new SinCraft.Gui.AutoScrollTextBox();
             this.mapsStrip.SuspendLayout();
             this.playerStrip.SuspendLayout();
             this.iconContext.SuspendLayout();

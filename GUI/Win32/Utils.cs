@@ -21,7 +21,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
-namespace MCForge.Gui.Utils {
+namespace SinCraft.Gui.Utils {
     public class Utilities {
 
         /// <summary>

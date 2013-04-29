@@ -17,7 +17,7 @@
 */
 using System;
 using System.Collections.Generic;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdLine : Command
     {

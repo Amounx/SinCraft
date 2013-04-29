@@ -21,9 +21,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading;
-using MCForge.SQL;
+using SinCraft.SQL;
 
-namespace MCForge
+namespace SinCraft
 {
     /// <summary>
     /// This is the team class for CTF

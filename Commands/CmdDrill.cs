@@ -16,7 +16,7 @@
 	permissions and limitations under the Licenses.
 */
 using System.Collections.Generic;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdDrill : Command
     {

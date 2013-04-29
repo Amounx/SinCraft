@@ -18,7 +18,7 @@
 using System;
 using MySql.Data.MySqlClient;
 
-namespace MCForge
+namespace SinCraft
 {
     namespace SQL
     {

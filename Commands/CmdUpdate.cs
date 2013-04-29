@@ -1,5 +1,5 @@
 /*
-	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/MCForge)
+	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SinCraft)
 	
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -15,7 +15,7 @@
 	or implied. See the Licenses for the specific language governing
 	permissions and limitations under the Licenses.
 */
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdUpdate : Command
     {
@@ -30,7 +30,7 @@ namespace MCForge.Commands
         {
             if (message.ToLower() != "force" && message.ToLower() != "help")
             {
-                if (p == null || p.group.Permission > defaultRank) MCForge_.Gui.Program.UpdateCheck(false, p);
+                if (p == null || p.group.Permission > defaultRank) SinCraft_.Gui.Program.UpdateCheck(false, p);
                 else Player.SendMessage(p, "Ask an " + Group.findPerm(defaultRank).name + "+ to do it!");
             }
             else if (message.ToLower() == "help")
@@ -40,7 +40,7 @@ namespace MCForge.Commands
             }
             else
             {
-                if (p == null || p.group.Permission > defaultRank) MCForge_.Gui.Program.PerformUpdate();
+                if (p == null || p.group.Permission > defaultRank) SinCraft_.Gui.Program.PerformUpdate();
                 else Player.SendMessage(p, "Ask an " + Group.findPerm(defaultRank).name + "+ to do it!");
             }
         }

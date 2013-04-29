@@ -19,14 +19,14 @@
  * Serializer.cs
  * This is the Serializer class for the PHPSerializationLibrary
  *  
- * Copyright 2004 Conversive, Inc. (Modified for use with MCForge)
+ * Copyright 2004 Conversive, Inc. (Modified for use with SinCraft)
  * 
  */
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
-namespace MCForge
+namespace SinCraft
 {
 	/// <summary>
 	/// Serializer Class.

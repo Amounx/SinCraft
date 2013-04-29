@@ -1,5 +1,5 @@
 /*
-	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/MCForge)
+	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SinCraft)
 	
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -17,8 +17,8 @@
 */
 using System;
 using System.Data;
-using MCForge.SQL;
-namespace MCForge.Commands
+using SinCraft.SQL;
+namespace SinCraft.Commands
 {
     public sealed class CmdWhowas : Command
     {
@@ -77,13 +77,13 @@ namespace MCForge.Commands
             {
                 Player.SendMessage(p, Server.DefaultColor + "> > Player is a &9Developer");
                 if (Server.forgeProtection == ForgeProtection.Mod || Server.forgeProtection == ForgeProtection.Dev)
-                    Player.SendMessage(p, Server.DefaultColor + "> > Player is &CPROTECTED" + Server.DefaultColor + " under MCForge Staff protection");
+                    Player.SendMessage(p, Server.DefaultColor + "> > Player is &CPROTECTED" + Server.DefaultColor + " under SinCraft Staff protection");
             }
             else if (Server.Mods.Contains(message.ToLower()))
             {
-                Player.SendMessage(p, Server.DefaultColor + "> > Player is a &9MCForge Moderator");
+                Player.SendMessage(p, Server.DefaultColor + "> > Player is a &9SinCraft Moderator");
                 if (Server.forgeProtection == ForgeProtection.Mod)
-                    Player.SendMessage(p, Server.DefaultColor + "> > Player is &CPROTECTED" + Server.DefaultColor + " under MCForge Staff protection");
+                    Player.SendMessage(p, Server.DefaultColor + "> > Player is &CPROTECTED" + Server.DefaultColor + " under SinCraft Staff protection");
             }
             else if (Server.GCmods.Contains(message.ToLower()))
                 Player.SendMessage(p, Server.DefaultColor + "> > Player is a &9Global Chat Moderator");

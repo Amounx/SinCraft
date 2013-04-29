@@ -36,7 +36,7 @@ using System;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
-namespace MCForge {
+namespace SinCraft {
     public static class ConvertDat {
 		public static Level Load(Stream lvlStream, string fileName)
 		{

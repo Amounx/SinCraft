@@ -26,9 +26,9 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
-using MCForge.Core;
+using SinCraft.Core;
 
-namespace MCForge.Gui.Popups {
+namespace SinCraft.Gui.Popups {
     public partial class PortTools : Form {
 
         private readonly BackgroundWorker mWorkerChecker;
@@ -129,7 +129,7 @@ namespace MCForge.Gui.Popups {
         }
 
         private void linkHelpForward_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            try { Process.Start("https://github.com/MCForge/MCForge-Vanilla/wiki/Setup%20MCForge%205.5.0.2"); }
+            try { Process.Start("https://github.com/SinCraft/SinCraft-Vanilla/wiki/Setup%20SinCraft%205.5.0.2"); }
             catch { }
         }
 
@@ -182,7 +182,7 @@ namespace MCForge.Gui.Popups {
 
                     if (adding) {
                         tries++;
-                        UPnP.ForwardPort(port, ProtocolType.Tcp, "MCForgeServer");
+                        UPnP.ForwardPort(port, ProtocolType.Tcp, "SinCraftServer");
                         e.Result = 1;
                     }
                     else {

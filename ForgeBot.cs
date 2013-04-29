@@ -21,7 +21,7 @@ using System.IO;
 using System.Text;
 using Sharkbite.Irc;
 
-namespace MCForge {
+namespace SinCraft {
 	public sealed class ForgeBot {
 		public static readonly string ColorSignal = "\x03";
 		public static readonly string ResetSignal = "\x0F";

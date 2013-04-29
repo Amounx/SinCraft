@@ -17,7 +17,7 @@
 */
 using System.Collections.Generic;
 
-namespace MCForge
+namespace SinCraft
 {
     internal static class FindReference
     {

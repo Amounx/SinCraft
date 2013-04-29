@@ -18,7 +18,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MCForge
+namespace SinCraft
 {
     /// <summary>
     /// This event is called whenever a player chats on the server

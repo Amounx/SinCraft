@@ -17,8 +17,8 @@
 */
 using System;
 using System.Data;
-using MCForge.SQL;
-namespace MCForge.Commands
+using SinCraft.SQL;
+namespace SinCraft.Commands
 {
     public sealed class CmdTopTen : Command
     {

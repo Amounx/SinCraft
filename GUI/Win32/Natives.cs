@@ -24,7 +24,7 @@ using System.Drawing;
 using System.Windows.Forms.VisualStyles;
 using System.Windows.Forms;
 
-namespace MCForge.Gui.Utils {
+namespace SinCraft.Gui.Utils {
 
     internal class Natives {
 

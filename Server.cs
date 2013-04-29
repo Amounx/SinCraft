@@ -1,5 +1,5 @@
 /*
-	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/MCForge)
+	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SinCraft)
 	
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -25,11 +25,11 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Windows.Forms;
-using MCForge.SQL;
+using SinCraft.SQL;
 using MonoTorrent.Client;
 using Newtonsoft.Json.Linq;
 
-namespace MCForge
+namespace SinCraft
 {
     public enum ForgeProtection { Off = 0, Mod = 1, Dev = 2 }
     public sealed class Server
@@ -113,10 +113,10 @@ namespace MCForge
         public static PlayerList muted;
         public static PlayerList ignored;
 
-        // The MCForge Developer List
+        // The SinCraft Developer List
         internal static readonly List<string> devs = new List<string>();
         public static List<string> Devs { get { return new List<string>(devs); } }
-        //The MCForge Moderation List
+        //The SinCraft Moderation List
         internal static readonly List<string> mods = new List<string>();
         public static List<string> Mods { get { return new List<string>(mods); } }
         //GCMods List
@@ -234,7 +234,7 @@ namespace MCForge
         public const byte version = 7;
         public static string salt = "";
 
-        public static string name = "[MCForge] Default";
+        public static string name = "[SinCraft] Default";
         public static string motd = "Welcome!";
         public static byte players = 12;
         //for the limiting no. of guests:
@@ -671,7 +671,7 @@ namespace MCForge
 
             Economy.LoadDatabase();
             UpdateStaffList();
-            Log("MCForge Staff Protection Level: " + forgeProtection);
+            Log("SinCraft Staff Protection Level: " + forgeProtection);
 
             if (levels != null)
                 foreach (Level l in levels) { l.Unload(); }
@@ -1312,7 +1312,7 @@ namespace MCForge
                 }
             } catch (Exception e) {
                 ErrorLog(e);
-                s.Log("Couldn't update MCForge staff list, turning MCForge Staff Protection Level off. . . ");
+                s.Log("Couldn't update SinCraft staff list, turning SinCraft Staff Protection Level off. . . ");
                 forgeProtection = ForgeProtection.Off;
                 devs.Clear();
                 mods.Clear();

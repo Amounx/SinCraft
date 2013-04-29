@@ -17,7 +17,7 @@
 	permissions and limitations under the Licenses.
 */
 using System;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdZombieGame : Command
     {

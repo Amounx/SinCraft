@@ -25,7 +25,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
-namespace MCForge
+namespace SinCraft
 {
     public sealed class TntWarsGame
     {

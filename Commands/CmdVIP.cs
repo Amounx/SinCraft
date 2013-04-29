@@ -17,7 +17,7 @@
 */
 using System.Collections.Generic;
 using System.Text;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     /// <summary>
     /// This is the command /vip

@@ -1,5 +1,5 @@
 /*
-Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/MCForge)
+Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/SinCraft)
 Dual-licensed under the Educational Community License, Version 2.0 and
 the GNU General Public License, Version 3 (the "Licenses"); you may
 not use this file except in compliance with the Licenses. You may
@@ -24,9 +24,9 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using MCForge.SQL;
+using SinCraft.SQL;
 
-namespace MCForge {
+namespace SinCraft {
     public sealed partial class Player : IDisposable {
         /// <summary>
         /// List of all server players.
@@ -1164,7 +1164,7 @@ namespace MCForge {
             if ( Server.zombie.ZombieStatus() != 0 ) { Player.SendMessage(this, "There is a Zombie Survival game currently in-progress! Join it by typing /g " + Server.zombie.currentLevelName); }
         }
 
-        public void SetPrefix() { //just change the color name if someone ever decides these titles need different colors O.o I just try to match them with the ranks on MCForge.net
+        public void SetPrefix() { //just change the color name if someone ever decides these titles need different colors O.o I just try to match them with the ranks on SinCraft.net
             string viptitle = isDev ? string.Format("{1}[{0}Dev{1}] ", c.Parse("blue"), color) : isMod ? string.Format("{1}[{0}Mod{1}] ", c.Parse("lime"), color) : isGCMod ? string.Format("{1}[{0}GCMod{1}] ", c.Parse("gold"), color) : "";
             prefix = ( title == "" ) ? "" : ( titlecolor == "" ) ? color + "[" + title + "] " : color + "[" + titlecolor + title + color + "] ";
             prefix = viptitle + prefix;
@@ -2331,7 +2331,7 @@ return;
                 Command command = Command.all.Find(cmd);
                 //Group old = null;
                 if ( command != null ) {
-                    //this part checks if MCForge staff are able to USE protection commands
+                    //this part checks if SinCraft staff are able to USE protection commands
                     /*if (isProtected && Server.ProtectOver.Contains(cmd.ToLower())) {
                         old = Group.findPerm(this.group.Permission);
                         this.group = Group.findPerm(LevelPermission.Nobody);

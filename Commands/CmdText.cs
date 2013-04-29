@@ -17,7 +17,7 @@
 */
 using System.IO;
 using System.Text.RegularExpressions;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdText : Command
     {

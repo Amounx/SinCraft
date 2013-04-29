@@ -9,7 +9,7 @@
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Starter</RootNamespace>
-    <AssemblyName>MCForge</AssemblyName>
+    <AssemblyName>SinCraft</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -39,7 +39,8 @@
     <StartupObject>Starter.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>MCForge.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -53,13 +54,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="MCForge_.csproj">
-      <Project>{12597DB0-7C34-4DE1-88EA-9250FF3372EB}</Project>
-      <Name>MCForge_</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="MCForge.ico" />
+    <Content Include="SinCraft.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

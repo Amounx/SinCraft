@@ -18,9 +18,9 @@
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using MCForge.SQL;
+using SinCraft.SQL;
 
-namespace MCForge {
+namespace SinCraft {
     public static class Economy {
 
         public const string createTable =

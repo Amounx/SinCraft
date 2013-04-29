@@ -22,7 +22,7 @@ using System.Net.NetworkInformation;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace MCForge
+namespace SinCraft
 {
     public static class Permalink
     {

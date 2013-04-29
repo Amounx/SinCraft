@@ -18,9 +18,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-namespace MCForge
+namespace SinCraft
 {
-    internal sealed class MCForgeBeat : IBeat
+    internal sealed class SinCraftBeat : IBeat
     {
         public string URL { get { return ServerSettings.HeartbeatAnnounce; } }
 

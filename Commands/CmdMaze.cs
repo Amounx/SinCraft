@@ -18,7 +18,7 @@
 using System;
 using System.Collections;
 using System.Security.Cryptography;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdMaze : Command
     {

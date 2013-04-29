@@ -17,7 +17,7 @@
 */
 using System;
 
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdGarbage : Command
     {

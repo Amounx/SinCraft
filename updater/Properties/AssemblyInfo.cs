@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Updater")]
-[assembly: AssemblyDescription("Simple updater for MCForge")]
+[assembly: AssemblyDescription("Simple updater for SinCraft")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Updater")]
-[assembly: AssemblyCopyright("Copyright ©  2011")]
+[assembly: AssemblyCopyright("Copyright © 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

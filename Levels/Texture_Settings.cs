@@ -21,7 +21,7 @@ using System.IO;
 using System.Net.Sockets;
 using System.Text;
 using System.Text.RegularExpressions;
-namespace MCForge.Levels.Textures
+namespace SinCraft.Levels.Textures
 {
     public sealed class LevelTextures
     {

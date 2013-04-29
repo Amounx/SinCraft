@@ -17,7 +17,7 @@
 */
 using System;
 using System.IO;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdHighlight : Command
     {

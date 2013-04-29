@@ -18,7 +18,7 @@
 //Thanks to the /nyan creators...
 using System.IO;
 using System.Net;
-namespace MCForge.Commands
+namespace SinCraft.Commands
 {
     public sealed class CmdPumpkin : Command
     {
