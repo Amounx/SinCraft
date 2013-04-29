@@ -1,23 +1,12 @@
-SinCraft Classic
+SinCraft
 ===============
 
 Minecraft Classic Custom Server Software
 
-#This repo is no longer being updated. All pull requests and issues will be ignored.
-#Long Live Minecraft Classic!
 
-About SinCraft Classic
----------------------
+This is a small side project by Sinjai, adding/improving features that were in MCForge.
+This server software is being created for my own enjoyment, not for actual use (although it will be available for use, and nothing is stopping you if you compile the solution). That being said, I do plan on hosting a server sometime in the future by the name of SinCraft, using this server software, so feel free to pop in and say hello!
 
-SinCraft classic is a classic Minecraft server software based on MCLawl.  It has been released under an open-source license to allow the community to help us develop it further.
-
-The official website for SinCraft is [mcforge.net][2]
-
-Copyright/License
------------------
-
-Unless otherwise noted, this software and its source code is
-Copyright 2011 MCForge & Copyright 2012 David Mitchell. licensed under the [MIT][3]
 
 In an effort to add copyright notices to the source code, we utilized automated methods to insert these.
 Some copyright attributions may be incorrect.  If you identify any such cases, please notify us immediately so we may correct it.
@@ -26,12 +15,6 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-It is also required that any derivative works clearly state that they are based off of SinCraft Scorce code.
+It is also required that any derivative works clearly state that they are based off of SinCraft source code.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-
-[1]: http://wiki.mcforge.net/index.php?title=Development
-[2]: http://www.mcforge.net
-[3]: https://raw.github.com/SinCraft/SinCraft-MCLawl/master/LICENSE.txt
-[4]: https://help.github.com/articles/dealing-with-line-endings
