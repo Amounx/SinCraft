@@ -32,7 +32,7 @@ namespace Starter
         {
             get
             {
-                return "http://www.mcforge.net/SinCraft_.dll";
+                return "http://sincraft.sinjai.x10.mx/SinCraft_.dll";
             }
         }
         static int tries = 0;

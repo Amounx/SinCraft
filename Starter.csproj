@@ -39,8 +39,7 @@
     <StartupObject>Starter.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>SinCraft.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -55,6 +54,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SinCraft.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="SinCraft_.csproj">
+      <Project>{DAF08A60-0D06-4AEB-BEB2-7B45D071C16D}</Project>
+      <Name>SinCraft_</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
