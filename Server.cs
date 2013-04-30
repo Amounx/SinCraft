@@ -63,7 +63,7 @@ namespace SinCraft
         public event MessageEventHandler OnURLChange;
         public event PlayerListHandler OnPlayerListChange;
         public event VoidHandler OnSettingsUpdate;
-        public static ForgeBot IRC;
+        public static SinBot IRC;
         public static GlobalChatBot GlobalChat;
         public static Thread locationChecker;
         public static bool UseTextures = false;
@@ -895,7 +895,7 @@ namespace SinCraft
                 else File.Create("text/messages.txt").Close();
 
                 // We always construct this to prevent errors...
-                IRC = new ForgeBot(Server.ircChannel, Server.ircOpChannel, Server.ircNick, Server.ircServer);
+                IRC = new SinBot(Server.ircChannel, Server.ircOpChannel, Server.ircNick, Server.ircServer);
                 GlobalChat = new GlobalChatBot(GlobalChatNick);
 
                 if (Server.irc) IRC.Connect();

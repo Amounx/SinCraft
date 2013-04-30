@@ -16,12 +16,12 @@
 	permissions and limitations under the Licenses.
 */
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
-using System.Threading;
-using System.Diagnostics;
-using System.Windows.Forms;
 using System.Reflection;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace Starter
 {

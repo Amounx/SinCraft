@@ -22,7 +22,7 @@ using System.Text;
 using Sharkbite.Irc;
 
 namespace SinCraft {
-	public sealed class ForgeBot {
+	public sealed class SinBot {
 		public static readonly string ColorSignal = "\x03";
 		public static readonly string ResetSignal = "\x0F";
 		private Connection connection;
@@ -33,7 +33,7 @@ namespace SinCraft {
 		private bool reset = false;
 		private byte retries = 0;
 		public string usedCmd = "";
-		public ForgeBot(string channel, string opchannel, string nick, string server) {
+		public SinBot(string channel, string opchannel, string nick, string server) {
 			/*if (!File.Exists("Sharkbite.Thresher.dll"))
 			{
 				Server.irc = false;
