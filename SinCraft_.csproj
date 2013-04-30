@@ -361,7 +361,7 @@
     <Compile Include="GlobalChatBot.cs" />
     <Compile Include="Games\CountdownGame.cs" />
     <Compile Include="Economy.cs" />
-    <Compile Include="ForgeBot.cs" />
+    <Compile Include="SinBot.cs" />
     <Compile Include="GUI\EditText.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -657,7 +657,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
     <None Include="Service References\TranslateService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
