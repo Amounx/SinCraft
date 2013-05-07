@@ -4113,7 +4113,7 @@ changed |= 4;*/
             OnPlayerDisconnectEvent.Call(this, kickString);
 
             //Umm...fixed?
-            if (name == "")
+            if (Username == "")
             {
                 if (socket != null)
                     CloseSocket();
