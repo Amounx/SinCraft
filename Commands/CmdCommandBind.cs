@@ -1,5 +1,5 @@
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 	
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -18,14 +18,14 @@
 using System;
 namespace SinCraft.Commands
 {
-    public sealed class CmdCmdBind : Command
+    public sealed class CmdCommandBind : Command
     {
-        public override string name { get { return "cmdbind"; } }
-        public override string shortcut { get { return "cb"; } }
+        public override string name { get { return "commandbind"; } }
+        public override string[] aliases { get { return new string[] { "cb", "cmdbind" }; } }
         public override string type { get { return "build"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Builder; } }
-        public CmdCmdBind() { }
+        public CmdCommandBind() { }
 
         public override void Use(Player p, string message)
         {
@@ -47,7 +47,7 @@ namespace SinCraft.Commands
                         OneFound = true;
                     }
                 }
-                if (!OneFound) Player.SendMessage(p, "You have no commands binded");
+                if (!OneFound) Player.SendMessage(p, "You have no commands bound.");
                 return;
             }
 
@@ -77,17 +77,17 @@ namespace SinCraft.Commands
                     p.cmdBind[foundnum] = foundcmd;
                     p.messageBind[foundnum] = foundmessage;
 
-                    Player.SendMessage(p, "Binded &b/" + foundcmd + " " + foundmessage + " to &c/" + foundnum);
+                    Player.SendMessage(p, "Bound &b/" + foundcmd + " " + foundmessage + " to &c/" + foundnum);
                 }
                 catch { Help(p); }
             }
         }
         public override void Help(Player p)
         {
-            Player.SendMessage(p, "/cmdbind [command] [num] - Binds [command] to [num]");
+            Player.SendMessage(p, "/commandbind [command] [num] - Binds [command] to [num]");
             Player.SendMessage(p, "[num] must be between 0 and 9");
             Player.SendMessage(p, "Use with \"/[num]\" &b(example: /2)");
-            Player.SendMessage(p, "Use /cmdbind [num] to see stored commands.");
+            Player.SendMessage(p, "Use /commandbind [num] to see stored commands.");
         }
     }
 }

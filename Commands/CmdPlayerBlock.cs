@@ -17,7 +17,7 @@ namespace SinCraft.Commands
     public sealed class CmdPlayerBlock : Command
     {
         public override string name { get { return "playerblock"; } }
-        public override string shortcut { get { return "pblock"; } }
+        public override string[] aliases { get { return new string[] { "pblock" }; } }
         public override string type { get { return "other"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }

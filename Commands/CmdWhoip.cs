@@ -1,5 +1,6 @@
+
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 		
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -15,6 +16,7 @@
 	or implied. See the Licenses for the specific language governing
 	permissions and limitations under the Licenses.
 */
+/*
 using System.Data;
 using SinCraft.SQL;
 namespace SinCraft.Commands
@@ -22,7 +24,7 @@ namespace SinCraft.Commands
     public sealed class CmdWhoip : Command
     {
         public override string name { get { return "whoip"; } }
-        public override string shortcut { get { return ""; } }
+        public override string[] aliases { get { return new string[] { "" }; } }
         public override string type { get { return "information"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }
@@ -55,3 +57,4 @@ namespace SinCraft.Commands
         }
     }
 }
+*/

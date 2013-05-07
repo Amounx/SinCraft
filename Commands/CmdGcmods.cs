@@ -17,17 +17,18 @@
 */
 namespace SinCraft.Commands
 {
-    public sealed class CmdGcmods : Command
+    public sealed class CmdGCMods : Command
     {
         public override string name { get { return "gcmods"; } }
-        public override string shortcut { get { return "gcmod"; } }
+        public override string[] aliases { get { return new string[] { "gcmod" }; } }
         public override string type { get { return "information"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Banned; } }
-        public CmdGcmods() { }
+        public CmdGCMods() { }
 
         public override void Use(Player p, string message)
         {
+            /*
             if (message != "") { Help(p); return; }
             string gcmodlist = "";
             string tempgcmods;
@@ -39,6 +40,8 @@ namespace SinCraft.Commands
             }
             gcmodlist = gcmodlist.Remove(gcmodlist.Length - 2);
             Player.SendMessage(p, "&9SinCraft Global Chat Moderation Team: " + Server.DefaultColor + gcmodlist + "&e.");
+             */
+            Player.SendMessage(p, "There are currently no SinCraft GC moderators.");
         }
 
         public override void Help(Player p)

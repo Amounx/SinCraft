@@ -1,5 +1,5 @@
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 		
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -26,7 +26,7 @@ namespace SinCraft.Commands
     public sealed class CmdServer : Command
     {
         public override string name { get { return "server"; } }
-        public override string shortcut { get { return "serv"; } }
+        public override string[] aliases { get { return new string[] { "serv" }; } }
         public override string type { get { return "other"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Admin; } }
@@ -155,7 +155,7 @@ namespace SinCraft.Commands
         { // could do this elsewhere, but will worry about that later.
             //Other
             Server.higherranktp = true;
-            Server.agreetorulesonentry = false;
+            Server.MustReadRules = false;
 
             Server.tempBans = new List<Server.TempBan>();
 
@@ -231,7 +231,7 @@ namespace SinCraft.Commands
             Server.verifyadmins = true;
             Server.verifyadminsrank = LevelPermission.Operator;
 
-            Server.restartOnError = true;
+            Server.restartOnError = false;
 
             Server.antiTunnel = true;
             Server.maxDepth = 4;
@@ -294,7 +294,7 @@ namespace SinCraft.Commands
             Server.customGrieferStoneMessage = "Oh noes! You were caught griefing!";
             Server.customPromoteMessage = "&6Congratulations for working hard and getting &2PROMOTED!";
             Server.customDemoteMessage = "&4DEMOTED! &6We're sorry for your loss. Good luck on your future endeavors! &1:'(";
-            Server.moneys = "moneys";
+            Server.Currency = "moneys";
             Server.opchatperm = LevelPermission.Operator;
             Server.adminchatperm = LevelPermission.Admin;
             Server.logbeat = false;

@@ -1,6 +1,5 @@
-using System.Text.RegularExpressions;
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 		
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -16,13 +15,14 @@ using System.Text.RegularExpressions;
 	or implied. See the Licenses for the specific language governing
 	permissions and limitations under the Licenses.
 */
+using System.Text.RegularExpressions;
 using SinCraft.SQL;
 namespace SinCraft.Commands
 {
     public sealed class CmdTitle : Command
     {
         public override string name { get { return "title"; } }
-        public override string shortcut { get { return ""; } }
+        public override string[] aliases { get { return new string[] { "" }; } }
         public override string type { get { return "other"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Admin; } }
@@ -48,9 +48,9 @@ namespace SinCraft.Commands
             {
                 who.title = "";
                 who.SetPrefix();
-                Player.GlobalChat(who, who.color + who.name + Server.DefaultColor + " had their title removed.", false);
+                Player.GlobalChat(who, who.color + who.SetName + Server.DefaultColor + " had their title removed.", false);
                 query = "UPDATE Players SET Title = '' WHERE Name = @Name";
-                Database.AddParams("@Name", who.name);
+                Database.AddParams("@Name", who.Username);
                 Database.executeQuery(query);
                 return;
             }
@@ -72,8 +72,8 @@ namespace SinCraft.Commands
 
 
             if (newTitle != "")
-                Player.GlobalChat(who, who.color + who.name + Server.DefaultColor + " was given the title of &b[" + newTitle + "%b]", false);
-            else Player.GlobalChat(who, who.color + who.prefix + who.name + Server.DefaultColor + " had their title removed.", false);
+                Player.GlobalChat(who, who.color + who.SetName + Server.DefaultColor + " was given the title of &b[" + newTitle + "%b]", false);
+            else Player.GlobalChat(who, who.color + who.prefix + who.SetName + Server.DefaultColor + " had their title removed.", false);
 
             if (!Regex.IsMatch(newTitle.ToLower(), @".*%([0-9]|[a-f]|[k-r])%([0-9]|[a-f]|[k-r])%([0-9]|[a-f]|[k-r])"))
             {
@@ -93,13 +93,13 @@ namespace SinCraft.Commands
             if (newTitle == "")
             {
                 query = "UPDATE Players SET Title = '' WHERE Name = @Name";
-                Database.AddParams("@Name", who.name);
+                Database.AddParams("@Name", who.Username);
             }
             else
             {
                 query = "UPDATE Players SET Title = @Title WHERE Name = @Name";
                 Database.AddParams("@Title", newTitle);
-                Database.AddParams("@Name", who.name);
+                Database.AddParams("@Name", who.Username);
             }
             Database.executeQuery(query);
             who.title = newTitle;

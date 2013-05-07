@@ -15,6 +15,7 @@
 	or implied. See the Licenses for the specific language governing
 	permissions and limitations under the Licenses.
 */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 namespace SinCraft
@@ -46,21 +47,47 @@ namespace SinCraft
         }
         public Command Find(string name)
         {
-            name = name.ToLower();
-            return commands.FirstOrDefault(cmd => cmd.name == name || cmd.shortcut == name);
-        }
-
-        public string FindShort(string shortcut)
-        {
-            if (shortcut == "") return "";
-
-            shortcut = shortcut.ToLower();
-            foreach (Command cmd in commands.Where(cmd => cmd.shortcut == shortcut)){
-                return cmd.name;
+            Command cmd = null;
+            foreach (Command comm in Command.all.commands.ToArray())
+            {
+                if (comm.name == name)
+                {
+                    cmd = comm;
+                    break;
+                }
+                foreach (string alias in comm.aliases)
+                {
+                    if (alias == name)
+                    {
+                        cmd = comm;
+                        break;
+                    }
+                }
             }
-            return "";
+            return cmd;
         }
-
+        /// <summary>
+        /// Used to find the command name that the alias is assigned to.
+        /// </summary>
+        /// <param name="alias">The alias to search for.</param>
+        /// <returns></returns>
+        public string FindCmdNameByAlias(string alias)
+        {
+            Command cmd = null;
+            foreach (Command comm in Command.all.commands.ToArray())
+            {
+                foreach (string _alias in comm.aliases)
+                {
+                    if (_alias == alias)
+                    {
+                        cmd = comm;
+                        break;
+                    }
+                }
+            }
+            return cmd.name;
+            //return (cmd != null) ? gotten.name : "";
+        }
         public List<Command> All() { return new List<Command>(commands); }
     }
 }

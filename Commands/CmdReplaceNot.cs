@@ -23,7 +23,7 @@ namespace SinCraft.Commands
     public sealed class CmdReplaceNot : Command
     {
         public override string name { get { return "replacenot"; } }
-        public override string shortcut { get { return "rn"; } }
+        public override string[] aliases { get { return new string[] { "rn" }; } }
         public override string type { get { return "build"; } }
         public override bool museumUsable { get { return false; } }
         public override LevelPermission defaultRank { get { return LevelPermission.AdvBuilder; } }

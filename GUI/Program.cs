@@ -43,10 +43,10 @@ namespace SinCraft_.Gui
         public static string parent = Path.GetFileName(Assembly.GetEntryAssembly().Location);
         public static string parentfullpath = Assembly.GetEntryAssembly().Location;
         public static string parentfullpathdir = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-        private static string CurrentVersionFile = "http://update.mcforge.net/current_version.txt";
-        private static string DLLLocation = "http://update.mcforge.net/dll/SinCraft_.dll";
-        private static string ChangelogLocation = "http://update.mcforge.net/changelog.txt";
-        private static string EXELocation = "http://update.mcforge.net/program/SinCraft.exe";
+        private static string CurrentVersionFile = "http://sincraft.x10.mx/update/current_version.txt";
+        private static string DLLLocation = "http://sincraft.x10.mx/update/SinCraft_.dll";
+        private static string ChangelogLocation = "http://sincraft.x10.mx/update/changelog.txt";
+        private static string EXELocation = "http://sincraft.x10.mx/update/SinCraft.exe";
         //private static string RevisionList = "http://update.mcforge.net/revs.txt";
         //private static string HeartbeatAnnounce = "http://www.mcforge.net/hbannounce.php";
 
@@ -361,98 +361,101 @@ namespace SinCraft_.Gui
             CurrentUpdate = true;
             Thread updateThread = new Thread(new ThreadStart(delegate
             {
-                WebClient Client = new WebClient();
-
-                if (wait) { if (!Server.checkUpdates) return; Thread.Sleep(10000); }
-                try
+                using (WebClient Client = new WebClient())
                 {
-                	string raw = Client.DownloadString(Program.CurrentVersionFile);
-                	if (raw.EndsWith("b") && !Server.DownloadBeta) {
-                		Player.SendMessage(p, "Beta version found!");
-                		Player.SendMessage(p, "But server set to use release build!");
-                		return;
-                	}
-                	else if (raw.EndsWith("b") && Server.DownloadBeta)
-                		raw = raw.Substring(0, raw.Length - 1);
-                    Version availableUpdateVersion = new Version(raw);
-                    if (availableUpdateVersion > Server.Version || availableUpdateVersion > AssemblyName.GetAssemblyName(parent).Version)
+                    if (wait) { if (!Server.checkUpdates) return; Thread.Sleep(10000); }
+                    try
                     {
-                        if (Server.autoupdate == true || p != null)
+                        Server.DownloadBeta = true; //forced beta use (beta is the only thing being released right now)
+                        string raw = Client.DownloadString(Program.CurrentVersionFile);
+                        if (raw.EndsWith("b") && !Server.DownloadBeta)
                         {
-                            if (Server.autonotify == true || p != null)
+                            Player.SendMessage(p, "Beta version found!");
+                            Player.SendMessage(p, "But server set to use release build!");
+                            return;
+                        }
+                        else if (raw.EndsWith("b") && Server.DownloadBeta)
+                            raw = raw.Substring(0, raw.Length - 1);
+                        Version availableUpdateVersion = new Version(raw);
+                        if (availableUpdateVersion > Server.Version || availableUpdateVersion > AssemblyName.GetAssemblyName(parent).Version)
+                        {
+                            if (Server.autoupdate == true || p != null)
                             {
-                                //if (p != null) Server.restartcountdown = "20";  This is set by the user.  Why change it?
-                                Player.GlobalMessage("Update found. Prepare for restart in &f" + Server.restartcountdown + Server.DefaultColor + " seconds.");
-                                Server.s.Log("Update found. Prepare for restart in " + Server.restartcountdown + " seconds.");
-                                double nxtTime = Convert.ToDouble(Server.restartcountdown);
-                                DateTime nextupdate = DateTime.Now.AddMinutes(nxtTime);
-                                int timeLeft = Convert.ToInt32(Server.restartcountdown);
-                                System.Timers.Timer countDown = new System.Timers.Timer();
-                                countDown.Interval = 1000;
-                                countDown.Start();
-                                countDown.Elapsed += delegate
+                                if (Server.autonotify == true || p != null)
                                 {
-                                    if (Server.autoupdate == true || p != null)
+                                    //if (p != null) Server.restartcountdown = "20";  This is set by the user.  Why change it?
+                                    Player.GlobalMessage("Update found. Prepare for restart in &f" + Server.restartcountdown + Server.DefaultColor + " seconds.");
+                                    Server.s.Log("Update found. Prepare for restart in " + Server.restartcountdown + " seconds.");
+                                    double nxtTime = Convert.ToDouble(Server.restartcountdown);
+                                    DateTime nextupdate = DateTime.Now.AddMinutes(nxtTime);
+                                    int timeLeft = Convert.ToInt32(Server.restartcountdown);
+                                    System.Timers.Timer countDown = new System.Timers.Timer();
+                                    countDown.Interval = 1000;
+                                    countDown.Start();
+                                    countDown.Elapsed += delegate
                                     {
-                                        Player.GlobalMessage("Updating in &f" + timeLeft + Server.DefaultColor + " seconds.");
-                                        Server.s.Log("Updating in " + timeLeft + " seconds.");
-                                        timeLeft = timeLeft - 1;
-                                        if (timeLeft < 0)
+                                        if (Server.autoupdate == true || p != null)
                                         {
-                                            Player.GlobalMessage("---UPDATING SERVER---");
-                                            Server.s.Log("---UPDATING SERVER---");
+                                            Player.GlobalMessage("Updating in &f" + timeLeft + Server.DefaultColor + " seconds.");
+                                            Server.s.Log("Updating in " + timeLeft + " seconds.");
+                                            timeLeft = timeLeft - 1;
+                                            if (timeLeft < 0)
+                                            {
+                                                Player.GlobalMessage("---UPDATING SERVER---");
+                                                Server.s.Log("---UPDATING SERVER---");
+                                                countDown.Stop();
+                                                countDown.Dispose();
+                                                PerformUpdate();
+                                            }
+                                        }
+                                        else
+                                        {
+                                            Player.GlobalMessage("Stopping auto restart.");
+                                            Server.s.Log("Stopping auto restart.");
                                             countDown.Stop();
                                             countDown.Dispose();
-                                            PerformUpdate();
                                         }
-                                    }
-                                    else
-                                    {
-                                        Player.GlobalMessage("Stopping auto restart.");
-                                        Server.s.Log("Stopping auto restart.");
-                                        countDown.Stop();
-                                        countDown.Dispose();
-                                    }
-                                };
+                                    };
+                                }
+                                else
+                                {
+                                    PerformUpdate();
+                                }
+
                             }
                             else
                             {
-                                PerformUpdate();
+                                if (!msgOpen && !usingConsole)
+                                {
+                                    if (Server.autonotify)
+                                    {
+                                        msgOpen = true;
+                                        if (MessageBox.Show("New version found. Would you like to update?", "Update?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                                        {
+                                            PerformUpdate();
+                                        }
+                                        msgOpen = false;
+                                    }
+                                }
+                                else
+                                {
+                                    ConsoleColor prevColor = Console.ForegroundColor;
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine("An update was found!");
+                                    Console.WriteLine("Update using the file at " + DLLLocation + " and placing it over the top of your current SinCraft_.dll!");
+                                    Console.WriteLine("Also update using the file at " + EXELocation + " and placing it over the top of your current SinCraft.exe");
+                                    Console.ForegroundColor = prevColor;
+                                }
                             }
-
                         }
                         else
                         {
-                            if (!msgOpen && !usingConsole)
-                            {
-                                if (Server.autonotify)
-                                {
-                                    msgOpen = true;
-                                    if (MessageBox.Show("New version found. Would you like to update?", "Update?", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                                    {
-                                        PerformUpdate();
-                                    }
-                                    msgOpen = false;
-                                }
-                            }
-                            else
-                            {
-                                ConsoleColor prevColor = Console.ForegroundColor;
-                                Console.ForegroundColor = ConsoleColor.Red;
-                                Console.WriteLine("An update was found!");
-                                Console.WriteLine("Update using the file at " + DLLLocation + " and placing it over the top of your current SinCraft_.dll!");
-                                Console.WriteLine("Also update using the file at " + EXELocation + " and placing it over the top of your current SinCraft.exe");
-                                Console.ForegroundColor = prevColor;
-                            }
+                            Player.SendMessage(p, "No update found!");
                         }
                     }
-                    else
-                    {
-                        Player.SendMessage(p, "No update found!");
-                    }
+                    catch { try { Server.s.Log("No web server found to update on."); } catch { } }
+                    Client.Dispose();
                 }
-                catch { try { Server.s.Log("No web server found to update on."); } catch { } }
-                Client.Dispose();
                 CurrentUpdate = false;
             })); updateThread.Start();
         }

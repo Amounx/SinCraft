@@ -1,5 +1,5 @@
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 	
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -22,7 +22,7 @@ namespace SinCraft.Commands
     public sealed class CmdGive : Command
     {
         public override string name { get { return "give"; } }
-        public override string shortcut { get { return "gib"; } }
+        public override string[] aliases { get { return new string[] { "gib" }; } }
         public override string type { get { return "other"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Admin; } }
@@ -41,7 +41,7 @@ namespace SinCraft.Commands
             int amountGiven;
             try { amountGiven = int.Parse(message.Split(' ')[1]); }
             catch { Player.SendMessage(p, "%cInvalid amount"); return; }
-            if (amountGiven < 0) { Player.SendMessage(p, "%cCannot give negative %3" + Server.moneys); return; }
+            if (amountGiven < 0) { Player.SendMessage(p, "%cCannot give negative %3" + Server.Currency); return; }
 
             Player who = Player.Find(message.Split(' ')[0]);
             Economy.EcoStats ecos;
@@ -54,16 +54,16 @@ namespace SinCraft.Commands
                 ecos = Economy.RetrieveEcoStats(message.Split()[0]);
                 if (ReachedMax(p, ecos.money, amountGiven)) return;
                 ecos.money += amountGiven;
-                ecos.salary = "%f" + amountGiven + "%3 " + Server.moneys + " by " + user1 + "%3 on %f" + DateTime.Now.ToString(CultureInfo.InvariantCulture);
+                ecos.salary = "%f" + amountGiven + "%3 " + Server.Currency + " by " + user1 + "%3 on %f" + DateTime.Now.ToString(CultureInfo.InvariantCulture);
                 Economy.UpdateEcoStats(ecos);
                 //Player.GlobalMessage("%f" + ecos.playerName + Server.DefaultColor + "(offline) was given %f" + amountGiven + " %3" + Server.moneys + Server.DefaultColor + " by " + user2);
-                Player.GlobalMessage(user2 + Server.DefaultColor + " gave %f" + ecos.playerName + Server.DefaultColor + "(offline)" + " %f" + amountGiven + " %3" + Server.moneys);
+                Player.GlobalMessage(user2 + Server.DefaultColor + " gave %f" + ecos.playerName + Server.DefaultColor + "(offline)" + " %f" + amountGiven + " %3" + Server.Currency);
                 return;
             }
 
             if (who == p /*&& p.name != Server.server_owner*/)
             {
-                Player.SendMessage(p, "%cYou can't give yourself %3" + Server.moneys);
+                Player.SendMessage(p, "%cYou can't give yourself %3" + Server.Currency);
                 return;
             }//I think owners should be able to give themselves money, for testing reasons..
             //although questionable, because console could give money too
@@ -78,25 +78,25 @@ namespace SinCraft.Commands
                 return;
             }*/
 
-            if (ReachedMax(p, who.money, amountGiven)) return;
-            who.money += amountGiven;
+            if (ReachedMax(p, who.Money, amountGiven)) return;
+            who.Money += amountGiven;
             ecos = Economy.RetrieveEcoStats(who.name);
-            ecos.money = who.money;
-            ecos.salary = "%f" + amountGiven + "%3 " + Server.moneys + " by " + user1 + "%3 on %f" + DateTime.Now.ToString(CultureInfo.InvariantCulture);
+            ecos.money = who.Money;
+            ecos.salary = "%f" + amountGiven + "%3 " + Server.Currency + " by " + user1 + "%3 on %f" + DateTime.Now.ToString(CultureInfo.InvariantCulture);
             Economy.UpdateEcoStats(ecos);
-            Player.GlobalMessage(user2 + Server.DefaultColor + " gave " + who.prefix + who.name + " %f" + amountGiven + " %3" + Server.moneys);
+            Player.GlobalMessage(user2 + Server.DefaultColor + " gave " + who.prefix + who.name + " %f" + amountGiven + " %3" + Server.Currency);
             //Player.GlobalMessage(who.color + who.prefix + who.name + Server.DefaultColor + " was given %f" + amountGiven + " %3" + Server.moneys + Server.DefaultColor + " by " + user2);
         }
         public override void Help(Player p)
         {
-            Player.SendMessage(p, "%f/give [player] <amount>" + Server.DefaultColor + " - Gives [player] <amount> %3" + Server.moneys);
+            Player.SendMessage(p, "%f/give [player] <amount>" + Server.DefaultColor + " - Gives [player] <amount> %3" + Server.Currency);
         }
 
         private bool ReachedMax(Player p, int current, int amount)
         {
             if (current + amount > 16777215)
             {
-                Player.SendMessage(p, "%cPlayers cannot have over %316777215 %3" + Server.moneys);
+                Player.SendMessage(p, "%cPlayers cannot have over %316777215 %3" + Server.Currency);
                 return true;
             }
             return false;

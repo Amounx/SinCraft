@@ -1,5 +1,5 @@
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 		
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -22,7 +22,7 @@ namespace SinCraft.Commands
     public sealed class CmdTake : Command
     {
         public override string name { get { return "take"; } }
-        public override string shortcut { get { return ""; } }
+        public override string[] aliases { get { return new string[] { "" }; } }
         public override string type { get { return "other"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Admin; } }
@@ -49,7 +49,7 @@ namespace SinCraft.Commands
                 }
                 all = true;
             }
-            if (amountTaken < 0) { Player.SendMessage(p, "%cYou can't take negative %3" + Server.moneys); return; }
+            if (amountTaken < 0) { Player.SendMessage(p, "%cYou can't take negative %3" + Server.Currency); return; }
 
 
             Player who = Player.Find(message.Split()[0]);
@@ -66,37 +66,37 @@ namespace SinCraft.Commands
                 }
                 else
                     ecos.money -= amountTaken;
-                ecos.fine = "%f" + amountTaken + " %3" + Server.moneys + " by " + user1 + "%3 on %f" + DateTime.Now.ToString(CultureInfo.InvariantCulture);
+                ecos.fine = "%f" + amountTaken + " %3" + Server.Currency + " by " + user1 + "%3 on %f" + DateTime.Now.ToString(CultureInfo.InvariantCulture);
                 Economy.UpdateEcoStats(ecos);
-                Player.GlobalMessage(user2 + Server.DefaultColor + " took %f" + amountTaken + " %3" + Server.moneys + Server.DefaultColor + " from " + off.color + off.name + "%f(offline)");
+                Player.GlobalMessage(user2 + Server.DefaultColor + " took %f" + amountTaken + " %3" + Server.Currency + Server.DefaultColor + " from " + off.color + off.name + "%f(offline)");
                 return;
             }
             ecos = Economy.RetrieveEcoStats(who.name);
             if (who == p)
             {
-                Player.SendMessage(p, "%cYou can't take %3" + Server.moneys + "%c from yourself");
+                Player.SendMessage(p, "%cYou can't take %3" + Server.Currency + "%c from yourself");
                 return;
             }
 
             if (all || ecos.money - amountTaken < 0)
             {
-                amountTaken = who.money;
-                who.money = 0;
+                amountTaken = who.Money;
+                who.Money = 0;
                 ecos.money = 0;
             }
             else
             {
-                who.money -= amountTaken;
-                ecos.money = who.money;
+                who.Money -= amountTaken;
+                ecos.money = who.Money;
             }
-            ecos.fine = "%f" + amountTaken + " %3" + Server.moneys + " by " + user1 + "%3 on %f" + DateTime.Now.ToString(CultureInfo.InvariantCulture);
+            ecos.fine = "%f" + amountTaken + " %3" + Server.Currency + " by " + user1 + "%3 on %f" + DateTime.Now.ToString(CultureInfo.InvariantCulture);
             Economy.UpdateEcoStats(ecos);
-            Player.GlobalMessage(user2 + Server.DefaultColor + " took %f" + amountTaken + " %3" + Server.moneys + Server.DefaultColor + " from " + who.prefix + who.name);
+            Player.GlobalMessage(user2 + Server.DefaultColor + " took %f" + amountTaken + " %3" + Server.Currency + Server.DefaultColor + " from " + who.prefix + who.name);
         }
         public override void Help(Player p)
         {
-            Player.SendMessage(p, "&f/take [player] <amount> " + Server.DefaultColor + "- Takes <amount> of " + Server.moneys + " from [player]");
-            Player.SendMessage(p, "&f/take [player] all " + Server.DefaultColor + "- Takes all the " + Server.moneys + " from [player]");
+            Player.SendMessage(p, "&f/take [player] <amount> " + Server.DefaultColor + "- Takes <amount> of " + Server.Currency + " from [player]");
+            Player.SendMessage(p, "&f/take [player] all " + Server.DefaultColor + "- Takes all the " + Server.Currency + " from [player]");
         }
     }
 }

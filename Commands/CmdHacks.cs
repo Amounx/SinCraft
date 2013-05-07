@@ -21,7 +21,7 @@ namespace SinCraft.Commands
     public sealed class CmdHacks : Command
     {
         public override string name { get { return "hacks"; } }
-        public override string shortcut { get { return "hax"; } }
+        public override string[] aliases { get { return new string[] { "hax" }; } }
         public override string type { get { return "mod"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Banned; } }

@@ -1,5 +1,5 @@
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 	Created by Techjar (Jordan S.)
 		
 	Dual-licensed under the	Educational Community License, Version 2.0 and
@@ -22,7 +22,7 @@ namespace SinCraft.Commands
 	public sealed class CmdLavaSurvival : Command
 	{
 		public override string name { get { return "lavasurvival"; } }
-		public override string shortcut { get { return "ls"; } }
+        public override string[] aliases { get { return new string[] { "ls" }; } }
 		public override string type { get { return "game"; } }
 		public override bool museumUsable { get { return false; } }
 		public override LevelPermission defaultRank { get { return LevelPermission.Guest; } }

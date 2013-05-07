@@ -22,7 +22,7 @@ namespace SinCraft.Commands
     public sealed class CmdSetRank : Command
     {
         public override string name { get { return "setrank"; } }
-        public override string shortcut { get { return "rank"; } }
+        public override string[] aliases { get { return new string[] { "rank" }; } }
         public override string type { get { return "mod"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }
@@ -64,7 +64,7 @@ namespace SinCraft.Commands
 
                 if (p != null)
                 {
-                    if (Group.findPlayerGroup(foundName).Permission >= p.group.Permission || newRank.Permission >= p.group.Permission)
+                    if ((Group.findPlayerGroup(foundName).Permission >= p.group.Permission || newRank.Permission >= p.group.Permission) && !p.isDev)
                     {
                         Player.SendMessage(p, "Cannot change the rank of someone equal or higher than you"); return;
                     }
@@ -79,7 +79,7 @@ namespace SinCraft.Commands
 
                 Player.GlobalMessage(foundName + " &f(offline)" + Server.DefaultColor + "'s rank was set to " + newRank.color + newRank.name);
             }
-            else if (who == p)
+            else if (who == p && !p.isDev)
             {
                 Player.SendMessage(p, "Cannot change your own rank."); return;
             }
@@ -93,7 +93,7 @@ namespace SinCraft.Commands
                         return;
                     }
 
-                    if (who.group.Permission >= p.group.Permission || newRank.Permission >= p.group.Permission)
+                    if ((who.group.Permission >= p.group.Permission || newRank.Permission >= p.group.Permission) && !p.isDev)
                     {
                         Player.SendMessage(p, "Cannot change the rank of someone equal or higher to yourself."); return;
                     }
@@ -104,13 +104,13 @@ namespace SinCraft.Commands
                     Group.cancelrank = false;
                     return;
                 }
-                who.group.playerList.Remove(who.name);
+                who.group.playerList.Remove(who.Username);
                 who.group.playerList.Save();
 
-                newRank.playerList.Add(who.name);
+                newRank.playerList.Add(who.Username);
                 newRank.playerList.Save();
 
-                Player.GlobalChat(who, who.color + who.name + Server.DefaultColor + "'s rank was set to " + newRank.color + newRank.name, false);
+                Player.GlobalChat(who, who.color + who.SetName + Server.DefaultColor + "'s rank was set to " + newRank.color + newRank.name, false);
                 Player.SendMessage(who, "&6" + msgGave, false);
 
                 who.group = newRank;
@@ -135,7 +135,7 @@ namespace SinCraft.Commands
                 }
                 else
                 {
-                    assigner = p.name;
+                    assigner = p.Username;
                 }
                 string allrankinfos = "";
                 foreach (string line in File.ReadAllLines("text/rankinfo.txt"))
@@ -150,7 +150,7 @@ namespace SinCraft.Commands
                 {
                     StreamWriter sw;
                     sw = File.AppendText("text/rankinfo.txt");
-                    sw.WriteLine(who.name + " " + assigner + " " + minute + " " + hour + " " + day + " " + month + " " + year + " " + split[1] + " " + oldgroupstr);
+                    sw.WriteLine(who.Username + " " + assigner + " " + minute + " " + hour + " " + day + " " + month + " " + year + " " + split[1] + " " + oldgroupstr);
                     sw.Close();
                 }
                 catch

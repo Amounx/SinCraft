@@ -212,8 +212,8 @@ namespace SinCraft
                                             Server.infectCombo++;
                                             if (Server.infectCombo >= 2)
                                             {
-                                                player1.SendMessage("You gained " + (4 - Server.infectCombo) + " " + Server.moneys);
-                                                player1.money = player1.money + 4 - Server.infectCombo;
+                                                player1.SendMessage("You gained " + (4 - Server.infectCombo) + " " + Server.Currency);
+                                                player1.Money = player1.Money + 4 - Server.infectCombo;
                                                 Player.GlobalMessage(player1.color + player1.name + " is on a rampage! " + (Server.infectCombo + 1) + " infections in a row!");
                                             }
                                         }
@@ -330,10 +330,10 @@ namespace SinCraft
                     {
                         randomInt = random2.Next(1, 5);
                     }
-                    Player.SendMessage(winners, c.gold + "You gained " + randomInt + " " + Server.moneys);
+                    Player.SendMessage(winners, c.gold + "You gained " + randomInt + " " + Server.Currency);
                     winners.blockCount = 50;
                     winners.playersInfected = 0;
-                    winners.money = winners.money + randomInt;
+                    winners.Money = winners.Money + randomInt;
                 }
                 else if (!winners.CheckIfInsideBlock() && (aliveCount == 1 && !winners.infected) && winners.level.name == currentLevelName)
                 {
@@ -342,14 +342,14 @@ namespace SinCraft
                     Random random2 = new Random();
                     int randomInt = 0;
                     randomInt = random2.Next(1, 15);
-                    Player.SendMessage(winners, c.gold + "You gained " + randomInt + " " + Server.moneys);
+                    Player.SendMessage(winners, c.gold + "You gained " + randomInt + " " + Server.Currency);
                     winners.blockCount = 50;
                     winners.playersInfected = 0;
-                    winners.money = winners.money + randomInt;
+                    winners.Money = winners.Money + randomInt;
                 }
                 else if (winners.level.name == currentLevelName)
                 {
-                    winners.SendMessage("You may not hide inside a block! No " + Server.moneys + " for you!");
+                    winners.SendMessage("You may not hide inside a block! No " + Server.Currency + " for you!");
                 }
             }
             try {alive.Clear(); infectd.Clear(); } catch{ }
@@ -363,8 +363,8 @@ namespace SinCraft
                 {
                     if (player.referee)
                     {
-                        player.SendMessage("You gained one " + Server.moneys + " because you're a ref. Would you like a medal as well?");
-                        player.money++;
+                        player.SendMessage("You gained one " + Server.Currency + " because you're a ref. Would you like a medal as well?");
+                        player.Money++;
                     }
                 }
             }

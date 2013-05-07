@@ -17,14 +17,14 @@
 */
 namespace SinCraft.Commands
 {
-    public sealed class CmdEmote : Command
+    public sealed class CmdEmoteParsing : Command
     {
-        public override string name { get { return "emote"; } }
-        public override string shortcut { get { return "<3"; } }
+        public override string name { get { return "emoteparsing"; } }
+        public override string[] aliases { get { return new string[] { "<3", "emoteparse" }; } }
         public override string type { get { return "other"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Banned; } }
-        public CmdEmote() { }
+        public CmdEmoteParsing() { }
 
         public override void Use(Player p, string message)
         {

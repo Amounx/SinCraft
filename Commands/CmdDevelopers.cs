@@ -16,13 +16,13 @@
 	permissions and limitations under the Licenses.
 */
 namespace SinCraft.Commands {
-	public sealed class CmdDevs : Command {
-		public override string name { get { return "devs"; } }
-		public override string shortcut { get { return "dev"; } }
+	public sealed class CmdDevelopers : Command {
+		public override string name { get { return "developers"; } }
+        public override string[] aliases { get { return new string[] { "dev", "devs", "developer" }; } }
 		public override string type { get { return "information"; } }
 		public override bool museumUsable { get { return true; } }
 		public override LevelPermission defaultRank { get { return LevelPermission.Banned; } }
-		public CmdDevs() { }
+		public CmdDevelopers() { }
 
 		public override void Use(Player p, string message) {
 			if ( message != "" ) { Help(p); return; }

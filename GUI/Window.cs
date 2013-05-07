@@ -464,7 +464,7 @@ namespace SinCraft.Gui {
                     }
                     if (!Player.CommandProtected(sentCmd, sentMsg)) {
                         commandcmd.Use(null, sentMsg);
-                    } else { Server.s.Log("Cannot use command, player has protection level: " + Server.forgeProtection); };
+                    } else { Server.s.Log("Cannot use command, player is a developer."); };
                     newCommand("CONSOLE: USED /" + sentCmd + " " + sentMsg);
 
                 }
@@ -876,10 +876,10 @@ namespace SinCraft.Gui {
                     StatusTxt.Text = Player.CheckPlayerStatus(p);
                     IPtxt.Text = p.ip;
                     DeathsTxt.Text = p.deathCount.ToString();
-                    Blockstxt.Text = p.overallBlocks.ToString();
-                    TimesLoggedInTxt.Text = p.totalLogins.ToString();
+                    Blockstxt.Text = p.BlocksModified.ToString();
+                    TimesLoggedInTxt.Text = p.Logins.ToString();
                     LoggedinForTxt.Text = Convert.ToDateTime(DateTime.Now.Subtract(p.timeLogged).ToString()).ToString("HH:mm:ss");
-                    Kickstxt.Text = p.totalKicked.ToString();
+                    Kickstxt.Text = p.TimesKicked.ToString();
                 }
                 { //Check buttons
                     if ( p.joker ) { JokerBt.Text = "UnJoker"; } else { JokerBt.Text = "Joker"; }

@@ -21,7 +21,7 @@ namespace SinCraft.Commands
     public sealed class CmdHide : Command
     {
         public override string name { get { return "hide"; } }
-        public override string shortcut { get { return ""; } }
+        public override string[] aliases { get { return new string[] { "" }; } }
         public override string type { get { return "mod"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }
@@ -56,9 +56,9 @@ namespace SinCraft.Commands
             if (p.hidden)
             {
                 Player.GlobalDie(p, true);
-                Player.GlobalMessageOps("To Ops -" + p.color + p.name + "-" + Server.DefaultColor + " is now &finvisible" + Server.DefaultColor + ".");
-                Player.GlobalChat(p, "&c- " + p.color + p.prefix + p.name + Server.DefaultColor + " " + (File.Exists("text/logout/" + p.name + ".txt") ? File.ReadAllText("text/logout/" + p.name + ".txt") : "Disconnected."), false);
-                Server.IRC.Say(p.name + " left the game (Disconnected.)");
+                Player.GlobalMessageOps("To Ops -" + p.color + p.SetName + "-" + Server.DefaultColor + " is now &finvisible" + Server.DefaultColor + ".");
+                Player.GlobalChat(p, "&c- " + p.color + p.prefix + p.SetName + Server.DefaultColor + " " + (File.Exists("text/logout/" + p.name + ".txt") ? File.ReadAllText("text/logout/" + p.name + ".txt") : "Disconnected."), false);
+                Server.IRC.Say(p.SetName + "(" + p.Username + ")" + " left the game (Disconnected.)");
                 if (!p.opchat)
                 {
                     opchat.Use(p, message);
@@ -70,7 +70,7 @@ namespace SinCraft.Commands
                 Player.GlobalSpawn(p, p.pos[0], p.pos[1], p.pos[2], p.rot[0], p.rot[1], false);
                 Player.GlobalMessageOps("To Ops -" + p.color + p.name + "-" + Server.DefaultColor + " is now &8visible" + Server.DefaultColor + ".");
                 Player.GlobalChat(p, "&a+ " + p.color + p.prefix + p.name + Server.DefaultColor + " " + (File.Exists("text/login/" + p.name + ".txt") ? File.ReadAllText("text/login/" + p.name + ".txt") : "joined the game."), false);
-                Server.IRC.Say(p.name + " joined the game");
+                Server.IRC.Say(p.SetName + "(" + p.Username + ")" + " joined the game");
                 if (p.opchat)
                 {
                     opchat.Use(p, message);

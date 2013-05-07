@@ -1,5 +1,5 @@
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 	
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -25,7 +25,7 @@ namespace SinCraft.Commands {
     /// </summary>
     public sealed class CmdEconomy : Command {
         public override string name { get { return "economy"; } }
-        public override string shortcut { get { return "eco"; } }
+        public override string[] aliases { get { return new string[] { "eco" }; } }
         public override string type { get { return "other"; } }
         public override bool museumUsable { get { return false; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Guest; } }
@@ -104,7 +104,7 @@ namespace SinCraft.Commands {
                                             Player.SendMessage(p, "Map Preset Name: %f" + level.name);
                                             Player.SendMessage(p, "x:" + level.x + ", y:" + level.y + ", z:" + level.z);
                                             Player.SendMessage(p, "Map Type: %f" + level.type);
-                                            Player.SendMessage(p, "Map Price: %f" + level.price + " %3" + Server.moneys);
+                                            Player.SendMessage(p, "Map Price: %f" + level.price + " %3" + Server.Currency);
                                             break;
                                         }
 
@@ -193,12 +193,12 @@ namespace SinCraft.Commands {
                                                         lvl.price = int.Parse(par5);
                                                     } catch {
                                                         Economy.Settings.LevelsList.Add(lvl);
-                                                        Player.SendMessage(p, "%cInvalid amount of %3" + Server.moneys);
+                                                        Player.SendMessage(p, "%cInvalid amount of %3" + Server.Currency);
                                                         return;
                                                     }
-                                                    if (lvl.price < 0) { Player.SendMessage(p, "%cAmount of %3" + Server.moneys + "%c cannot be negative"); lvl.price = old; Economy.Settings.LevelsList.Add(lvl); return; }
+                                                    if (lvl.price < 0) { Player.SendMessage(p, "%cAmount of %3" + Server.Currency + "%c cannot be negative"); lvl.price = old; Economy.Settings.LevelsList.Add(lvl); return; }
                                                     Economy.Settings.LevelsList.Add(lvl);
-                                                    Player.SendMessage(p, "%aSuccessfully changed preset price to %f" + lvl.price + " %3" + Server.moneys);
+                                                    Player.SendMessage(p, "%aSuccessfully changed preset price to %f" + lvl.price + " %3" + Server.Currency);
                                                     break;
 
                                                 default:
@@ -233,7 +233,7 @@ namespace SinCraft.Commands {
                                         try {
                                             Economy.Settings.TitlePrice = int.Parse(par3);
                                         } catch { Player.SendMessage(p, "%cInvalid price input: that wasn't a number!"); return; }
-                                        Player.SendMessage(p, "%aSuccessfully changed the title price to: %f"  + Economy.Settings.TitlePrice + " %3" + Server.moneys);
+                                        Player.SendMessage(p, "%aSuccessfully changed the title price to: %f"  + Economy.Settings.TitlePrice + " %3" + Server.Currency);
                                         break;
 
                                     default:
@@ -257,7 +257,7 @@ namespace SinCraft.Commands {
                                         try {
                                             Economy.Settings.ColorPrice = int.Parse(par3);
                                         } catch { Player.SendMessage(p, "%cInvalid price input: that wasn't a number!"); return; }
-                                        Player.SendMessage(p, "Successfully changed the color price to %f" + Economy.Settings.ColorPrice + " %3" + Server.moneys);
+                                        Player.SendMessage(p, "Successfully changed the color price to %f" + Economy.Settings.ColorPrice + " %3" + Server.Currency);
                                         break;
 
                                     default:
@@ -283,7 +283,7 @@ namespace SinCraft.Commands {
                                         try {
                                             Economy.Settings.TColorPrice = int.Parse(par3);
                                         } catch { Player.SendMessage(p, "%cInvalid price input: that wasn't a number!"); return; }
-                                        Player.SendMessage(p, "%aSuccessfully changed the titlecolor price to %f" + Economy.Settings.TColorPrice + " %3" + Server.moneys);
+                                        Player.SendMessage(p, "%aSuccessfully changed the titlecolor price to %f" + Economy.Settings.TColorPrice + " %3" + Server.Currency);
                                         break;
                                     default:
                                         Player.SendMessage(p, "%cThat wasn't a valid command addition!");
@@ -305,7 +305,7 @@ namespace SinCraft.Commands {
                                             try {
                                                 rnk.price = int.Parse(par4);
                                             } catch { Player.SendMessage(p, "%cInvalid price input: that wasn't a number!"); return; }
-                                            Player.SendMessage(p, "%aSuccesfully changed the rank price for " + rnk.group.color + rnk.group.name + " to: %f" + rnk.price + " %3" + Server.moneys);
+                                            Player.SendMessage(p, "%aSuccesfully changed the rank price for " + rnk.group.color + rnk.group.name + " to: %f" + rnk.price + " %3" + Server.Currency);
                                             break;
                                         }
 
@@ -371,20 +371,20 @@ namespace SinCraft.Commands {
                             Economy.Settings.Level lvl = Economy.FindLevel(par2);
                             if (lvl == null) { Player.SendMessage(p, "%cThat isn't a level preset"); return; } else {
                                 if (!p.EnoughMoney(lvl.price)) {
-                                    Player.SendMessage(p, "%cYou don't have enough %3" + Server.moneys + "%c to buy that map");
+                                    Player.SendMessage(p, "%cYou don't have enough %3" + Server.Currency + "%c to buy that map");
                                     return;
                                 } else {
                                     if (par3 == null) { Player.SendMessage(p, "%cYou didn't specify a name for your level"); return; } else {
-                                        int old = p.money;
+                                        int old = p.Money;
                                         int oldTS = ecos.totalSpent;
                                         string oldP = ecos.purchase;
                                         try {
                                             Command.all.Find("newlvl").Use(null, p.name + "_" + par3 + " " + lvl.x + " " + lvl.y + " " + lvl.z + " " + lvl.type);
                                             Player.SendMessage(p, "%aCreating level: '%f" + p.name + "_" + par3 + "%a' . . .");
-                                            p.money = p.money - lvl.price;
-                                            ecos.money = p.money;
+                                            p.Money = p.Money - lvl.price;
+                                            ecos.money = p.Money;
                                             ecos.totalSpent += lvl.price;
-                                            ecos.purchase = "%3Map: %f" + lvl.name + "%3 - Price: %f"  + lvl.price + " %3" + Server.moneys + " - Date: %f" + ecoColor + DateTime.Now.ToString(CultureInfo.InvariantCulture);
+                                            ecos.purchase = "%3Map: %f" + lvl.name + "%3 - Price: %f"  + lvl.price + " %3" + Server.Currency + " - Date: %f" + ecoColor + DateTime.Now.ToString(CultureInfo.InvariantCulture);
                                             Economy.UpdateEcoStats(ecos);
                                             Command.all.Find("load").Use(null, p.name + "_" + par3);
                                             Thread.Sleep(250);
@@ -394,7 +394,7 @@ namespace SinCraft.Commands {
                                             Command.all.Find("goto").Use(p, p.name + "_" + par3);
                                             while (p.Loading) { Thread.Sleep(250); }
                                             Player.SendMessage(p, "%aSuccessfully created your map: '%f" + p.name + "_" + par3 + "%a'");
-                                            Player.SendMessage(p, "%aYour balance is now %f" + p.money.ToString() + " %3" + Server.moneys);
+                                            Player.SendMessage(p, "%aYour balance is now %f" + p.Money.ToString() + " %3" + Server.Currency);
                                             try {
                                                 //safe against SQL injections, but will be replaced soon by a new feature
                                                 //DB
@@ -403,7 +403,7 @@ namespace SinCraft.Commands {
                                                 Player.SendMessage(p, "%aZoning Succesful");
                                                 return;
                                             } catch { Player.SendMessage(p, "%cZoning Failed"); return; }
-                                        } catch { Player.SendMessage(p, "%cSomething went wrong, Money restored"); if (old != p.money) { p.money = old; ecos.money = old; ecos.totalSpent = oldTS; ecos.purchase = oldP; Economy.UpdateEcoStats(ecos); } return; }
+                                        } catch { Player.SendMessage(p, "%cSomething went wrong, Money restored"); if (old != p.Money) { p.Money = old; ecos.money = old; ecos.totalSpent = oldTS; ecos.purchase = oldP; Economy.UpdateEcoStats(ecos); } return; }
                                     }
                                 }
                             }
@@ -413,7 +413,7 @@ namespace SinCraft.Commands {
                         case "colours":
                         case "colour":
                             if (p.EnoughMoney(Economy.Settings.ColorPrice) == false) {
-                                Player.SendMessage(p, "%cYou don't have enough %3" + Server.moneys + "%c to buy a color");
+                                Player.SendMessage(p, "%cYou don't have enough %3" + Server.Currency + "%c to buy a color");
                                 return;
                             }
                             if (!par2.StartsWith("&") || !par2.StartsWith("%")) {
@@ -476,13 +476,13 @@ namespace SinCraft.Commands {
                                 return;
                             } else {
                                 Command.all.Find("color").Use(null, p.name + " " + c.Name(par2));
-                                p.money = p.money - Economy.Settings.ColorPrice;
-                                ecos.money = p.money;
+                                p.Money = p.Money - Economy.Settings.ColorPrice;
+                                ecos.money = p.Money;
                                 ecos.totalSpent += Economy.Settings.ColorPrice;
-                                ecos.purchase = "%3Color: " + par2 + c.Name(par2) + "%3 - Price: %f" + Economy.Settings.ColorPrice + " %3" + Server.moneys + " - Date: %f" + DateTime.Now.ToString(CultureInfo.InvariantCulture);
+                                ecos.purchase = "%3Color: " + par2 + c.Name(par2) + "%3 - Price: %f" + Economy.Settings.ColorPrice + " %3" + Server.Currency + " - Date: %f" + DateTime.Now.ToString(CultureInfo.InvariantCulture);
                                 Economy.UpdateEcoStats(ecos);
                                 Player.SendMessage(p, "%aYour color has been successfully changed to " + par2 + c.Name(par2));
-                                Player.SendMessage(p, "%aYour balance is now %f" + p.money.ToString() + " %3" + Server.moneys);
+                                Player.SendMessage(p, "%aYour balance is now %f" + p.Money.ToString() + " %3" + Server.Currency);
                                 return;
                             }
 
@@ -492,7 +492,7 @@ namespace SinCraft.Commands {
                         case "titlecolors":
                         case "tc":
                             if (!p.EnoughMoney(Economy.Settings.TColorPrice)) {
-                                Player.SendMessage(p, "%cYou don't have enough %3" + Server.moneys + "%c to buy a titlecolor");
+                                Player.SendMessage(p, "%cYou don't have enough %3" + Server.Currency + "%c to buy a titlecolor");
                                 return;
                             }
                             if (!par2.StartsWith("&") || !par2.StartsWith("%")) {
@@ -555,20 +555,20 @@ namespace SinCraft.Commands {
                                 return;
                             } else {
                                 Command.all.Find("tcolor").Use(null, p.name + " " + c.Name(par2));
-                                p.money = p.money - Economy.Settings.TColorPrice;
-                                ecos.money = p.money;
+                                p.Money = p.Money - Economy.Settings.TColorPrice;
+                                ecos.money = p.Money;
                                 ecos.totalSpent += Economy.Settings.TColorPrice;
-                                ecos.purchase = "%3Titlecolor: " + par2 + c.Name(par2) + "%3 - Price: %f" + Economy.Settings.TColorPrice + " %3" + Server.moneys + " - Date: %f" + DateTime.Now.ToString(CultureInfo.InvariantCulture);
+                                ecos.purchase = "%3Titlecolor: " + par2 + c.Name(par2) + "%3 - Price: %f" + Economy.Settings.TColorPrice + " %3" + Server.Currency + " - Date: %f" + DateTime.Now.ToString(CultureInfo.InvariantCulture);
                                 Economy.UpdateEcoStats(ecos);
                                 Player.SendMessage(p, "%aYour titlecolor has been successfully changed to " + par2 + c.Name(par2));
-                                Player.SendMessage(p, "%aYour balance is now %f" + p.money + " %3" + Server.moneys);
+                                Player.SendMessage(p, "%aYour balance is now %f" + p.Money + " %3" + Server.Currency);
                                 return;
                             }
 
                         case "titles":
                         case "title":
                             if (p.EnoughMoney(Economy.Settings.TitlePrice) == false) {
-                                Player.SendMessage(p, "%cYou don't have enough %3" + Server.moneys + "%c to buy a title");
+                                Player.SendMessage(p, "%cYou don't have enough %3" + Server.Currency + "%c to buy a title");
                                 return;
                             }
                             if (par3 != string.Empty) {
@@ -595,14 +595,14 @@ namespace SinCraft.Commands {
                             }
                             Command.all.Find("title").Use(null, p.name + " " + par2);
                             if (!free) {
-                                p.money = p.money - Economy.Settings.TitlePrice;
-                                ecos.money = p.money;
+                                p.Money = p.Money - Economy.Settings.TitlePrice;
+                                ecos.money = p.Money;
                                 ecos.totalSpent += Economy.Settings.TitlePrice;
-                                ecos.purchase = "%3Title: %f" + par2 + "%3 - Price: %f" + Economy.Settings.TitlePrice + " %3" + Server.moneys + " - Date: %f" + DateTime.Now.ToString(CultureInfo.InvariantCulture);
+                                ecos.purchase = "%3Title: %f" + par2 + "%3 - Price: %f" + Economy.Settings.TitlePrice + " %3" + Server.Currency + " - Date: %f" + DateTime.Now.ToString(CultureInfo.InvariantCulture);
                                 Economy.UpdateEcoStats(ecos);
                                 Player.SendMessage(p, "%aYour title has been successfully changed to [" + p.titlecolor + par2 + "%a]");
                             } else { Player.SendMessage(p, "%aYour title has been successfully removed for free"); }
-                            Player.SendMessage(p, "%aYour balance is now %f" + p.money + " %3" + Server.moneys);
+                            Player.SendMessage(p, "%aYour balance is now %f" + p.Money + " %3" + Server.Currency);
                             return;
 
                         case "ranks":
@@ -618,17 +618,17 @@ namespace SinCraft.Commands {
                                 return;
                             } else {
                                 if (!p.EnoughMoney(Economy.NextRank(p).price)) {
-                                    Player.SendMessage(p, "%cYou don't have enough %3" + Server.moneys + "%c to buy the next rank");
+                                    Player.SendMessage(p, "%cYou don't have enough %3" + Server.Currency + "%c to buy the next rank");
                                     return;
                                 }
                                 Command.all.Find("promote").Use(null, p.name);
-                                p.money = p.money - Economy.FindRank(p.group.name).price;
-                                ecos.money = p.money;
+                                p.Money = p.Money - Economy.FindRank(p.group.name).price;
+                                ecos.money = p.Money;
                                 ecos.totalSpent += Economy.FindRank(p.group.name).price;
-                                ecos.purchase = "%3Rank: " + p.group.color + p.group.name + "%3 - Price: %f" + Economy.FindRank(p.group.name).price + " %3" + Server.moneys + " - Date: %f" + DateTime.Now.ToString(CultureInfo.InvariantCulture);
+                                ecos.purchase = "%3Rank: " + p.group.color + p.group.name + "%3 - Price: %f" + Economy.FindRank(p.group.name).price + " %3" + Server.Currency + " - Date: %f" + DateTime.Now.ToString(CultureInfo.InvariantCulture);
                                 Economy.UpdateEcoStats(ecos);
                                 Player.SendMessage(p, "%aYou've successfully bought the rank " + p.group.color + p.group.name);
-                                Player.SendMessage(p, "%aYour balance is now %f" + p.money + " %3" + Server.moneys);
+                                Player.SendMessage(p, "%aYour balance is now %f" + p.Money + " %3" + Server.Currency);
                                 return;
                             }
 
@@ -654,8 +654,8 @@ namespace SinCraft.Commands {
                         ecostats = Economy.RetrieveEcoStats(p.name);
                         Player.SendMessage(p, "%3===Economy stats for: " + p.color + p.name + "%3===");
                     } else { Player.SendMessage(p, "%cConsole cannot contain any eco stats"); return; }
-                    Player.SendMessage(p, "Balance: %f" + ecostats.money + " %3" + Server.moneys);
-                    Player.SendMessage(p, "Total spent: %f" + ecostats.totalSpent + " %3" + Server.moneys);
+                    Player.SendMessage(p, "Balance: %f" + ecostats.money + " %3" + Server.Currency);
+                    Player.SendMessage(p, "Total spent: %f" + ecostats.totalSpent + " %3" + Server.Currency);
                     Player.SendMessage(p, "Recent purchase: " + ecostats.purchase);
                     Player.SendMessage(p, "Recent payment: " + ecostats.payment);
                     Player.SendMessage(p, "Recent receivement: " + ecostats.salary);
@@ -676,7 +676,7 @@ namespace SinCraft.Commands {
                                     Player.SendMessage(p, "%8-None-");
                                 else
                                     foreach (Economy.Settings.Level lvl in Economy.Settings.LevelsList) {
-                                        Player.SendMessage(p, lvl.name + " (" + lvl.x + "," + lvl.y + "," + lvl.z + ") " + lvl.type + ": %f" + lvl.price + " %3" + Server.moneys);
+                                        Player.SendMessage(p, lvl.name + " (" + lvl.x + "," + lvl.y + "," + lvl.z + ") " + lvl.type + ": %f" + lvl.price + " %3" + Server.Currency);
                                     }
                                 return;
 
@@ -684,7 +684,7 @@ namespace SinCraft.Commands {
                             case "titles":
                                 if (Economy.Settings.Titles == false) { Player.SendMessage(p, "%cTitles are not enabled for the economy system"); return; }
                                 Player.SendMessage(p, ecoColor + "%3===Economy info: Titles===");
-                                Player.SendMessage(p, "Titles cost %f" + Economy.Settings.TitlePrice + " %3" + Server.moneys + Server.DefaultColor + " each");
+                                Player.SendMessage(p, "Titles cost %f" + Economy.Settings.TitlePrice + " %3" + Server.Currency + Server.DefaultColor + " each");
                                 return;
 
                             case "tcolor":
@@ -694,7 +694,7 @@ namespace SinCraft.Commands {
                             case "tc":
                                 if (!Economy.Settings.TColors) { Player.SendMessage(p, "%cTitlecolors are not enabled for the economy system"); return; }
                                 Player.SendMessage(p, ecoColor + "%3===Economy info: Titlecolors===");
-                                Player.SendMessage(p, "Titlecolors cost %f" + Economy.Settings.TColorPrice + " %3" + Server.moneys + Server.DefaultColor + " each");
+                                Player.SendMessage(p, "Titlecolors cost %f" + Economy.Settings.TColorPrice + " %3" + Server.Currency + Server.DefaultColor + " each");
                                 return;
 
                             case "colors":
@@ -703,7 +703,7 @@ namespace SinCraft.Commands {
                             case "colour":
                                 if (Economy.Settings.Colors == false) { Player.SendMessage(p, "%cColors are not enabled for the economy system"); return; }
                                 Player.SendMessage(p, ecoColor + "%3===Economy info: Colors===");
-                                Player.SendMessage(p, "Colors cost %f" + Economy.Settings.ColorPrice + " %3" + Server.moneys + Server.DefaultColor + " each");
+                                Player.SendMessage(p, "Colors cost %f" + Economy.Settings.ColorPrice + " %3" + Server.Currency + Server.DefaultColor + " each");
                                 return;
 
                             case "ranks":
@@ -714,7 +714,7 @@ namespace SinCraft.Commands {
                                 Player.SendMessage(p, "%cRanks purchased will be bought in order.");
                                 Player.SendMessage(p, "%fRanks cost:");
                                 foreach (Economy.Settings.Rank rnk in Economy.Settings.RanksList) {
-                                    Player.SendMessage(p, rnk.group.color + rnk.group.name + ": %f" + rnk.price + " %3" + Server.moneys);
+                                    Player.SendMessage(p, rnk.group.color + rnk.group.name + ": %f" + rnk.price + " %3" + Server.Currency);
                                     if (rnk.group.name == Economy.Settings.MaxRank.ToLower())
                                         break;
                                 }

@@ -20,7 +20,7 @@ namespace SinCraft.Commands
     public sealed class CmdCmdSet : Command
     {
         public override string name { get { return "cmdset"; } }
-        public override string shortcut { get { return ""; } }
+        public override string[] aliases { get { return new string[] { "" }; } }
         public override string type { get { return "mod"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Admin; } }
@@ -30,7 +30,7 @@ namespace SinCraft.Commands
         {
             if (message == "" || message.IndexOf(' ') == -1) { Help(p); return; }
 
-            string foundBlah = Command.all.FindShort(message.Split(' ')[0]);
+            string foundBlah = Command.all.FindCmdNameByAlias(message.Split(' ')[0]);
 
             Command foundCmd;
             if (foundBlah == "") foundCmd = Command.all.Find(message.Split(' ')[0]);

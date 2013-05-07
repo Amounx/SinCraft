@@ -21,7 +21,7 @@ namespace SinCraft.Commands
     public sealed class CmdBanlist : Command
     {
         public override string name { get { return "banlist"; } }
-        public override string shortcut { get { return "bl"; } }
+        public override string[] aliases { get { return new string[] { "bl" }; } }
         public override string type { get { return "mod"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Banned; } }

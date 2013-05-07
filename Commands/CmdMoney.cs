@@ -1,5 +1,5 @@
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 		
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -21,7 +21,7 @@ namespace SinCraft.Commands
     public sealed class CmdMoney : Command
     {
         public override string name { get { return "money"; } }
-        public override string shortcut { get { return ""; } }
+        public override string[] aliases { get { return new string[] { "" }; } }
         public override string type { get { return "other"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Banned; } }
@@ -30,7 +30,7 @@ namespace SinCraft.Commands
             bool emptyMessage = message == "" || message == null || message == string.Empty;
             if (p != null && emptyMessage)
             {
-                Player.SendMessage(p, "You currently have %f" + p.money + " %3" + Server.moneys);
+                Player.SendMessage(p, "You currently have %f" + p.Money + " %3" + Server.Currency);
             }
             else if (message.Split().Length == 1)
             {
@@ -38,7 +38,7 @@ namespace SinCraft.Commands
                 if (who == null)
                 { //player is offline
                     Economy.EcoStats ecos = Economy.RetrieveEcoStats(message);
-                    Player.SendMessage(p, ecos.playerName + "(%foffline" + Server.DefaultColor + ") currently has %f" + ecos.money + " %3" + Server.moneys);
+                    Player.SendMessage(p, ecos.playerName + "(%foffline" + Server.DefaultColor + ") currently has %f" + ecos.money + " %3" + Server.Currency);
                     return;
                 }
                 //you can see everyone's stats with /eco stats [player]
@@ -46,11 +46,11 @@ namespace SinCraft.Commands
                     Player.SendMessage(p, "%cCannot see the money of someone of equal or greater rank.");
                     return;
                 }*/
-                Player.SendMessage(p, who.color + who.name + Server.DefaultColor + " currently has %f" + who.money + " %3" + Server.moneys);
+                Player.SendMessage(p, who.color + who.name + Server.DefaultColor + " currently has %f" + who.Money + " %3" + Server.Currency);
             }
             else if (p == null && emptyMessage)
             {
-                Player.SendMessage(p, "%Console can't have %3" + Server.moneys);
+                Player.SendMessage(p, "%Console can't have %3" + Server.Currency);
             }
             else
             {
@@ -62,7 +62,7 @@ namespace SinCraft.Commands
 
         public override void Help(Player p)
         {
-            Player.SendMessage(p, "%f/money <player>" + Server.DefaultColor + " - Shows how much %3" + Server.moneys + Server.DefaultColor + " <player> has");
+            Player.SendMessage(p, "%f/money <player>" + Server.DefaultColor + " - Shows how much %3" + Server.Currency + Server.DefaultColor + " <player> has");
         }
     }
 }

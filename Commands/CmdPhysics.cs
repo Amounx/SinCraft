@@ -20,7 +20,7 @@ namespace SinCraft.Commands
     public sealed class CmdPhysics : Command
     {
         public override string name { get { return "physics"; } }
-        public override string shortcut { get { return ""; } }
+        public override string[] aliases { get { return new string[] { "" }; } }
         public override string type { get { return "information"; } }
         public override bool museumUsable { get { return false; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }

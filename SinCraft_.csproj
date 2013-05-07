@@ -111,13 +111,15 @@
     <Compile Include="Ban.cs" />
     <Compile Include="Block.cs" />
     <Compile Include="Commands\CmdC4.cs" />
-    <Compile Include="Commands\CmdGcaccept.cs" />
-    <Compile Include="Commands\CmdGcbanlistupdate.cs" />
-    <Compile Include="Commands\CmdGcmods.cs" />
-    <Compile Include="Commands\CmdGcrules.cs" />
+    <Compile Include="Commands\CmdGCAccept.cs" />
+    <Compile Include="Commands\CmdGCBanListUpdate.cs" />
+    <Compile Include="Commands\CmdGCMods.cs" />
+    <Compile Include="Commands\CmdGCRules.cs" />
     <Compile Include="Commands\CmdGifToCin.cs" />
+    <Compile Include="Commands\CmdInfo.cs" />
     <Compile Include="Commands\CmdMods.cs" />
     <Compile Include="Commands\CmdSearch.cs" />
+    <Compile Include="Commands\CmdSetName.cs" />
     <Compile Include="Commands\CmdStaff.cs" />
     <Compile Include="Commands\CmdTntWars.cs" />
     <Compile Include="Commands\CommandKeywords.cs" />
@@ -272,7 +274,7 @@
     <Compile Include="Commands\CmdPatrol.cs" />
     <Compile Include="Commands\CmdGlobalCLS.cs" />
     <Compile Include="Commands\CmdHackRank.cs" />
-    <Compile Include="Commands\CmdHigh5.cs" />
+    <Compile Include="Commands\CmdHighFive.cs" />
     <Compile Include="Commands\CmdIgnore.cs" />
     <Compile Include="Commands\CmdImpersonate.cs" />
     <Compile Include="Commands\CmdLockdown.cs" />
@@ -291,7 +293,7 @@
     <Compile Include="Commands\CmdOpRules.cs" />
     <Compile Include="Commands\CmdOverseer.cs" />
     <Compile Include="Commands\CmdP2P.cs" />
-    <Compile Include="Commands\CmdPass.cs" />
+    <Compile Include="Commands\CmdPassword.cs" />
     <Compile Include="Commands\CmdpCinema.cs" />
     <Compile Include="Commands\CmdReferee.cs" />
     <Compile Include="Commands\CmdReport.cs" />
@@ -317,7 +319,7 @@
     <Compile Include="Commands\CmdGun.cs" />
     <Compile Include="Commands\CmdHeartbeat.cs" />
     <Compile Include="Commands\CmdClick.cs" />
-    <Compile Include="Commands\CmdPCount.cs" />
+    <Compile Include="Commands\CmdPlayerCount.cs" />
     <Compile Include="Commands\CmdTempBan.cs" />
     <Compile Include="Commands\CmdSlap.cs" />
     <Compile Include="Commands\CmdKill.cs" />
@@ -401,7 +403,7 @@
     <Compile Include="Commands\CmdBotAI.cs" />
     <Compile Include="Commands\CmdBotSet.cs" />
     <Compile Include="Commands\CmdBots.cs" />
-    <Compile Include="Commands\CmdDevs.cs" />
+    <Compile Include="Commands\CmdDevelopers.cs" />
     <Compile Include="Commands\CmdAbort.cs" />
     <Compile Include="Commands\CmdAbout.cs" />
     <Compile Include="Commands\CmdViewRanks.cs" />
@@ -421,7 +423,7 @@
     <Compile Include="Commands\CmdHelp.cs" />
     <Compile Include="Commands\CmdHide.cs" />
     <Compile Include="Commands\CmdImageprint.cs" />
-    <Compile Include="Commands\CmdInfo.cs" />
+    <Compile Include="Commands\CmdServerInfo.cs" />
     <Compile Include="Commands\CmdJoker.cs" />
     <Compile Include="Commands\CmdKick.cs" />
     <Compile Include="Commands\CmdKickban.cs" />
@@ -509,9 +511,9 @@
     <Compile Include="Commands\CmdDeleteLvl.cs" />
     <Compile Include="Commands\CmdRide.cs" />
     <Compile Include="Commands\CmdUpdate.cs" />
-    <Compile Include="Commands\CmdCmdBind.cs" />
+    <Compile Include="Commands\CmdCommandBind.cs" />
     <Compile Include="Commands\CmdRepeat.cs" />
-    <Compile Include="Commands\CmdEmote.cs" />
+    <Compile Include="Commands\CmdEmoteParsing.cs" />
     <Compile Include="Commands\CmdOpChat.cs" />
     <Compile Include="Commands\CmdWhisper.cs" />
     <Compile Include="Commands\CmdRenameLvl.cs" />
@@ -715,6 +717,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Plugins\OpenClassicEvents\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

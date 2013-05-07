@@ -1,5 +1,5 @@
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 	
 	Written by GamezGalaxy (hypereddie10)
 	
@@ -19,14 +19,14 @@
 */
 namespace SinCraft.Commands
 {
-    public sealed class CmdHigh5 : Command
+    public sealed class CmdHighFive : Command
     {
-        public override string name { get { return "high5"; } }
-        public override string shortcut { get { return ""; } }
+        public override string name { get { return "highfive"; } }
+        public override string[] aliases { get { return new string[] { "high5" }; } }
         public override string type { get { return "other"; } }
         public override bool museumUsable { get { return false; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Guest; } }
-        public CmdHigh5() { }
+        public CmdHighFive() { }
         public override void Use(Player p, string message)
         {
             if (message == "")
@@ -41,16 +41,16 @@ namespace SinCraft.Commands
 				return;
             }
 
-			string giver = (p == null) ? "The Console" : p.name;
+			string giver = (p == null) ? "The Console" : p.SetName;
 			string color = (p == null) ? "" : p.color;
             Player.SendMessage(player1, giver + " just highfived you");
-            Player.GlobalMessage(color + giver + " " + Server.DefaultColor + "just highfived " + player1.color + player1.name);
+            Player.GlobalMessage(color + giver + " " + Server.DefaultColor + "just highfived " + player1.color + player1.SetName);
         }
 
         // This one controls what happens when you use /help [commandname].
         public override void Help(Player p)
         {
-            Player.SendMessage(p, "/high5 <player> - High five someone :D");
+            Player.SendMessage(p, "/highfive <player> - High five [player]");
         }
     }
 }

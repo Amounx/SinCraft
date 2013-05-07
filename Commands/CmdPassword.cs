@@ -1,6 +1,6 @@
 /*
  
-	Copyright 2012 MCForge
+	Copyright 2012 MCForge (modified by Sinjai for use with SinCraft)
 		
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -22,15 +22,14 @@ using System.IO;
 using SinCraft.Util;
 namespace SinCraft.Commands
 {
-    public sealed class CmdPass : Command
+    public sealed class CmdPassword : Command
     {
         public override string name { get { return "pass"; } }
-        public override string shortcut { get { return ""; } }
+        public override string[] aliases { get { return new string[] { "" }; } }
         public override string type { get { return "other"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Banned; } }
-
-        public CmdPass() { }
+        public CmdPassword() { }
 
         public override void Use(Player p, string message)
         {
@@ -104,8 +103,8 @@ namespace SinCraft.Commands
 
         public override void Help(Player p)
         {
-            Player.SendMessage(p, "/pass [Password] - If you are an admin, use this command to verify");
-            Player.SendMessage(p, "your login. You will need to use this to be given access to commands");
+            Player.SendMessage(p, "/password [password] - If you are an admin, use this command to verify");
+            Player.SendMessage(p, "your login. You will need to use this to be given access to commands.");
             Player.SendMessage(p, "Note: If you do not have a password, use /setpass [Password]");
         }
     }

@@ -19,14 +19,14 @@ using System.Data;
 using SinCraft.SQL;
 namespace SinCraft.Commands
 {
-    public sealed class CmdPCount : Command
+    public sealed class CmdPlayerCount : Command
     {
-        public override string name { get { return "pcount"; } }
-        public override string shortcut { get { return ""; } }
+        public override string name { get { return "playercount"; } }
+        public override string[] aliases { get { return new string[] { "pcount" }; } }
         public override string type { get { return "information"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Banned; } }
-        public CmdPCount() { }
+        public CmdPlayerCount() { }
 
         public override void Use(Player p, string message)
         {
@@ -77,7 +77,7 @@ namespace SinCraft.Commands
 
         public override void Help(Player p)
         {
-            Player.SendMessage(p, "/pcount - Displays the number of players online and total.");
+            Player.SendMessage(p, "/playercount - Displays the number of players online and total.");
         }
     }
 }

@@ -1,5 +1,5 @@
 /*
-Copyright 2011 MCForge
+Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 Dual-licensed under the Educational Community License, Version 2.0 and
 the GNU General Public License, Version 3 (the "Licenses"); you may
 not use this file except in compliance with the Licenses. You may
@@ -19,7 +19,7 @@ namespace SinCraft.Commands
     public sealed class CmdTempRankInfo : Command
     {
         public override string name { get { return "temprankinfo"; } }
-        public override string shortcut { get { return "tri"; } }
+        public override string[] aliases { get { return new string[] { "tri" }; } }
         public override string type { get { return "mod"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }

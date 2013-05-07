@@ -1,5 +1,5 @@
 /*
-Copyright 2011 MCForge
+Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 Dual-licensed under the Educational Community License, Version 2.0 and
 the GNU General Public License, Version 3 (the "Licenses"); you may
 not use this file except in compliance with the Licenses. You may
@@ -17,7 +17,7 @@ namespace SinCraft.Commands
     public sealed class CmdAdminChat : Command
     {
         public override string name { get { return "adminchat"; } }
-        public override string shortcut { get { return ""; } }
+        public override string[] aliases { get { return new string[] { "ac" }; } }
         public override string type { get { return "other"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Admin; } }
@@ -31,7 +31,7 @@ namespace SinCraft.Commands
         }
         public override void Help(Player p)
         {
-            Player.SendMessage(p, "/adminchat - Makes all messages sent go to Admins by default");
+            Player.SendMessage(p, "/adminchat - Toggles admin chat on/off.");
         }
     }
 }

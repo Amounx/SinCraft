@@ -24,7 +24,7 @@ using SinCraft.SQL;
 namespace SinCraft.Commands {
     public sealed class CmdBanip : Command {
         public override string name { get { return "banip"; } }
-        public override string shortcut { get { return "bi"; } }
+        public override string[] aliases { get { return new string[] { "bi" }; } }
         public override string type { get { return "mod"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }
@@ -83,12 +83,10 @@ namespace SinCraft.Commands {
                 }
             }
 
-            if (Server.Devs.Contains(name) && (Server.forgeProtection == ForgeProtection.Mod || Server.forgeProtection == ForgeProtection.Dev))
-                return;
-            if (Server.Mods.Contains(name) && Server.forgeProtection == ForgeProtection.Mod)
+            if (Server.Devs.Contains(name))
                 return;
 
-            if (message.Equals("127.0.0.1")) { Player.SendMessage(p, "You can't ip-ban the server!"); return; }
+            if (message.Equals("127.0.0.1")) { Player.SendMessage(p, "You can't IP-ban the server!"); return; }
             if (message.IndexOf('.') == -1) { Player.SendMessage(p, "Invalid IP!"); return; }
             if (message.Split('.').Length != 4) { Player.SendMessage(p, "Invalid IP!"); return; }
             if (p != null && p.ip == message) { Player.SendMessage(p, "You can't ip-ban yourself.!"); return; }
