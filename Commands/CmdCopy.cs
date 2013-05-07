@@ -23,7 +23,7 @@ namespace SinCraft.Commands
     public sealed class CmdCopy : Command
     {
         public override string name { get { return "copy"; } }
-        public override string shortcut { get { return "c"; } }
+        public override string[] aliases { get { return new string[] { "c" }; } }
         public override string type { get { return "build"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.AdvBuilder; } }
@@ -323,7 +323,7 @@ namespace SinCraft.Commands
     public class CmdCopyLoadNet : Command
     {
         public override string name { get { return "copyloadnet"; } }
-        public override string shortcut { get { return ""; } }
+        public override string[] aliases { get { return new string[] { "" }; } }
         public override string type { get { return "build"; } }
         public override bool museumUsable { get { return false; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }
@@ -344,7 +344,7 @@ namespace SinCraft.Commands
     public class CmdCopySaveNet : Command
     {
         public override string name { get { return "copysavenet"; } }
-        public override string shortcut { get { return ""; } }
+        public override string[] aliases { get { return new string[] { "" }; } }
         public override string type { get { return "build"; } }
         public override bool museumUsable { get { return false; } }
         public override LevelPermission defaultRank { get { return LevelPermission.AdvBuilder; } }

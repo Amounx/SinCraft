@@ -22,7 +22,7 @@ namespace SinCraft.Commands
     public sealed class CmdPlayers : Command
     {
         public override string name { get { return "players"; } }
-        public override string shortcut { get { return "who"; } }
+        public override string[] aliases { get { return new string[] { "who" }; } }
         public override string type { get { return "information"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Guest; } }
@@ -87,18 +87,6 @@ namespace SinCraft.Commands
                                     devs += " " + "&f+" + Server.DefaultColor + foundName + " (" + pl.level.name + "),";
                                 else
                                     devs += " " + foundName + " (" + pl.level.name + "),";
-                            }
-                            if (pl.isMod) {
-                                if (pl.voice)
-                                    mods += " " + "&f+" + Server.DefaultColor + foundName + " (" + pl.level.name + "),";
-                                else
-                                    mods += " " + foundName + " (" + pl.level.name + "),";
-                            }
-                            if (pl.isGCMod) {
-                                if (pl.voice)
-                                    gcmods += " " + "&f+" + Server.DefaultColor + foundName + " (" + pl.level.name + "),";
-                                else
-                                    gcmods += " " + foundName + " (" + pl.level.name + "),";
                             }
 
                             if (pl.voice)

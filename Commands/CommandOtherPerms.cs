@@ -1,5 +1,5 @@
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 		
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -26,16 +26,18 @@ namespace SinCraft
     public static class CommandOtherPerms
     {
         /// <summary>
-        /// Restore the permissions to there defaults
+        /// Restore the permissions to their defaults
         /// </summary>
         public static void AddDefaultPerms()
         {
+            Add(Command.all.Find("setname"), (int)LevelPermission.Admin, "The lowest rank that can change other player's names.");
             Add(Command.all.Find("ban"), (int)LevelPermission.AdvBuilder, "The lowest rank that can be banned");
             Add(Command.all.Find("zone"), (int)LevelPermission.Operator, "The lowest rank to delete zones", 1);
             Add(Command.all.Find("zone"), (int)LevelPermission.Operator, "The lowest rank to delete all zones", 2);
             Add(Command.all.Find("zone"), (int)LevelPermission.Operator, "The lowest rank to create zones", 3);
-            Add(Command.all.Find("whowas"), (int)LevelPermission.AdvBuilder, "The lowest rank at which it shows the player who uses the command the other players ip, if they are whitelisted and if they are a developer");
-            Add(Command.all.Find("whois"), (int)LevelPermission.AdvBuilder, "The lowest rank at which it shows the player who uses the command the other players ip, if they are whitelisted and if they are a developer");
+            /*Add(Command.all.Find("whowas"), (int)LevelPermission.AdvBuilder, "The lowest rank at which it shows the player who uses the command the other player's ip and if they are whitelisted.");
+            Add(Command.all.Find("whois"), (int)LevelPermission.AdvBuilder, "The lowest rank at which it shows the player who uses the command the other player's ip and if they are whitelisted.");*/
+            Add(Command.all.Find("info"), (int)LevelPermission.Operator, "The lowest rank that can view info about IPs.");
             Add(Command.all.Find("warp"), (int)LevelPermission.Operator, "The lowest rank to create warps", 1);
             Add(Command.all.Find("warp"), (int)LevelPermission.Operator, "The lowest rank to delete warps", 2);
             Add(Command.all.Find("warp"), (int)LevelPermission.Operator, "The lowest rank to move/edit warps", 3);
@@ -93,7 +95,7 @@ namespace SinCraft
 
         public static void Add(Command command, int Perm, string desc, int number = 1)
         {
-            if (Perm > 120) { return; }
+            if (Perm > 200) { return; }
             OtherPerms otpe = new OtherPerms();
             otpe.cmd = command;
             otpe.Permission = Perm;
@@ -104,7 +106,7 @@ namespace SinCraft
 
         public static void Edit(OtherPerms op, int perm)
         {
-            if (perm > 120) { return; }
+            if (perm > 200) { return; }
             OtherPerms otpe = op;
             list.Remove(op);
             otpe.Permission = perm;

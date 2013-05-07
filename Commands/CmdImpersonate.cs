@@ -1,5 +1,5 @@
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 		
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -19,12 +19,12 @@ namespace SinCraft.Commands
 {
     public sealed class CmdImpersonate : Command
 	{
+        public override string name { get { return "impersonate"; } }
+        public override string[] aliases { get { return new string[] { "imp" }; } }
 		public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }
-		public override void Help(Player p) { Player.SendMessage(p, "/impersonate <player> <message> - Sends a message as if it came from <player>"); }
 		public override bool museumUsable { get { return true; } }
-		public override string name { get { return "impersonate"; } }
-		public override string shortcut { get { return "imp"; } }
 		public override string type { get { return "other"; } }
+        public override void Help(Player p) { Player.SendMessage(p, "/impersonate <player> <message> - Sends a message as if it came from <player>"); }
 		public void SendIt(Player p, string message, Player player)
 		{
 			if (message.Split(' ').Length > 1)

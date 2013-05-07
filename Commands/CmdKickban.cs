@@ -20,7 +20,7 @@ namespace SinCraft.Commands
     public sealed class CmdKickban : Command
     {
         public override string name { get { return "kickban"; } }
-        public override string shortcut { get { return "kb"; } }
+        public override string[] aliases { get { return new string[] { "kb" }; } }
         public override string type { get { return "mod"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }

@@ -1,7 +1,23 @@
+1.0.0 BETA
+- New:
+	- Multiple command aliases
+	- Nicknames
+- Changes:
+	- /whois, /whowas, and /whoip were merged into /info
+	- /info was changed to /serverinfo, or /sinfo
+	- Probably other stuff that I can't remember right now.
+- Removals:
+	- Mod/GCMod protection removed
 
 ----- Old MCForge Changelog Below -----
 v5.5.13
--?
+-New:
+  -MCForge now uses .NET 4.0. Please update your framework if you havent already!
+-Fixes:
+  -MySQL fix no longer applies to SQLite
+-Removals:
+  N/A
+
 v5.5.12
 -New:
   -Dynamic compilation for external DLLs (thanks headdetect)

@@ -1,5 +1,5 @@
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 		
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -130,7 +130,7 @@ namespace SinCraft {
 				if (Server.guestLeaveNotify == false && p.group.Permission <= LevelPermission.Guest) {
 					return;
 				}
-			connection.Sender.PublicMessage(channel, p.name + " left the game (" + reason + ")");
+			connection.Sender.PublicMessage(channel, p.SetName + "(" + p.Username + ")" + " left the game (" + reason + ")");
 		}
 
 		void Player_PlayerConnect(Player p) {
@@ -138,7 +138,7 @@ namespace SinCraft {
 				if (Server.guestJoinNotify == false && p.group.Permission <= LevelPermission.Guest) {
 					return;
 				}
-			connection.Sender.PublicMessage(channel, p.name + " joined the game");
+            connection.Sender.PublicMessage(channel, p.SetName + "(" + p.Username + ")" + " joined the game");
 		}
 
 		void Listener_OnQuit(UserInfo user, string reason) {
@@ -253,9 +253,9 @@ namespace SinCraft {
 
 
 			if (Server.ircColorsEnable == true && Server.irc && IsConnected())
-				Say(p.color + p.prefix + p.name + ": &0" + message, p.opchat);
+				Say(p.color + p.prefix + p.SetName + ": &0" + message, p.opchat);
 			if (Server.ircColorsEnable == false && Server.irc && IsConnected())
-				Say(p.name + ": " + message, p.opchat);
+				Say(p.SetName + ": " + message, p.opchat);
 		}
 		public void Connect() {
 			if (!Server.irc || Server.shuttingDown) return;

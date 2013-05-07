@@ -21,7 +21,7 @@ namespace SinCraft.Commands
     public sealed class CmdTempBan : Command
     {
         public override string name { get { return "tempban"; } }
-        public override string shortcut { get { return "tb"; } }
+        public override string[] aliases { get { return new string[] { "tb" }; } }
         public override string type { get { return "moderation"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Builder; } }

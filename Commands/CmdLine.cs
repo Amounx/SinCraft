@@ -1,5 +1,5 @@
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 		
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -22,7 +22,7 @@ namespace SinCraft.Commands
     public sealed class CmdLine : Command
     {
         public override string name { get { return "line"; } }
-        public override string shortcut { get { return "l"; } }
+        public override string[] aliases { get { return new string[] { "l" }; } }
         public override string type { get { return "build"; } }
         public override bool museumUsable { get { return false; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Builder; } }

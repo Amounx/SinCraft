@@ -15,6 +15,7 @@
 	or implied. See the Licenses for the specific language governing
 	permissions and limitations under the Licenses.
 */
+/*
 using System;
 using System.Data;
 using SinCraft.SQL;
@@ -23,7 +24,7 @@ namespace SinCraft.Commands
     public sealed class CmdWhowas : Command
     {
         public override string name { get { return "whowas"; } }
-        public override string shortcut { get { return ""; } }
+        public override string[] aliases { get { return new string[] { "" }; } }
         public override string type { get { return "information"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Banned; } }
@@ -57,7 +58,7 @@ namespace SinCraft.Commands
             Player.SendMessage(p, "> > the rank of " + Group.Find(FoundRank).color + FoundRank);
             try
             {
-                if (!Group.Find("Nobody").commands.Contains("pay") && !Group.Find("Nobody").commands.Contains("give") && !Group.Find("Nobody").commands.Contains("take")) Player.SendMessage(p, "> > &a" + playerDb.Rows[0]["Money"] + Server.DefaultColor + " " + Server.moneys);
+                if (!Group.Find("Nobody").commands.Contains("pay") && !Group.Find("Nobody").commands.Contains("give") && !Group.Find("Nobody").commands.Contains("take")) Player.SendMessage(p, "> > &a" + playerDb.Rows[0]["Money"] + Server.DefaultColor + " " + Server.Currency);
             }
             catch { }
             Player.SendMessage(p, "> > &cdied &a" + playerDb.Rows[0]["TotalDeaths"] + Server.DefaultColor + " times");
@@ -76,17 +77,7 @@ namespace SinCraft.Commands
             if (Server.Devs.Contains(message.ToLower()))
             {
                 Player.SendMessage(p, Server.DefaultColor + "> > Player is a &9Developer");
-                if (Server.forgeProtection == ForgeProtection.Mod || Server.forgeProtection == ForgeProtection.Dev)
-                    Player.SendMessage(p, Server.DefaultColor + "> > Player is &CPROTECTED" + Server.DefaultColor + " under SinCraft Staff protection");
             }
-            else if (Server.Mods.Contains(message.ToLower()))
-            {
-                Player.SendMessage(p, Server.DefaultColor + "> > Player is a &9SinCraft Moderator");
-                if (Server.forgeProtection == ForgeProtection.Mod)
-                    Player.SendMessage(p, Server.DefaultColor + "> > Player is &CPROTECTED" + Server.DefaultColor + " under SinCraft Staff protection");
-            }
-            else if (Server.GCmods.Contains(message.ToLower()))
-                Player.SendMessage(p, Server.DefaultColor + "> > Player is a &9Global Chat Moderator");
 
             if (!(p != null && (int)p.group.Permission <= CommandOtherPerms.GetPerm(this)))
             {
@@ -113,3 +104,4 @@ namespace SinCraft.Commands
         }
     }
 }
+*/

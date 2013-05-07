@@ -21,7 +21,7 @@ namespace SinCraft.Commands
     public sealed class CmdAwards : Command
     {
         public override string name { get { return "awards"; } }
-        public override string shortcut { get { return ""; } }
+        public override string[] aliases { get { return new string[] { "" }; } }
         public override string type { get { return "other"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Banned; } }

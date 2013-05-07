@@ -1,5 +1,5 @@
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 	
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -20,14 +20,10 @@ using System.Collections.Generic;
 using System.Threading;
 namespace SinCraft.Commands
 {
-    /// <summary>
-    /// This is the command /gun
-    /// use /help gun in-game for more info
-    /// </summary>
     public sealed class CmdGun : Command
     {
         public override string name { get { return "gun"; } }
-        public override string shortcut { get { return ""; } }
+        public override string[] aliases { get { return new string[] { "" }; } }
         public override string type { get { return "other"; } }
         public override bool museumUsable { get { return false; } }
         public override LevelPermission defaultRank { get { return LevelPermission.AdvBuilder; } }

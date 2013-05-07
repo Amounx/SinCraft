@@ -1,5 +1,5 @@
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 		
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -21,7 +21,7 @@ namespace SinCraft.Commands
     public sealed class CmdXJail : Command
     {
         public override string name { get { return "xjail"; } }
-        public override string shortcut { get { return "xj"; } }
+        public override string[] aliases { get { return new string[] { "xj" }; } }
         public override string type { get { return "other"; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }
         public override bool museumUsable { get { return true; } }

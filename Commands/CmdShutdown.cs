@@ -1,5 +1,5 @@
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 	
 	Written by jordanneil23 with alot of help from TheMusiKid.
 		
@@ -25,7 +25,7 @@ namespace SinCraft.Commands
     public sealed class CmdShutdown : Command
     {
         public override string name { get { return "shutdown"; } }
-        public override string shortcut { get { return ""; } }
+        public override string[] aliases { get { return new string[] { "" }; } }
         public override string type { get { return "mod"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Admin; } }

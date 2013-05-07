@@ -19,7 +19,7 @@ namespace SinCraft.Commands
     public sealed class CmdHelp : Command
     {
         public override string name { get { return "help"; } }
-        public override string shortcut { get { return ""; } }
+        public override string[] aliases { get { return new string[] { "" }; } }
         public override string type { get { return "information"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Banned; } }
@@ -145,8 +145,14 @@ namespace SinCraft.Commands
                         message = "";
                         List<string> shortcuts = new List<string>();
                         foreach (Command comm in Command.all.commands)
+                        {
                             if (p == null || p.group.commands.All().Contains(comm))
-                                if (comm.shortcut != "") shortcuts.Add(", &b" + comm.shortcut + " " + Server.DefaultColor + "[" + comm.name + "]");
+                                if (comm.aliases.Length > 0)
+                                {
+                                    string temp = string.Format(", &b{0} {1}[{2}]", string.Join(", ", comm.aliases), Server.DefaultColor, comm.name);
+                                    shortcuts.Add(temp);
+                                }
+                        }
                         int top = list1 ? shortcuts.Count / 2 : shortcuts.Count;
                         for (int i = list1 ? 0 : shortcuts.Count / 2; i < top; i++)
                             message += shortcuts[i];
@@ -191,6 +197,7 @@ namespace SinCraft.Commands
                         if (cmd != null)
                         {
                             cmd.Help(p);
+                            Command.DisplayAliases(p, cmd);
                             string foundRank = Level.PermissionToName(GrpCommands.allowedCommands.Find(grpComm => grpComm.commandName == cmd.name).lowestRank);
                             Player.SendMessage(p, "Rank needed: " + getColor(cmd.name) + foundRank);
                             return;

@@ -20,7 +20,7 @@ namespace SinCraft.Commands
     public sealed class CmdMods : Command
     {
         public override string name { get { return "mods"; } }
-        public override string shortcut { get { return "mod"; } }
+        public override string[] aliases { get { return new string[] { "mod" }; } }
         public override string type { get { return "information"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Banned; } }
@@ -28,7 +28,7 @@ namespace SinCraft.Commands
 
         public override void Use(Player p, string message)
         {
-            if (message != "") { Help(p); return; }
+            /*
             string modlist = "";
             string tempmods;
             foreach (string mod in Server.Mods)
@@ -39,6 +39,8 @@ namespace SinCraft.Commands
             }
             modlist = modlist.Remove(modlist.Length - 2);
             Player.SendMessage(p, "&9SinCraft Moderation Team: " + Server.DefaultColor + modlist + "&e.");
+            */
+            Player.SendMessage(p, "&9There are currently no SinCraft moderators.");
         }
 
         public override void Help(Player p)

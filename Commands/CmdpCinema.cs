@@ -1,5 +1,5 @@
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 	
 	Written by Frederik Gelder
 		
@@ -28,7 +28,7 @@ namespace SinCraft.Commands
         bool[] used = new bool[100];
 
         public override string name { get { return "pcinema"; } }
-        public override string shortcut { get { return ""; } }
+        public override string[] aliases { get { return new string[] { "" }; } }
         public override string type { get { return "other"; } }
         public override bool museumUsable { get { return false; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Admin; } }
@@ -129,7 +129,7 @@ namespace SinCraft.Commands
 
 
         public override string name { get { return "pcinema2"; } }
-        public override string shortcut { get { return ""; } }
+        public override string[] aliases { get { return new string[] { "" }; } }
         public override string type { get { return "other"; } }
         public override bool museumUsable { get { return false; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Nobody; } }

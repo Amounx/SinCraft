@@ -1,5 +1,5 @@
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 		
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -27,7 +27,7 @@ namespace SinCraft.Commands
         {
             this.Cmd = cmd;
             string keyword = key + " " + cmd.name + " " + cmd.type;
-            if (cmd.shortcut.Length > 3) { keyword += " " + cmd.shortcut; }
+            if (cmd.aliases.Length > 3) { keyword += " " + cmd.aliases; }
             this.Keywords = keyword.Split(' ');
             all.Add(this);
         }
@@ -68,7 +68,7 @@ namespace SinCraft.Commands
             new CommandKeywords((new CmdClearBlockChanges()), "about block change remove del");
             new CommandKeywords((new CmdClick()), "block use");
             new CommandKeywords((new CmdClones()), "clone ip player info");
-            new CommandKeywords((new CmdCmdBind()), "bind cmd command shortcut");
+            new CommandKeywords((new CmdCommandBind()), "bind cmd command shortcut");
             new CommandKeywords((new CmdCmdCreate()), "new create command cmd");
             new CommandKeywords((new CmdCmdLoad()), "load command cmd custom");
             new CommandKeywords((new CmdCmdSet()), "set rank cmd command");
@@ -88,18 +88,18 @@ namespace SinCraft.Commands
             new CommandKeywords((new CmdDeleteLvl()), "delete remove level lvl");
             new CommandKeywords((new CmdDelTempRank()), "del remove temp rank");
             new CommandKeywords((new CmdDemote()), "rank lower");
-            new CommandKeywords((new CmdDevs()), "dev mcforge forgeware forgecraft");
+            new CommandKeywords((new CmdDevelopers()), "dev mcforge forgeware forgecraft");
             new CommandKeywords((new CmdDisagree()), "no rules");
             new CommandKeywords((new CmdDescend()), "down below");
             new CommandKeywords((new CmdDisInfect()), "infect player");
             new CommandKeywords((new CmdDraw()), "cone sphere pyramid create");
             new CommandKeywords((new CmdDrill()), "dig distance");
-            new CommandKeywords((new CmdEconomy()), "money cash " + Server.moneys);
+            new CommandKeywords((new CmdEconomy()), "money cash " + Server.Currency);
             new CommandKeywords((new CmdEllipse()), "create art");
-            new CommandKeywords((new CmdEmote()), "smiley emoticon");
+            new CommandKeywords((new CmdEmoteParsing()), "smiley emoticon");
             new CommandKeywords((new CmdEndRound()), "end round game");
             new CommandKeywords((new CmdExplode()), "explosion boom");
-            new CommandKeywords((new CmdFakePay()), "fake troll pay " + Server.moneys);
+            new CommandKeywords((new CmdFakePay()), "fake troll pay " + Server.Currency);
             new CommandKeywords((new CmdFakeRank()), "rank mod fake troll");
             new CommandKeywords((new CmdFaq()), "freq ask question");
             new CommandKeywords((new CmdFetch()), "summon move");
@@ -112,7 +112,7 @@ namespace SinCraft.Commands
             new CommandKeywords((new CmdFreeze()), "ice move player");
             new CommandKeywords((new CmdGarbage()), "memory clean unused");
             new CommandKeywords((new CmdGifToCin()), "gif image cinema cin");
-            new CommandKeywords((new CmdGive()), "money pay " + Server.moneys);
+            new CommandKeywords((new CmdGive()), "money pay " + Server.Currency);
             new CommandKeywords((new CmdGlobal()), "irc mcforge " + Server.ircChannel);
             new CommandKeywords((new CmdGlobalCLS()), "clear global chat");
             new CommandKeywords((new CmdGoto()), "level lvl change map");
@@ -123,7 +123,7 @@ namespace SinCraft.Commands
             new CommandKeywords((new CmdHeartbeat()), "heart server list");
             new CommandKeywords((new CmdHelp()), "info commands cmd list");
             new CommandKeywords((new CmdHide()), "hidden show invisible");
-            new CommandKeywords((new CmdHigh5()), "high 5 fun");
+            new CommandKeywords((new CmdHighFive()), "high 5 fun");
             new CommandKeywords((new CmdHighlight()), "mod high light block change history");
             new CommandKeywords((new CmdHollow()), "block create");
             new CommandKeywords((new CmdHost()), "owner server " + Server.server_owner + " " + Server.ZallState);
@@ -134,7 +134,7 @@ namespace SinCraft.Commands
             new CommandKeywords((new CmdInbox()), "mail box");
             new CommandKeywords((new CmdInfect()), "virus inf");
             new CommandKeywords((new CmdInfected()), "infect player list");
-            new CommandKeywords((new CmdInfo()), "server detail");
+            new CommandKeywords((new CmdServerInfo()), "server detail");
             new CommandKeywords((new CmdInvincible()), "god life inf");
             new CommandKeywords((new CmdJail()), "prison punish");
             new CommandKeywords((new CmdJoker()), "joke troll fun");
@@ -163,7 +163,7 @@ namespace SinCraft.Commands
             new CommandKeywords((new CmdMissile()), "gun missil");
             new CommandKeywords((new CmdMode()), "block place");
             new CommandKeywords((new CmdModerate()), "chat enable disable allow disallow");
-            new CommandKeywords((new CmdMoney()), "cash " + Server.moneys);
+            new CommandKeywords((new CmdMoney()), "cash " + Server.Currency);
             new CommandKeywords((new CmdMove()), "player pos");
             new CommandKeywords((new CmdMoveAll()), "move all player pos");
             new CommandKeywords((new CmdMuseum()), "musea map lvl level");
@@ -180,16 +180,16 @@ namespace SinCraft.Commands
             new CommandKeywords((new CmdOZone()), "zone map lvl level entire");
             new CommandKeywords((new CmdP2P()), "tp tele port player move");
             new CommandKeywords((new CmdPaint()), "mode block place");
-            new CommandKeywords((new CmdPass()), "verify password user");
+            new CommandKeywords((new CmdPassword()), "verify password user");
             new CommandKeywords((new CmdPaste()), "copy clipboard out");
             new CommandKeywords((new CmdPatrol()), "teleport random");
             new CommandKeywords((new CmdPause()), "physics reset");
-            new CommandKeywords((new CmdPay()), "money give " + Server.moneys);
+            new CommandKeywords((new CmdPay()), "money give " + Server.Currency);
             new CommandKeywords((new CmdPlayerBlock()), "player block limit mod edit");
             new CommandKeywords((new CmdpCinema()), "cinema gif");
             new CommandKeywords((new CmdpCinema2()), "cinema gif");
-            new CommandKeywords((new CmdPCount()), "player online total number count");
-            new CommandKeywords((new CmdPCreate()), "create add new plugin");
+            new CommandKeywords((new CmdPlayerCount()), "player online total number count");
+            new CommandKeywords((new CmdPluginCreate()), "create add new plugin");
             new CommandKeywords((new CmdPerbuildMax()), "perm build max rank");
             new CommandKeywords((new CmdPermissionBuild()), "perm build rank");
             new CommandKeywords((new CmdPermissionVisit()), "perm visit rank");
@@ -293,9 +293,9 @@ namespace SinCraft.Commands
             new CommandKeywords((new CmdWaypoint()), "way point");
             new CommandKeywords((new CmdWhisper()), "tell private");
             new CommandKeywords((new CmdWhitelist()), "white list allow acces server");
-            new CommandKeywords((new CmdWhoip()), "who ip info");
+            /*new CommandKeywords((new CmdWhoip()), "who ip info");
             new CommandKeywords((new CmdWhois()), "who player info");
-            new CommandKeywords((new CmdWhowas()), "who player info");
+            new CommandKeywords((new CmdWhowas()), "who player info");*/
             new CommandKeywords((new CmdWrite()), "block text");
             new CommandKeywords((new CmdXban()), "ban undo admin");
             new CommandKeywords((new CmdXhide()), "hide all extra");

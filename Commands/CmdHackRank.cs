@@ -1,5 +1,5 @@
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 	
     Made originally by 501st_commander, in something called SharpDevelop. 
     Made into a safe and reasonabal command by EricKilla, in Visual Studio 2010.
@@ -21,24 +21,17 @@
 namespace SinCraft.Commands
 {
     /// <summary>
-    /// TODO: Description of CmdHackRank.
+    /// Jokingly 'hack' a rank.
     /// </summary>
     public sealed class CmdHackRank : Command
     {
         public override string name { get { return "hackrank"; } }
-        public override string shortcut { get { return ""; } }
+        public override string[] aliases { get { return new string[] { "" }; } }
         public override string type { get { return "other"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Banned; } }
         private string m_old_color;
-
         public CmdHackRank() { }
-
-        /// <summary>
-        /// the use stub
-        /// </summary>
-        /// <param name="p">Player</param>
-        /// <param name="message">Message</param>
         public override void Use(Player p, string message)
         {
             if (message == "")

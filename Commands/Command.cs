@@ -22,10 +22,25 @@ namespace SinCraft
 {
 	public abstract class Command
 	{
+        /// <summary>
+        /// The main name for the command. LOWERCASE
+        /// </summary>
 		public abstract string name { get; }
-		public abstract string shortcut { get; }
+        /// <summary>
+        /// Shortcuts or other names for the command. LOWERCASE
+        /// </summary>
+		public abstract string[] aliases { get; }
+        /// <summary>
+        /// The command type.
+        /// </summary>
 		public abstract string type { get; }
+        /// <summary>
+        /// Can the command be used in a museum?
+        /// </summary>
 		public abstract bool museumUsable { get; }
+        /// <summary>
+        /// The rank that can use the command by default.
+        /// </summary>
 		public abstract LevelPermission defaultRank { get; }
 		public abstract void Use(Player p, string message);
 		public abstract void Help(Player p);
@@ -73,7 +88,7 @@ namespace SinCraft
 			all.Add(new CmdClearBlockChanges());
 			all.Add(new CmdClick());
 			all.Add(new CmdClones());
-			all.Add(new CmdCmdBind());
+			all.Add(new CmdCommandBind());
 			all.Add(new CmdCmdCreate());
 			all.Add(new CmdCmdLoad());
 			all.Add(new CmdCmdSet());
@@ -93,14 +108,14 @@ namespace SinCraft
 			all.Add(new CmdDeleteLvl());
 			all.Add(new CmdDelTempRank());
 			all.Add(new CmdDemote());
-			all.Add(new CmdDevs());
+			all.Add(new CmdDevelopers());
 			all.Add(new CmdDisagree());
 			all.Add(new CmdDescend());
 			all.Add(new CmdDisInfect());
 			all.Add(new CmdDraw());
 			all.Add(new CmdDrill());
 			all.Add(new CmdEconomy());
-			all.Add(new CmdEmote());
+			all.Add(new CmdEmoteParsing());
 			all.Add(new CmdEndRound());
 			all.Add(new CmdExplode());
 			all.Add(new CmdFakePay());
@@ -115,10 +130,10 @@ namespace SinCraft
 			all.Add(new CmdFollow());
 			all.Add(new CmdFreeze());
 			all.Add(new CmdGarbage());
-			all.Add(new CmdGcaccept());
-            all.Add(new CmdGcmods());
-			all.Add(new CmdGcrules());
-			all.Add(new CmdGcbanlistupdate());
+			all.Add(new CmdGCAccept());
+            all.Add(new CmdGCMods());
+			all.Add(new CmdGCRules());
+			all.Add(new CmdGCBanListUpdate());
 			all.Add(new CmdGifToCin());
 			all.Add(new CmdGive());
 			all.Add(new CmdGlobal());
@@ -131,7 +146,7 @@ namespace SinCraft
 			//all.Add(new CmdHeartbeat()); // DEBUG COMMAND DO NOT USE
 			all.Add(new CmdHelp());
 			all.Add(new CmdHide());
-			all.Add(new CmdHigh5());
+			all.Add(new CmdHighFive());
 			all.Add(new CmdHighlight());
 			all.Add(new CmdHollow());
 			all.Add(new CmdHost());
@@ -142,7 +157,8 @@ namespace SinCraft
 			all.Add(new CmdInbox());
 			all.Add(new CmdInfect());
 			all.Add(new CmdInfected());
-			all.Add(new CmdInfo());
+            all.Add(new CmdInfo());
+			all.Add(new CmdServerInfo());
 			all.Add(new CmdInvincible());
 			all.Add(new CmdJail());
 			all.Add(new CmdJoker());
@@ -189,7 +205,7 @@ namespace SinCraft
 			all.Add(new CmdOZone());
 			all.Add(new CmdP2P());
 			all.Add(new CmdPaint());
-			all.Add(new CmdPass());
+			all.Add(new CmdPassword());
 			all.Add(new CmdPaste());
 			all.Add(new CmdPatrol());
 			all.Add(new CmdPause());
@@ -197,8 +213,8 @@ namespace SinCraft
 			all.Add(new CmdPlayerBlock());
 			all.Add(new CmdpCinema());
 			all.Add(new CmdpCinema2());
-			all.Add(new CmdPCount());
-			all.Add(new CmdPCreate());
+			all.Add(new CmdPlayerCount());
+			all.Add(new CmdPluginCreate());
 			all.Add(new CmdPerbuildMax());
 			all.Add(new CmdPermissionBuild());
 			all.Add(new CmdPermissionVisit());
@@ -250,6 +266,7 @@ namespace SinCraft
 			all.Add(new CmdSendCmd());
 			all.Add(new CmdServerReport());
 			all.Add(new CmdServer());
+            all.Add(new CmdSetName());
 			all.Add(new CmdSetPass());
 			all.Add(new CmdSetRank());
 			all.Add(new CmdSetspawn());
@@ -303,9 +320,9 @@ namespace SinCraft
 			all.Add(new CmdWaypoint());
 			all.Add(new CmdWhisper());
 			all.Add(new CmdWhitelist());
-			all.Add(new CmdWhoip());
+			/*all.Add(new CmdWhoip());
 			all.Add(new CmdWhois());
-			all.Add(new CmdWhowas());
+			all.Add(new CmdWhowas());*/
 			all.Add(new CmdWrite());
 			all.Add(new CmdXban());
 			all.Add(new CmdXhide());
@@ -327,5 +344,24 @@ namespace SinCraft
 		{
 			all.Add(command);
 		}
+        /// <summary>
+        /// Display the aliases for a given command.
+        /// </summary>
+        /// <param name="cmd">The command for which to display the aliases.</param>
+        /// <param name="p">The player to send the alias list to.</param>
+        /// <returns>The command's aliases, starting with the command name, in list form. Ex: name, alias2, alias3, alias4</returns>
+        public static void DisplayAliases(Player p, Command cmd)
+        {
+            if (cmd.aliases[0] == "") return; //Don't display aliases if there are none!
+            string aliases = "";
+            aliases += cmd.name + ", ";
+            foreach (string alias in cmd.aliases)
+            {
+                aliases += alias + ", ";
+            }
+            aliases = aliases.Remove(aliases.Length - 2, 2);
+            Player.SendMessage(p, "&2Aliases: &f" + aliases);
+            aliases = null;
+        }
 	}
 }

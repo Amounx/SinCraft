@@ -20,7 +20,7 @@ namespace SinCraft.Commands
     public sealed class CmdClick : Command
     {
         public override string name { get { return "click"; } }
-        public override string shortcut { get { return "x"; } }
+        public override string[] aliases { get { return new string[] { "x" }; } }
         public override string type { get { return "build"; } }
         public override bool museumUsable { get { return false; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Guest; } }

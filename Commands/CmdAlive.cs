@@ -20,7 +20,7 @@ namespace SinCraft.Commands
     public sealed class CmdAlive : Command
     {
         public override string name { get { return "alive"; } }
-        public override string shortcut { get { return "alive"; } }
+        public override string[] aliases { get { return new string[] { "alive" }; } }
         public override string type { get { return "mod"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Banned; } }

@@ -25,7 +25,7 @@ namespace SinCraft.Commands
     public sealed class CmdAbout : Command
     {
         public override string name { get { return "about"; } }
-        public override string shortcut { get { return "b"; } }
+        public override string[] aliases { get { return new string[] { "b" }; } }
         public override string type { get { return "information"; } }
         public override bool museumUsable { get { return false; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Guest; } }

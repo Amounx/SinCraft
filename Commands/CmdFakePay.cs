@@ -1,5 +1,5 @@
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 	
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -20,7 +20,7 @@ namespace SinCraft.Commands
     public sealed class CmdFakePay : Command
     {
         public override string name { get { return "fakepay"; } }
-        public override string shortcut { get { return "fpay"; } }
+        public override string[] aliases { get { return new string[] { "fpay" }; } }
         public override string type { get { return "other"; } }
         public override bool museumUsable { get { return true; } }
         public override void Help(Player p)
@@ -64,7 +64,7 @@ namespace SinCraft.Commands
                 return;
             }
 
-            Player.GlobalMessage(who.color + who.prefix + who.name + Server.DefaultColor + " was given " + amount + " " + Server.moneys);
+            Player.GlobalMessage(who.color + who.prefix + who.name + Server.DefaultColor + " was given " + amount + " " + Server.Currency);
 
         }
     }

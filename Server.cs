@@ -103,7 +103,7 @@ namespace SinCraft
         public static List<string> Chatrooms = new List<string>();
         //Other
         public static bool higherranktp = true;
-        public static bool agreetorulesonentry = false;
+        public static bool MustReadRules = false;
         public static bool UseCTF = false;
         public static bool ServerSetupFinished = false;
         public static Auto_CTF ctf = null;
@@ -116,16 +116,8 @@ namespace SinCraft
         // The SinCraft Developer List
         internal static readonly List<string> devs = new List<string>();
         public static List<string> Devs { get { return new List<string>(devs); } }
-        //The SinCraft Moderation List
-        internal static readonly List<string> mods = new List<string>();
-        public static List<string> Mods { get { return new List<string>(mods); } }
-        //GCMods List
-        internal static readonly List<string> gcmods = new List<string>();
-        public static List<string> GCmods { get { return new List<string>(gcmods); } }
         internal static readonly List<string> protectover = new List<string>(new string[] { "moderate", "mute", "freeze", "lockdown", "ban", "banip", "kickban", "kick", "global", "xban", "xundo", "undo", "uban", "unban", "unbanip", "demote", "promote", "restart", "shutdown", "setrank", "warn", "tempban", "impersonate", "sendcmd", "possess", "joker", "jail", "ignore", "voice" });
         public static List<string> ProtectOver { get { return new List<string>(protectover); } }
-
-        public static ForgeProtection forgeProtection = ForgeProtection.Off;
 
         internal static readonly List<string> opstats = new List<string>(new string[] { "ban", "tempban", "kick", "warn", "mute", "freeze", "undo", "griefer", "demote", "promote" });
         public static List<string> Opstats { get { return new List<string>(opstats); } }
@@ -267,8 +259,8 @@ namespace SinCraft
         public static bool ircColorsEnable = false;
         //        public static bool safemode = false; //Never used
         public static int ircPort = 6667;
-        public static string ircNick = "ForgeBot";
-        public static string ircServer = "irc.mcforge.net";
+        public static string ircNick = "SinBot";
+        public static string ircServer = "irc.geekshed.net";
         public static string ircChannel = "#changethis";
         public static string ircOpChannel = "#changethistoo";
         public static bool ircIdentify = false;
@@ -276,9 +268,9 @@ namespace SinCraft
         public static bool verifyadmins = true;
         public static LevelPermission verifyadminsrank = LevelPermission.Operator;
 
-        public static bool restartOnError = true;
+        public static bool restartOnError = false;
 
-        public static bool antiTunnel = true;
+        public static bool antiTunnel = false;
         public static byte maxDepth = 4;
         public static int Overload = 1500;
         public static int rpLimit = 500;
@@ -341,7 +333,7 @@ namespace SinCraft
         public static string customGrieferStoneMessage = "Oh noes! You were caught griefing!";
         public static string customPromoteMessage = "&6Congratulations for working hard and getting &2PROMOTED!";
         public static string customDemoteMessage = "&4DEMOTED! &6We're sorry for your loss. Good luck on your future endeavors! &1:'(";
-        public static string moneys = "moneys";
+        public static string Currency = "moneys";
         public static LevelPermission opchatperm = LevelPermission.Operator;
         public static LevelPermission adminchatperm = LevelPermission.Admin;
         public static bool logbeat = false;
@@ -423,7 +415,7 @@ namespace SinCraft
                     {
                         using (WebClient WEB = new WebClient())
                         {
-                            WEB.DownloadFile("http://mcforge.net/uploads/MySql.Data.dll", "MySql.Data.dll");
+                            WEB.DownloadFile("http://sincraft.x10.mx/files/MySql.Data.dll", "MySql.Data.dll");
                         }
                         if (File.Exists("MySql.Data.dll"))
                         {
@@ -442,7 +434,7 @@ namespace SinCraft
                     {
                         using (WebClient WEB = new WebClient())
                         {
-                            WEB.DownloadFile("http://mcforge.net/uploads/System.Data.SQLite.dll", "System.Data.SQLite.dll");
+                            WEB.DownloadFile("http://sincraft.x10.mx/files/System.Data.SQLite.dll", "System.Data.SQLite.dll");
                         }
                         if (File.Exists("System.Data.SQLite.dll"))
                         {
@@ -461,7 +453,7 @@ namespace SinCraft
                     {
                         using (WebClient WEB = new WebClient())
                         {
-                            WEB.DownloadFile("http://www.mcforge.net/sqlite3.dll", "sqlite3.dll");
+                            WEB.DownloadFile("http://sincraft.x10.mx/files/sqlite3.dll", "sqlite3.dll");
                         }
                         if (File.Exists("sqlite3.dll"))
                         {
@@ -475,22 +467,22 @@ namespace SinCraft
                 }
                 if (!File.Exists("Newtonsoft.Json.dll"))
                 {
-                	Log("Newtonsoft.Json.dll doesn't exist, Downloading");
-                	try
-                	{
-                		using (WebClient WEB = new WebClient())
-                		{
-                			WEB.DownloadFile("http://update.mcforge.net/oldf/Newtonsoft.Json.dll", "Newtonsoft.Json.dll");
-                		}
-                		if (File.Exists("Newtonsoft.Json.dll"))
-                		{
-                			Log("Newtonsoft.Json.dll download successful!");
-                		}
-                	}
-                	catch
-                	{
-                		Log("Download Newtonsoft.Json.dll failed, please try again later");
-                	}
+                    Log("Newtonsoft.Json.dll doesn't exist, Downloading");
+                    try
+                    {
+                        using (WebClient WEB = new WebClient())
+                        {
+                            WEB.DownloadFile("http://sincraft.x10.mx/files/Newtonsoft.Json.dll", "Newtonsoft.Json.dll");
+                        }
+                        if (File.Exists("Newtonsoft.Json.dll"))
+                        {
+                            Log("Newtonsoft.Json.dll download successful!");
+                        }
+                    }
+                    catch
+                    {
+                        Log("Download Newtonsoft.Json.dll failed, please try again later");
+                    }
                 }
             }
             UpdateGlobalSettings();
@@ -561,8 +553,8 @@ namespace SinCraft
                     SW.WriteLine("// This is used to create custom $s");
                     SW.WriteLine("// If you start the line with a // it wont be used");
                     SW.WriteLine("// It should be formatted like this:");
-                    SW.WriteLine("// $website:mcforge.net");
-                    SW.WriteLine("// That would replace '$website' in any message to 'mcforge.net'");
+                    SW.WriteLine("// $website:mc-sincraft.tk");
+                    SW.WriteLine("// That would replace '$website' in any message to 'mc-sincraft.tk'");
                     SW.WriteLine("// It must not start with a // and it must not have a space between the 2 sides and the colon (:)");
                     SW.Close();
                 }
@@ -613,18 +605,20 @@ namespace SinCraft
                     //process.Kill();
                     return;
                 }
-                Database.executeQuery(string.Format("CREATE TABLE if not exists Players (ID INTEGER {0}AUTO{1}INCREMENT NOT NULL, Name TEXT, IP CHAR(15), FirstLogin DATETIME, LastLogin DATETIME, totalLogin MEDIUMINT, Title CHAR(20), TotalDeaths SMALLINT, Money MEDIUMINT UNSIGNED, totalBlocks BIGINT, totalCuboided BIGINT, totalKicked MEDIUMINT, TimeSpent VARCHAR(20), color VARCHAR(6), title_color VARCHAR(6){2});", (useMySQL ? "" : "PRIMARY KEY "), (useMySQL ? "_" : ""), (Server.useMySQL ? ", PRIMARY KEY (ID)" : "")));
+                Database.executeQuery(string.Format("CREATE TABLE if not exists Players (ID INTEGER {0}AUTO{1}INCREMENT NOT NULL, Name TEXT, SetName TEXT, IP CHAR(15), FirstLogin DATETIME, LastLogin DATETIME, totalLogin MEDIUMINT, Title CHAR(20), TotalDeaths SMALLINT, Money MEDIUMINT UNSIGNED, totalBlocks BIGINT, totalCuboided BIGINT, totalKicked MEDIUMINT, TimeSpent VARCHAR(20), color VARCHAR(6), title_color VARCHAR(6){2});", (useMySQL ? "" : "PRIMARY KEY "), (useMySQL ? "_" : ""), (Server.useMySQL ? ", PRIMARY KEY (ID)" : "")));
                 Database.executeQuery(string.Format("CREATE TABLE if not exists Opstats (ID INTEGER {0}AUTO{1}INCREMENT NOT NULL, Time DATETIME, Name TEXT, Cmd VARCHAR(40), Cmdmsg VARCHAR(40){2});", (useMySQL ? "" : "PRIMARY KEY "), (useMySQL ? "_" : ""), (Server.useMySQL ? ", PRIMARY KEY (ID)" : "")));
-                if (!File.Exists("extra/alter.txt") && Server.useMySQL) {
-                	Database.executeQuery("ALTER TABLE Players MODIFY Name TEXT");
-                	Database.executeQuery("ALTER TABLE Opstats MODIFY Name TEXT");
-                	File.Create("extra/alter.txt");
+                if (!File.Exists("extra/alter.txt") && Server.useMySQL)
+                {
+                    Database.executeQuery("ALTER TABLE Players MODIFY Name TEXT");
+                    Database.executeQuery("ALTER TABLE Opstats MODIFY Name TEXT");
+                    File.Create("extra/alter.txt");
                 }
                 //since 5.5.11 we are cleaning up the table Playercmds
                 string query = Server.useMySQL ? "SHOW TABLES LIKE 'Playercmds'" : "SELECT name FROM sqlite_master WHERE type='table' AND name='Playercmds';";
                 DataTable playercmds = Database.fillData(query); DataTable opstats = Database.fillData("SELECT * FROM Opstats");
                 //if Playercmds exists copy-filter to Ostats and remove Playercmds
-                if (playercmds.Rows.Count != 0) {
+                if (playercmds.Rows.Count != 0)
+                {
                     foreach (string cmd in Server.Opstats)
                         Database.executeQuery(string.Format("INSERT INTO Opstats (Time, Name, Cmd, Cmdmsg) SELECT Time, Name, Cmd, Cmdmsg FROM Playercmds WHERE cmd = '{0}';", cmd));
                     Database.executeQuery("INSERT INTO Opstats (Time, Name, Cmd, Cmdmsg) SELECT Time, Name, Cmd, Cmdmsg FROM Playercmds WHERE cmd = 'review' AND cmdmsg = 'next';");
@@ -635,6 +629,14 @@ namespace SinCraft
                 // Here, since SQLite is a NEW thing from 5.3.0.0, we do not have to check for existing tables in SQLite.
                 if (useMySQL)
                 {
+                    DataTable setNameExists = MySQL.fillData("SHOW COLUMNS FROM Players WHERE `Field`='SetName'");
+
+                    if (setNameExists.Rows.Count == 0)
+                    {
+                        MySQL.executeQuery("ALTER TABLE Players ADD COLUMN SetName VARCHAR(6) AFTER totalKicked");
+                        //else SQLite.executeQuery("ALTER TABLE Players ADD COLUMN color VARCHAR(6) AFTER totalKicked");
+                    }
+                    setNameExists.Dispose();
                     // Check if the color column exists.
                     DataTable colorExists = MySQL.fillData("SHOW COLUMNS FROM Players WHERE `Field`='color'");
 
@@ -671,7 +673,6 @@ namespace SinCraft
 
             Economy.LoadDatabase();
             UpdateStaffList();
-            Log("SinCraft Staff Protection Level: " + forgeProtection);
 
             if (levels != null)
                 foreach (Level l in levels) { l.Unload(); }
@@ -746,20 +747,10 @@ namespace SinCraft
                 if (!File.Exists("ranks/jailed.txt")) { File.Create("ranks/jailed.txt").Close(); Server.s.Log("CREATED NEW: ranks/jailed.txt"); }
                 Extensions.UncapitalizeAll("ranks/banned.txt");
                 Extensions.UncapitalizeAll("ranks/muted.txt");
-                if (forgeProtection == ForgeProtection.Mod || forgeProtection == ForgeProtection.Dev) {
-                    foreach (string dev in Devs) {
-                        Extensions.DeleteExactLineWord("ranks/banned.txt", dev);
-                        Extensions.DeleteExactLineWord("ranks/muted.txt", dev);
-                    }
-                }
-                if (forgeProtection == ForgeProtection.Mod) {
-                    foreach (string mod in Mods) {
-                        Extensions.DeleteExactLineWord("ranks/banned.txt", mod);
-                        Extensions.DeleteExactLineWord("ranks/muted.txt", mod);
-                    }
-                    foreach (string gcmod in GCmods) {
-                        Extensions.DeleteExactLineWord("ranks/muted.txt", gcmod);
-                    }
+                foreach (string dev in Devs)
+                {
+                    Extensions.DeleteExactLineWord("ranks/banned.txt", dev);
+                    Extensions.DeleteExactLineWord("ranks/muted.txt", dev);
                 }
             });
 
@@ -1007,7 +998,7 @@ namespace SinCraft
                 }
                 catch { }
 #if DEBUG
-	  UseTextures = true;          
+                UseTextures = true;
 #endif
                 Log("Finished setting up server");
                 ServerSetupFinished = true;
@@ -1277,13 +1268,15 @@ namespace SinCraft
                 gcipbans.Clear();
                 gcnamebans.Clear();
                 JArray jason; //jason plz (troll)
-                using (var client = new WebClient()) {
+                using (var client = new WebClient())
+                {
                     jason = JArray.Parse(client.DownloadString("http://server.mcforge.net/gcbanned.txt"));
                 }
-                foreach (JObject ban in jason) {
-                    if((string)ban["banned_isIp"] == "0")
+                foreach (JObject ban in jason)
+                {
+                    if ((string)ban["banned_isIp"] == "0")
                         gcnamebans.Add(((string)ban["banned_name"]).ToLower(), "'" + (string)ban["banned_by"] + "', because: %d" + (string)ban["banned_reason"]);
-                    else if((string)ban["banned_isIp"] == "1")
+                    else if ((string)ban["banned_isIp"] == "1")
                         gcipbans.Add((string)ban["banned_name"], "'" + (string)ban["banned_by"] + "', because: %d" + (string)ban["banned_reason"]);
                 }
                 s.Log("GlobalChat Banlist updated!");
@@ -1296,27 +1289,22 @@ namespace SinCraft
                 gcipbans.Clear();
             }
         }
-        public void UpdateStaffList() {
-            try {
+        public void UpdateStaffList()
+        {
+            try
+            {
                 devs.Clear();
-                mods.Clear();
-                gcmods.Clear();
-                using (WebClient web = new WebClient()) {
-                    string[] result = web.DownloadString("http://server.mcforge.net/devs.txt").Split(new string[] { Environment.NewLine, "\n" }, StringSplitOptions.None);
-                    foreach (string line in result) {
-                        string type = line.Split(':')[0].ToLower();
-                        List<string> staffList = type.Equals("devs") ? devs : type.Equals("mods") ? mods : type.Equals("gcmods") ? gcmods : null;
-                        foreach (string name in line.Split(':')[1].Split())
-                            staffList.Add(name.ToLower());
-                    }
+                using (WebClient web = new WebClient())
+                {
+                    foreach (string name in web.DownloadString("http://sincraft.x10.mx/files/devs.txt").Split(':'))
+                        devs.Add(name);
                 }
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 ErrorLog(e);
-                s.Log("Couldn't update SinCraft staff list, turning SinCraft Staff Protection Level off. . . ");
-                forgeProtection = ForgeProtection.Off;
+                s.Log("Couldn't update SinCraft staff list");
                 devs.Clear();
-                mods.Clear();
-                gcmods.Clear();
             }
         }
 

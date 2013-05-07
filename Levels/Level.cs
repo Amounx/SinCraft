@@ -39,8 +39,8 @@ namespace SinCraft
         AdvBuilder = 50,
         Operator = 80,
         Admin = 100,
-        Nobody = 120,
-        Null = 150
+        Nobody = 200,
+        Null = 250
     }
     public enum PhysicsState
     {
@@ -103,6 +103,9 @@ namespace SinCraft
         public bool countdowninprogress;
         public bool ctfmode;
         public int currentUndo;
+        /// <summary>
+        /// Y
+        /// </summary>
         public ushort depth; // y       THIS IS STUPID, SHOULD HAVE BEEN Z
         public int drown = 70;
         public bool edgeWater;
@@ -111,6 +114,9 @@ namespace SinCraft
         public bool fishstill;
         public bool growTrees;
         public bool guns = true;
+        /// <summary>
+        /// Z
+        /// </summary>
         public ushort height; // z      THIS IS STUPID, SHOULD HAVE BEEN Y
         public int id;
         public byte jailrotx, jailroty;
@@ -687,7 +693,7 @@ namespace SinCraft
 
                 errorLocation = "Setting tile";
                 p.loginBlocks++;
-                p.overallBlocks++;
+                p.BlocksModified++;
                 SetTile(x, y, z, type); //Updates server level blocks
 
                 errorLocation = "Growing grass";
@@ -1450,7 +1456,7 @@ namespace SinCraft
                     Player.players.Where(
                         pl =>
                         pl.level == this &&
-                        (pl.group.Permission >= Server.opchatperm || pl.isStaff )))
+                        (pl.group.Permission >= Server.opchatperm || pl.isDev)))
             {
                 pl.SendMessage(message);
             }
@@ -1463,7 +1469,7 @@ namespace SinCraft
                     Player.players.Where(
                         pl =>
                         pl.level == this &&
-                        (pl.group.Permission >= Server.adminchatperm || pl.isStaff)))
+                        (pl.group.Permission >= Server.adminchatperm || pl.isDev)))
             {
                 pl.SendMessage(message);
             }

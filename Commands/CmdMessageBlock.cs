@@ -1,7 +1,7 @@
 /*
-    Copyright 2011 MCForge
+    Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
         
-    Dual-licensed under the    Educational Community License, Version 2.0 and
+    Dual-licensed under the Educational Community License, Version 2.0 and
     the GNU General Public License, Version 3 (the "Licenses"); you may
     not use this file except in compliance with the Licenses. You may
     obtain a copy of the Licenses at
@@ -23,8 +23,8 @@ namespace SinCraft.Commands
 {
     public sealed class CmdMessageBlock : Command
     {
-        public override string name { get { return "mb"; } }
-        public override string shortcut { get { return ""; } }
+        public override string name { get { return "messageblock"; } }
+        public override string[] aliases { get { return new string[] { "mb" }; } }
         public override string type { get { return "build"; } }
         public override bool museumUsable { get { return false; } }
         public override LevelPermission defaultRank { get { return LevelPermission.AdvBuilder; } }
@@ -83,27 +83,30 @@ namespace SinCraft.Commands
                                 return;
                             }
                         }
-                        if (com.shortcut != "")
+                        foreach (string alias in com.aliases)
                         {
-                            current = "/" + com.name;
-
-                            cmdparts = message.Split(' ')[0].ToLower().ToString();
-                            if (cmdparts[0] == '/')
+                            if (alias != "")
                             {
-                                if (current == cmdparts.ToLower())
+                                current = "/" + com.name;
+
+                                cmdparts = message.Split(' ')[0].ToLower().ToString();
+                                if (cmdparts[0] == '/')
                                 {
-                                    p.SendMessage("You can't use that command in your messageblock!");
-                                    return;
+                                    if (current == cmdparts.ToLower())
+                                    {
+                                        p.SendMessage("You can't use that command in your messageblock!");
+                                        return;
+                                    }
                                 }
-                            }
 
-                            cmdparts = message.Split(' ')[1].ToLower().ToString();
-                            if (cmdparts[0] == '/')
-                            {
-                                if (current == cmdparts.ToLower())
+                                cmdparts = message.Split(' ')[1].ToLower().ToString();
+                                if (cmdparts[0] == '/')
                                 {
-                                    p.SendMessage("You can't use that command in your messageblock!");
-                                    return;
+                                    if (current == cmdparts.ToLower())
+                                    {
+                                        p.SendMessage("You can't use that command in your messageblock!");
+                                        return;
+                                    }
                                 }
                             }
                         }
@@ -120,9 +123,9 @@ namespace SinCraft.Commands
         }
         public override void Help(Player p)
         {
-            Player.SendMessage(p, "/mb [block] [message] - Places a message in your next block.");
+            Player.SendMessage(p, "/messageblock [block] [message] - Places a message in your next block.");
             Player.SendMessage(p, "Valid blocks: white, black, air, water, lava");
-            Player.SendMessage(p, "/mb show shows or hides MBs");
+            Player.SendMessage(p, "/messageblock show shows or hides MBs");
         }
 
         public void Blockchange1(Player p, ushort x, ushort y, ushort z, byte type)

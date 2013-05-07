@@ -1,5 +1,5 @@
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 	
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -18,14 +18,14 @@
 using System.IO;
 namespace SinCraft.Commands
 {
-    public sealed class CmdGcaccept : Command
+    public sealed class CmdGCAccept : Command
     {
         public override string name { get { return "gcaccept"; } }
-        public override string shortcut { get { return "gca"; } }
+        public override string[] aliases { get { return new string[] { "gca" }; } }
         public override string type { get { return "other"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Guest; } }
-        public CmdGcaccept() { }
+        public CmdGCAccept() { }
 
         public override void Use(Player p, string message)
         {

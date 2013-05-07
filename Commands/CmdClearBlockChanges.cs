@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 	
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -20,7 +20,7 @@ using SinCraft.SQL;
 namespace SinCraft.Commands {
 	public sealed class CmdClearBlockChanges : Command {
 		public override string name { get { return "clearblockchanges"; } }
-		public override string shortcut { get { return "cbc"; } }
+        public override string[] aliases { get { return new string[] { "cbc" }; } }
 		public override string type { get { return "mod"; } }
 		public override bool museumUsable { get { return false; } }
 		public override LevelPermission defaultRank { get { return LevelPermission.Admin; } }

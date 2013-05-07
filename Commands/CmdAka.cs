@@ -1,5 +1,5 @@
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 		
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -20,13 +20,12 @@ using System;
 namespace SinCraft.Commands
 {
     /// <summary>
-    /// This is the command /aka
-    /// use /help aka in-game for more info
+    /// "Gives players normal names."
     /// </summary>
     public sealed class CmdAka : Command
     {
         public override string name { get { return "aka"; } }
-        public override string shortcut { get { return ""; } }
+        public override string[] aliases { get { return new string[] { "" }; } }
         public override string type { get { return "mod"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Banned; } }

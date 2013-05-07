@@ -1,5 +1,5 @@
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 		
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -340,10 +340,6 @@ namespace SinCraft
             
             if (Server.Devs.Contains(message.Split(':')[0].ToLower()) && !message.StartsWith("[Dev]") && !message.StartsWith("[Developer]")) 
                 message = "[Dev]" + message;
-            else if(Server.Mods.Contains(message.Split(':')[0].ToLower()) && !message.StartsWith("[Mod]") && !message.StartsWith("[Moderator]"))
-                message = "[Mod]" + message;
-            else if (Server.Mods.Contains(message.Split(':')[0].ToLower()) && !message.StartsWith("[GCMod]"))
-                message = "[GCMod]" + message;
 
             /*try { 
                 if(GUI.GuiEvent != null)

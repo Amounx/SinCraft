@@ -1,5 +1,5 @@
 /*
-	Copyright 2011 MCForge
+	Copyright 2011 MCForge (modified by Sinjai for use with SinCraft)
 		
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -26,7 +26,7 @@ namespace SinCraft.Commands
     public sealed class CmdMute : Command
     {
         public override string name { get { return "mute"; } }
-        public override string shortcut { get { return ""; } }
+        public override string[] aliases { get { return new string[] { "" }; } }
         public override string type { get { return "mod"; } }
         public override bool museumUsable { get { return true; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Operator; } }
@@ -36,9 +36,9 @@ namespace SinCraft.Commands
         {
             if (message == "" || message.Split(' ').Length > 2) { Help(p); return; }
             Player who = Player.Find(message);
-            if (Server.forgeProtection == ForgeProtection.Mod && who != null && who.isGCMod)
+            if (who.isDev)
             {
-                Player.SendMessage(p, "%cGlobal Chat Moderators can't be muted");
+                Player.SendMessage(p, "%cDevelopers can't be muted");
                 return;
             }
             if (who == null)

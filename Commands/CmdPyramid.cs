@@ -24,7 +24,7 @@ namespace SinCraft.Commands
     public sealed class CmdPyramid : Command
     {
         public override string name { get { return "pyramid"; } }
-        public override string shortcut { get { return "pd"; } }
+        public override string[] aliases { get { return new string[] { "pd" }; } }
         public override string type { get { return "build"; } }
         public override bool museumUsable { get { return false; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Builder; } }
