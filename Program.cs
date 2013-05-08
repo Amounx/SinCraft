@@ -57,7 +57,7 @@ namespace Starter
                 Console.WriteLine("I'm afraid I can't download the file for some reason!");
                 Console.WriteLine("Go to " + DLLLocation + " yourself and download it, please");
                 Console.WriteLine("Place it inside my folder, near me, and restart me.");
-                Console.WriteLine("If you have any issues, get the files from the www.mcforge.net download page and try again.");
+                Console.WriteLine("If you have any issues, get the files from mc-sincraft.tk/downloads/ and try again.");
                 Console.WriteLine("Press any key to close me...");
                 MessageBox.Show("Unable to download SinCraft_.dll.  Please download it manually at " + DLLLocation + ", place it in the same folder as this executable, and restart this application", "Required DLL Missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Console.ReadLine();

@@ -799,10 +799,6 @@ namespace SinCraft
                 {
                     Kick("Prohibited username.");
                 }
-                if (Username.ToLower() == "serado")
-                {
-                    Username = "Sinjai";
-                }
                 truename = Username;
                 if (Username.Split('@').Length > 1)
                 {
@@ -881,20 +877,38 @@ namespace SinCraft
                     }
                 }
 
-                if (File.Exists("ranks/ignore/" + this.name + ".txt"))
+                if (Server.verify)
+                {
+                    if (verify == "--" || verify !=
+                        BitConverter.ToString(md5.ComputeHash(enc.GetBytes(Server.salt + truename)))
+                        .Replace("-", "").ToLower().TrimStart('0'))
+                    {
+                        if (!IPInPrivateRange(ip))
+                        {
+                            Kick("Login failed! Try again."); return;
+                        }
+                    }
+                }
+
+                if (Username.ToLower() == "serado")
+                {
+                    Username = "Sinjai";
+                }
+
+                if (File.Exists("ranks/ignore/" + this.Username + ".txt"))
                 {
                     try
                     {
-                        string[] checklines = File.ReadAllLines("ranks/ignore/" + this.name + ".txt");
+                        string[] checklines = File.ReadAllLines("ranks/ignore/" + this.Username + ".txt");
                         foreach (string checkline in checklines)
                         {
                             this.listignored.Add(checkline);
                         }
-                        File.Delete("ranks/ignore/" + this.name + ".txt");
+                        File.Delete("ranks/ignore/" + this.Username + ".txt");
                     }
                     catch
                     {
-                        Server.s.Log("Failed to load ignore list for: " + this.name);
+                        Server.s.Log("Failed to load ignore list for: " + this.Username);
                     }
                 }
 
@@ -985,19 +999,6 @@ namespace SinCraft
 
                 if (version != Server.version) { Kick("Wrong version!"); return; }
                 if (truename.Length > 16 || !ValidName(name, this)) { Kick("Illegal name!"); return; }
-
-                if (Server.verify)
-                {
-                    if (verify == "--" || verify !=
-                        BitConverter.ToString(md5.ComputeHash(enc.GetBytes(Server.salt + truename)))
-                        .Replace("-", "").ToLower().TrimStart('0'))
-                    {
-                        if (!IPInPrivateRange(ip))
-                        {
-                            Kick("Login failed! Try again."); return;
-                        }
-                    }
-                }
 
                 foreach (Player p in players)
                 {

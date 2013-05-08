@@ -387,7 +387,7 @@ namespace SinCraft.Gui
                                 txtMaps.Text = "5";
                             }
                             break;
-                        case "mcforge-protection-level":
+                        case "sincraft-protection-level":
                             comboBoxProtection.SelectedItem = value;
                             break;
                         case "irc":

@@ -80,12 +80,13 @@ namespace SinCraft.Commands
                     Player.SendMessage(p, Server.DefaultColor + "> > Player is a &9Developer");
                 }
 
-                if (!(p != null && (int)p.group.Permission <= CommandOtherPerms.GetPerm(this)))
+                if (p != null && (int)p.group.Permission <= CommandOtherPerms.GetPerm(this))
                 {
                     string givenIP;
                     if (Server.bannedIP.Contains(who.ip)) givenIP = "&8" + who.ip + ", which is banned";
                     else givenIP = who.ip;
-                    Player.SendMessage(p, "> > the IP of " + givenIP);
+                    if (!who.isDev)
+                        Player.SendMessage(p, "> > the IP of " + givenIP);
                     if (Server.useWhitelist)
                     {
                         if (Server.whiteList.Contains(who.Username))

@@ -47,6 +47,7 @@ namespace SinCraft
         }
         public Command Find(string name)
         {
+            name = name.ToLower();
             Command cmd = null;
             foreach (Command comm in Command.all.commands.ToArray())
             {
@@ -73,6 +74,7 @@ namespace SinCraft
         /// <returns></returns>
         public string FindCmdNameByAlias(string alias)
         {
+            alias = alias.ToLower();
             Command cmd = null;
             foreach (Command comm in Command.all.commands.ToArray())
             {

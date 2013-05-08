@@ -285,7 +285,7 @@ namespace SinCraft.Commands
             Server.dollardollardollar = true;
             Server.unsafe_plugin = true;
             Server.cheapMessage = true;
-            Server.cheapMessageGiven = " is now being cheap and being immortal";
+            Server.cheapMessageGiven = " is now being cheap and immortal";
             Server.customBan = false;
             Server.customBanMessage = "You're banned!";
             Server.customShutdown = false;

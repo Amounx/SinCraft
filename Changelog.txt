@@ -1,3 +1,6 @@
+1.0.1b
+- Fixed some stuff (Get off my back, gawsh)
+
 1.0.0 BETA
 - New:
 	- Multiple command aliases
